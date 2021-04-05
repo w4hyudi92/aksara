@@ -1,0 +1,2302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<title>PEP</title>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
+<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css"/>
+<link href="//cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="//unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/series-label.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+<script src="//code.highcharts.com/modules/export-data.js"></script>
+<script src="//code.highcharts.com/modules/accessibility.js"></script>
+<script src="//code.highcharts.com/themes/high-contrast-light.js"></script>
+<script src="//unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+<script type="text/javascript" src="leaflet-ajax\dist\leaflet.ajax.js"></script>
+<style type="text/css">
+    .cjs-padding {
+        height: 500px;
+        padding-bottom: 120px;
+    }
+    .dataTables_filter { visibility: hidden; display: none;}
+    #map {
+            width: 100%;
+            height: 600px;
+    }
+
+    @media (max-width: 768px){
+         #map {
+            width: 100%;
+            height: 250px;
+         }
+
+    }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <div id="myMapModal" class="content-maps data-informas-maps" style="left: 0px;top: 0px;z-index: 10000;display: none;">
+        <h3>JAWA BARAT</h3>
+        <p>40.000 MTon CO2eq</p>
+    </div>
+    <div class="wrapper">
+        <div class="header-admin">
+            <div class="header">
+                <a href="#"><img src="img/logo-kementrian-ppn.svg" alt="Logo Kementrian PPN" class="logo-1"></a>
+                <a href="#"><img src="img/logo-prki.svg" alt="Logo PRKI" class="logo-2"></a>
+                <div class="menu-nav dashboard desktop-item">
+                    <ul>
+                        <li><a href="#">Kembali ke Beranda</a></li>
+                        <li class="active"><a href="#">Dashboard</a></li>
+                    </ul>
+
+                    <span class="login-dashboard">
+                        <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/group.svg"> <span class="notifikasi">1</span></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Profil</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Logout</a>
+                                    
+                                </div>
+                        </div>
+                 
+                    </span>
+                </div>
+                <div id="burger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="rows admin-menu menu-nav hide">
+                <div class="dashboard mobile-item">
+                    <ul>
+                        <li><a href="#">Kembali ke Beranda</a></li>
+                        <li class="active"><a href="#">Dashboard</a></li>
+                    </ul>
+                    <span class="login-dashboard"><a href="#"><img src="img/group.svg"></a><span class="notifikasi">1</span>Profile</span>
+                </div>
+                <h3 class="menu-tag-dashboard mobile-item">Menu Dashboard</h3>
+                <div class="dashboard-menu">
+                    <ul>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DASHBOARD Nasional</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="admin-list-menu">
+                    <ul>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/note.svg">Perencanaan</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/eye.svg">Pemantauan</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/rounded.svg">Evaluasi</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/folder.svg">Pelaporan</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="other-menu">
+                    <ul>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">E-Learning</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Admin</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content-dashboard">
+            <div class="rows">
+                <a class="btn-collapse-mobile mobile-item collapsed" data-toggle="collapse" href="#collapseMobile" role="button" aria-expanded="false" aria-controls="collapseMobile">Filter</a>
+                <div class="sidebar-admin filter-sidebar collapse" id="collapseMobile">
+                    <h3>Filter</h3>
+                    <form action="#">
+                            <div class="rows form-wrapper-dashboard">
+                                <div class="rows form-wrapper-dashboard half-grid">
+                                    <label>Parameter</label>
+                                    <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                        <option value="" disabled selected>Semua</option>
+                                        <option value="instansi-2">Another action</option>
+                                        <option value="instansi-3">Something else here</option>
+                                    </select>
+                                </div>
+                               
+                            </div>
+                            <div class="rows form-wrapper-dashboard">
+                                <div class="rows form-wrapper-dashboard half-grid">
+                                    <label>Sektor</label>
+                                    <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                        <option value="" disabled selected>Semua</option>
+                                        <option value="instansi-2">Another action</option>
+                                        <option value="instansi-3">Something else here</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <h4>Model</h4>
+                            <div class="rows">
+
+                                    <div class="row checkbox-switch grid-4">
+                                        <div class="col-7">
+                                            <label>Proyeksi PDB</label> 
+                                        </div>
+
+                                        <div class="col-3">
+                                            <i class="icon-info"><img src="img/info-icon.svg"></i>
+                                        </div>
+                                        <div class="col-2">
+                                            <input id="s1" type="checkbox" class="switch">
+                                        </div>
+                                    </div>
+
+                                    <div class="row checkbox-switch grid-4">
+                                        <div class="col-7">
+                                            <label>PDB Dengan Upaya Adaptasi Dalam RPJMN 2020-2024</label> 
+                                        </div>
+
+                                        <div class="col-3">
+                                            <i class="icon-info"><img src="img/info-icon.svg"></i>
+                                        </div>
+                                        <div class="col-2">
+                                            <input id="s1" type="checkbox" class="switch">
+                                        </div>
+                                    </div>
+
+                                    <div class="row checkbox-switch grid-4">
+                                        <div class="col-7">
+                                            <label> PDB Dengan Potensi Kerugian Ekonomi Dampak Perubahan Iklim</label> 
+                                        </div>
+
+                                        <div class="col-3">
+                                            <i class="icon-info"><img src="img/info-icon.svg"></i>
+                                        </div>
+                                        <div class="col-2">
+                                            <input id="s1" type="checkbox" class="switch">
+                                        </div>
+                                    </div>  
+                            </div>
+                    </form>
+                </div>
+                <div class="content-admin dashboard-province">
+                    <div class="rows breadcrumb-dashboard">
+                        <ul>
+                            <li><a href="#">Dasbor Nasional</a></li>
+                            <li><a href="#">Perencanaan</a></li>
+                            <li><a href="#">Rencana Ketahanan Iklim Indonesia</a></li>
+                        </ul>
+                    </div>
+                    <div class="rows wrapper-pemenuhan-about">
+                        <span class="close-about-btn"><a href="javascript:void(0)"><img src="img/close.png"></a></span>
+                        <div class="content-pemenuhan-about">
+                            <h3>Tentang Rencana Ketahanan Iklim Indonesia dalam RPJMN 2020 - 2024</h3>
+                            <p>Morbi sit tellus mattis mattis consequat adipiscing cras lobortis porta. Arcu blandit diam, vel lacinia dapibus scelerisque vestibulum. Libero arcu imperdiet consequat morbi. Urna, sed viverra enim convallis lacus, mauris eu nibh ut. Odio turpis urna dictum adipiscing. Diam ornare bibendum et urna consequat. Ullamcorper diam ipsum dignissim eget mauris faucibus. Parturient consequat vitae semper sed neque in gravida pretium nisl. Tellus, consequat arcu tristique ac gravida at tristique. Quisque vitae lorem vel ornare amet suspendisse vitae. Imperdiet proin molestie.</p>
+                            <span><a href="#">Lihat Selengkapnya<img src="img/arrow-blue-right.svg"></a></span>
+                        </div>
+                        <div class="img-pemenuhan-about">
+                            <img src="img/illustrasi-about.png">
+                        </div>
+                    </div>
+                    <div class="rows dashboard-planning-header">
+                        <div class="rows header-dashboard">
+                            <div class="left">
+                                <span><img src="img/lamp1.png" class="img-responsive">Ikuti Tur Halaman</span>
+                                <h3>Rencana Ketahanan Iklim Indonesia </h3>
+                            </div>
+                           <!--  <div class="right">
+                                <span class="btn-white-secondary"><a href="#"><img src="img/download-blue.svg">Unduh PDF</a></span>
+                                <span class="btn-blue-main"><a href="#"><b>+</b>Tambah Rencana Program</a></span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="container-dashboard pemenuhan-tujuan-provinsi">
+                           <h2 class="title-kontribusi">Grafik Skenario Parameter Ketahanan Iklim <span class="dote">Milestone 2024</span></h2>
+                        <div class="dashboard-planning-wrapper">
+                            <div class="row">
+
+                                  <div class="col-md-8">
+                                       <div id="container"></div>
+                                  </div>
+                                  
+                                  <div class="col-md-4">
+                                     
+                                    <div class="rows milestone-progress-item">
+                                        <h4>Proyeksi PDB<b><i class="icon-info"><img src="img/info-icon.svg"></i></b></h4>
+                                        <!-- <span>36/216</span> -->
+                                        <div class="progress">
+                                            <div class="progress-bar progress-green" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:40%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="rows milestone-progress-item">
+                                        <h4>PDB dengan upaya pengurangan kerugian ekonomi dari kegiatan ketahanan iklim<b><i class="icon-info"><img src="img/info-icon.svg"></i></b></h4>
+                                        <!-- <span>36/216</span> -->
+                                        <div class="progress">
+                                            <div class="progress-bar progress-purple" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:40%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="rows milestone-progress-item">
+                                        <h4>Proyeksi PDB<b><i class="icon-info"><img src="img/info-icon.svg"></i></b></h4>
+                                        <!-- <span>36/216</span> -->
+                                        <div class="progress">
+                                            <div class="progress-bar progress-blue" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:40%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="rows milestone-progress-item">
+                                        <h4>Proyeksi PDB<b><i class="icon-info"><img src="img/info-icon.svg"></i></b></h4>
+                                        <!-- <span>36/216</span> -->
+                                        <div class="progress">
+                                            <div class="progress-bar progress-light-blue" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:40%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="rows milestone-progress-item">
+                                        <h4>Proyeksi PDB<b><i class="icon-info"><img src="img/info-icon.svg"></i></b></h4>
+                                        <!-- <span>36/216</span> -->
+                                        <div class="progress">
+                                            <div class="progress-bar progress-yellow" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:40%;"></div>
+                                        </div>
+                                    </div>
+                                        
+                                  </div>
+                             
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                        <div class="container-dashboard pemenuhan-tujuan-provinsi">
+                                     <h2 class="title-kontribusi">Lokasi Prioritas dan Kontribusi Sektoral </h2>
+                        <div class="indexContainer grayContainer">
+                            <div class="tabDiv">
+                                <!-- <div class="col-md-12 dropdown visible-xs">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Intensitas Emisi</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="javascript:void(0)" onclick=" return openTab(event, 'Air')" >Air</a>
+                                        <a class="dropdown-item" href="javascript:void(0)" onclick="return openTab(event, 'Kelautan')"> Kelautan</a>
+                                        <a class="dropdown-item" href="javascript:void(0)">Pesisir</a>
+                                    </div>
+                                </div> -->
+                               <nav class="tab">
+                   
+                             
+                          
+                                    <div class="hidden-xs">
+                                        <ul class="tabMenu">
+                                            <li><a class="tablinks activeTab" onclick=" return openTab(event, 'Air')" ><span><img class="img-target-icon" src="img/air.png"></span> Air</a></li>
+                                            <li><a class="tablinks" onclick="return openTab(event, 'Kelautan')">  <span><img class="img-target-icon" src="img/lautan.png"></span> Kelautan</a></li>
+                                            <li><a class="tablinks" onclick="return openTab(event, 'Pesisir')"><span><img class="img-target-icon" src="img/pesisir.png"></span> Pesisir</a></li>
+                                            <li><a class="tablinks" onclick="return openTab(event, 'Pertanian')"><span><img class="img-target-icon" src="img/tani.png"></span> Pertanian</a></li>
+                                            <li><a class="tablinks lastChild" onclick="return openTab(event, 'Kesehatan')"><span><img class="img-target-icon" src="img/sehat.png"></span> Kesehatan</a></li>
+                                        </ul>   
+                                    </div>
+                                </nav>
+                                <div class="rows panel-indikator-blue empty-indikator">
+                                    <h5>18% penurunan potensi kehilangan PDB akibat bahaya iklim di sektor ini pada tahun 
+                                        <div class="dropdown dropdown-text">
+                                            <a class="bttn-dropdown text-white" href="#" role="button" id="tahunan-home" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">2014</a>
+                                            <div class="dropdown-menu penurunan-emisi-dropdown">
+                                                <a class="dropdown-item" href="javascript:void(0)">2015</a>
+                                                <a class="dropdown-item" href="javascript:void(0)">2016</a>
+                                            </div>
+                                        </div>
+                                    </h5>
+                                 </div>
+
+                                <div id="Air" class="tabContent default">
+                                    
+                                    <div class="row" style="margin-top:2em">
+                                        <div class="col-md-3">
+                                           <div class="form-wrapper-dashboard half-grid has-search">  
+                                               <span class="fa fa-search form-control-feedback"></span>            
+                                               <input type="text" name="" placeholder="Cari Provinsi atau Kota">
+                                            </div>
+                                         </div>
+                                        <div class="col-md-2">
+                                            <div class="form-wrapper-dashboard half-grid">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Provinsi</option>
+                                                    <option value="instansi-2">Another Intansi</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                               <div class="form-wrapper-dashboard half-grid">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Prioritas</option>
+                                                    <option value="instansi-2" >Another Sektor</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2"> </div>
+                                        <div class="col-md-3">
+                                            <ul class="nav nav-tabs border right" id="table-tabs" role="tablist">
+
+                                                <li class="">
+                                                    <a class="nav-link active"  id="table-air-tab" data-toggle="tab" href="#table-air" role="tabletab-air" aria-controls="table-air" aria-selected="false"><i class="fa fa-bars"></i> Table</a>
+
+                                                </li>
+                                                <li class="">
+                                                    <a class="nav-link"  id="map-air-tab" data-toggle="tab" href="#map-air" role="maptab-air" aria-controls="rpjmn-prk" aria-selected="true"><i class="fa fa-map-marker"></i> Map </a>
+                                                </li>
+                                                
+                                               
+                                            </ul>
+                                        </div>
+                                    </div>
+                                     <!--  cotnent tab panel -->
+                                    <div class="tab-content" id="myTabContent">
+                                                        
+                                                         
+                                        <div class="tab-pane fade active show" id="map-air" role="tabpanel" aria-labelledby="map-air-tab"> 
+                                         <!--  map tab content -->
+                                          <!--   <div id='map'></div>
+ -->
+                                        </div>
+                                        <div class="tab-pane fade" id="table-air" role="tabpanel" aria-labelledby="table-air-tab">
+                                           <!--  tab table -->
+                                            <div class="table-dashboard-perencanaan table-responsive">
+                                                <table id="table-aksi-list" class="custom-table display" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="145">Kabupaten/Kota</th>
+                                                            <th width="160">Keterangan</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                   
+                                                        <tr>
+                                                            <td>Aceh Barat</td>
+                                                            <td><span class="pills-status final">Top Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Besar</td>
+                                                            <td><span class="pills-status verified">Super Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Jaya</td>
+                                                            <td><span class="pills-status final">Top Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Tengah</td>
+                                                            <td><span class="pills-status verified">Super Prioritas</span></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                             </div>
+                                            <!--  tab table -->
+                                        </div>
+                                       
+                                    </div>
+
+                                     <!--  cotnent tab panel -->
+                                
+                                </div>
+                               <!--  end tab panel -->
+                                <div id="Kelautan" class="tabContent">
+                                   
+                                    <div class="row" style="margin-top:2em">
+                                        <div class="col-md-3">
+                                            <div class="form-wrapper-dashboard half-grid has-search">  
+                                               <span class="fa fa-search form-control-feedback"></span>            
+                                               <input type="text" name="" placeholder="Cari Provinsi atau Kota">
+                                            </div>
+                                         </div>
+                                        <div class="col-md-2">
+                                            <div class="form-wrapper-dashboard half-grid ">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Provinsi</option>
+                                                    <option value="instansi-2">Another Intansi</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                               <div class="form-wrapper-dashboard half-grid">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Prioritas</option>
+                                                    <option value="instansi-2" >Another Sektor</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2"> </div>
+                                        <div class="col-md-3">
+                                            <ul class="nav nav-tabs border right" id="table-tabs" role="tablist">
+
+                                                <li class="">
+                                                    <a class="nav-link active"  id="table-air-tab" data-toggle="tab" href="#table-air" role="tabletab-air" aria-controls="table-air" aria-selected="false"><i class="fa fa-bars"></i> Table</a>
+
+                                                </li>
+                                                <li class="">
+                                                    <a class="nav-link"  id="map-air-tab" data-toggle="tab" href="#map-air" role="maptab-air" aria-controls="rpjmn-prk" aria-selected="true"><i class="fa fa-map-marker"></i> Map </a>
+                                                </li>
+                                                
+                                               
+                                            </ul>
+                                        </div>
+                                    </div>
+                                     <!--  cotnent tab panel -->
+                                    <div class="tab-content" id="myTabContent">
+                                                        
+                                                         
+                                        <div class="tab-pane fade active show" id="map-air" role="tabpanel" aria-labelledby="map-air-tab"> 
+                                         <!--  map tab content -->
+                                            <!-- <div id='map'></div> -->
+
+                                        </div>
+                                        <div class="tab-pane fade" id="table-air" role="tabpanel" aria-labelledby="table-air-tab">
+                                           <!--  tab table -->
+                                            <div class="table-dashboard-perencanaan table-responsive">
+                                                <table id="table-aksi-list" class="custom-table display" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="145">Kabupaten/Kota</th>
+                                                            <th width="160">Keterangan</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                   
+                                                        <tr>
+                                                            <td>Aceh Barat</td>
+                                                            <td><span class="pills-status final">Top Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Besar</td>
+                                                            <td><span class="pills-status verified">Super Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Jaya</td>
+                                                            <td><span class="pills-status final">Top Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Tengah</td>
+                                                            <td><span class="pills-status verified">Super Prioritas</span></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                             </div>
+                                            <!--  tab table -->
+                                        </div>
+                                       
+                                    </div>
+
+                                     <!--  cotnent tab panel -->
+                                </div>
+                                <div id="Pesisir" class="tabContent">
+                                  
+                                    <div class="row" style="margin-top:2em">
+                                        <div class="col-md-3">
+                                            <div class="form-wrapper-dashboard half-grid has-search">  
+                                               <span class="fa fa-search form-control-feedback"></span>            
+                                               <input type="text" name="" placeholder="Cari Provinsi atau Kota">
+                                            </div>
+                                         </div>
+                                        <div class="col-md-2">
+                                            <div class="form-wrapper-dashboard half-grid">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Provinsi</option>
+                                                    <option value="instansi-2">Another Intansi</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                               <div class="form-wrapper-dashboard half-grid">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Prioritas</option>
+                                                    <option value="instansi-2" >Another Sektor</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2"> </div>
+                                        <div class="col-md-3">
+                                            <ul class="nav nav-tabs border right" id="table-tabs" role="tablist">
+
+                                                <li class="">
+                                                    <a class="nav-link active"  id="table-air-tab" data-toggle="tab" href="#table-air" role="tabletab-air" aria-controls="table-air" aria-selected="false"><i class="fa fa-bars"></i> Table</a>
+
+                                                </li>
+                                                <li class="">
+                                                    <a class="nav-link"  id="map-air-tab" data-toggle="tab" href="#map-air" role="maptab-air" aria-controls="rpjmn-prk" aria-selected="true"><i class="fa fa-map-marker"></i> Map </a>
+                                                </li>
+                                                
+                                               
+                                            </ul>
+                                        </div>
+                                    </div>
+                                     <!--  cotnent tab panel -->
+                                    <div class="tab-content" id="myTabContent">
+                                                        
+                                                         
+                                        <div class="tab-pane fade active show" id="map-air" role="tabpanel" aria-labelledby="map-air-tab"> 
+                                         <!--  map tab content -->
+                                            <!-- <div id='map'></div> -->
+
+                                        </div>
+                                        <div class="tab-pane fade" id="table-air" role="tabpanel" aria-labelledby="table-air-tab">
+                                           <!--  tab table -->
+                                            <div class="table-dashboard-perencanaan table-responsive">
+                                                <table id="table-aksi-list" class="custom-table display" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="145">Kabupaten/Kota</th>
+                                                            <th width="160">Keterangan</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                   
+                                                        <tr>
+                                                            <td>Aceh Barat</td>
+                                                            <td><span class="pills-status final">Top Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Besar</td>
+                                                            <td><span class="pills-status verified">Super Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Jaya</td>
+                                                            <td><span class="pills-status final">Top Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Tengah</td>
+                                                            <td><span class="pills-status verified">Super Prioritas</span></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                             </div>
+                                            <!--  tab table -->
+                                        </div>
+                                       
+                                    </div>
+
+                                     <!--  cotnent tab panel -->
+                                </div>
+                                <div id="Pertanian" class="tabContent">
+                                    
+                                    <div class="row" style="margin-top:2em">
+                                        <div class="col-md-3">
+                                           <div class="form-wrapper-dashboard half-grid has-search">  
+                                               <span class="fa fa-search form-control-feedback"></span>            
+                                               <input type="text" name="" placeholder="Cari Provinsi atau Kota">
+                                            </div>
+                                         </div>
+                                        <div class="col-md-2">
+                                            <div class="form-wrapper-dashboard half-grid">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Provinsi</option>
+                                                    <option value="instansi-2">Another Intansi</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                               <div class="form-wrapper-dashboard half-grid">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Prioritas</option>
+                                                    <option value="instansi-2" >Another Sektor</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2"> </div>
+                                        <div class="col-md-3">
+                                            <ul class="nav nav-tabs border right" id="table-tabs" role="tablist">
+
+                                                <li class="">
+                                                    <a class="nav-link active"  id="table-air-tab" data-toggle="tab" href="#table-air" role="tabletab-air" aria-controls="table-air" aria-selected="false"><i class="fa fa-bars"></i> Table</a>
+
+                                                </li>
+                                                <li class="">
+                                                    <a class="nav-link"  id="map-air-tab" data-toggle="tab" href="#map-air" role="maptab-air" aria-controls="rpjmn-prk" aria-selected="true"><i class="fa fa-map-marker"></i> Map </a>
+                                                </li>
+                                                
+                                               
+                                            </ul>
+                                        </div>
+                                    </div>
+                                     <!--  cotnent tab panel -->
+                                    <div class="tab-content" id="myTabContent">
+                                                        
+                                                         
+                                        <div class="tab-pane fade active show" id="map-air" role="tabpanel" aria-labelledby="map-air-tab"> 
+                                         <!--  map tab content -->
+                                            <div id='map'></div>
+
+                                        </div>
+                                        <div class="tab-pane fade" id="table-air" role="tabpanel" aria-labelledby="table-air-tab">
+                                           <!--  tab table -->
+                                            <div class="table-dashboard-perencanaan table-responsive">
+                                                <table id="table-aksi-list" class="custom-table display" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="145">Kabupaten/Kota</th>
+                                                            <th width="160">Keterangan</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                   
+                                                        <tr>
+                                                            <td>Aceh Barat</td>
+                                                            <td><span class="pills-status final">Top Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Besar</td>
+                                                            <td><span class="pills-status verified">Super Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Jaya</td>
+                                                            <td><span class="pills-status final">Top Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Tengah</td>
+                                                            <td><span class="pills-status verified">Super Prioritas</span></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                             </div>
+                                            <!--  tab table -->
+                                        </div>
+                                       
+                                    </div>
+
+                                     <!--  cotnent tab panel -->
+                                </div>
+                                <div id="Kesehatan" class="tabContent">
+                                    
+                                    <div class="row" style="margin-top:2em">
+                                        <div class="col-md-3">
+                                           <div class="form-wrapper-dashboard half-grid has-search">  
+                                               <span class="fa fa-search form-control-feedback"></span>            
+                                               <input type="text" name="" placeholder="Cari Provinsi atau Kota">
+                                            </div>
+                                         </div>
+                                        <div class="col-md-2">
+                                            <div class="form-wrapper-dashboard half-grid">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Provinsi</option>
+                                                    <option value="instansi-2">Another Intansi</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                               <div class="form-wrapper-dashboard half-grid">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Prioritas</option>
+                                                    <option value="instansi-2" >Another Sektor</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2"> </div>
+                                        <div class="col-md-3">
+                                            <ul class="nav nav-tabs border right" id="table-tabs" role="tablist">
+
+                                                <li class="">
+                                                    <a class="nav-link active"  id="table-air-tab" data-toggle="tab" href="#table-air" role="tabletab-air" aria-controls="table-air" aria-selected="false"><i class="fa fa-bars"></i> Table</a>
+
+                                                </li>
+                                                <li class="">
+                                                    <a class="nav-link"  id="map-air-tab" data-toggle="tab" href="#map-air" role="maptab-air" aria-controls="rpjmn-prk" aria-selected="true"><i class="fa fa-map-marker"></i> Map </a>
+                                                </li>
+                                                
+                                               
+                                            </ul>
+                                        </div>
+                                    </div>
+                                     <!--  cotnent tab panel -->
+                                    <div class="tab-content" id="myTabContent">
+                                                        
+                                                         
+                                        <div class="tab-pane fade active show" id="map-air" role="tabpanel" aria-labelledby="map-air-tab"> 
+                                         <!--  map tab content -->
+                                            <!-- <div id='map'></div> -->
+
+                                        </div>
+                                        <div class="tab-pane fade" id="table-air" role="tabpanel" aria-labelledby="table-air-tab">
+                                           <!--  tab table -->
+                                            <div class="table-dashboard-perencanaan table-responsive">
+                                                <table id="table-aksi-list" class="custom-table display" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="145">Kabupaten/Kota</th>
+                                                            <th width="160">Keterangan</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                   
+                                                        <tr>
+                                                            <td>Aceh Barat</td>
+                                                            <td><span class="pills-status final">Top Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Besar</td>
+                                                            <td><span class="pills-status verified">Super Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Jaya</td>
+                                                            <td><span class="pills-status final">Top Prioritas</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aceh Tengah</td>
+                                                            <td><span class="pills-status verified">Super Prioritas</span></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                             </div>
+                                            <!--  tab table -->
+                                        </div>
+                                       
+                                    </div>
+
+                                     <!--  cotnent tab panel -->
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+ 
+
+                    <div class="container-dashboard wrapper-detail-dashboard">
+                        
+                        <div class="tabs-table-detail-dashboard">
+                           
+                            <ul class="nav nav-tabs" id="table-tabs" role="tablist">
+                                <li class="nav-item sz-50" style="width:50%">
+                                    <a class="nav-link active" id="rpjmn-prk-tab" data-toggle="tab" href="#rpjmn-prk" role="tab" aria-controls="rpjmn-prk" aria-selected="true">Daftar Rencana RPJMN PN 6.2.2 Ketahanan Iklim </a>
+                                </li>
+                                <li class="nav-item sz-50" style="width:50%">
+                                    <a class="nav-link" id="ndc-tab" data-toggle="tab" href="#ndc" role="tab" aria-controls="ndc" aria-selected="false">Daftar Rencana Kerja Tahunan Ketahanan Iklim </a>
+                                </li>
+                                
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="rpjmn-prk" role="tabpanel" aria-labelledby="rpjmn-prk-tab">
+                                    <div class="table-dashboard-perencanaan table-responsive">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-wrapper-dashboard half-grid has-search">  
+                                               <span class="fa fa-search form-control-feedback"></span>            
+                                               <input type="text" name="" placeholder="Cari Provinsi atau Kota" id="myInput">
+                                            </div> 
+                                         </div>
+                                        <div class="col-md-2">
+                                            <div class="form-wrapper-dashboard half-grid">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Intansi</option>
+                                                    <option value="instansi-2">Another Intansi</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                               <div class="form-wrapper-dashboard half-grid">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Sektor</option>
+                                                    <option value="instansi-2" >Another Sektor</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2"> </div>
+                                        <div class="col-md-3 right">
+                                             <div class="form-wrapper-dashboard half-grid">
+                                                 <a href="#" class="btn-white-unduh"><img src="img/download-blue.svg">Unduh Semua Rencana Program</a>
+                                             </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <table id="table-rpjmnk" class="custom-table display" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th width="40"><input class="checkbox-table" type="checkbox" name=""></th>
+                                                <th>Nomenklatur</th>
+                                                <th width="240">Indikator</th>
+                                                <th width="105">Satuan</th>
+                                                <th width="60">Target RPJM</th>
+                                                <th width="60">Target RPJM</th>
+                                                <th width="110">Instansi Pelaksana</th>
+                                                <th width="105">Sektor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                   
+                                </div>
+                                <div class="tab-pane fade" id="ndc" role="tabpanel" aria-labelledby="ndc-tab">
+                                    <div class="table-dashboard-perencanaan table-responsive">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                          
+                                            <div class="form-wrapper-dashboard half-grid has-search">  
+                                               <span class="fa fa-search form-control-feedback"></span>            
+                                               <input type="text" name="" placeholder="Cari Provinsi atau Kota" id="myInputprk">
+                                            </div> 
+                                         </div>
+                                        <div class="col-md-2">
+                                            <div class="form-wrapper-dashboard half-grid">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Intansi</option>
+                                                    <option value="instansi-2">Another Intansi</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                               <div class="form-wrapper-dashboard half-grid">                          
+                                                <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                                    <option value="" selected>Semua Sektor</option>
+                                                    <option value="instansi-2" >Another Sektor</option>
+                                                    <option value="instansi-3">Something else here</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2"> </div>
+                                        <div class="col-md-3 right">
+                                             <div class="form-wrapper-dashboard half-grid">
+                                                 <a href="#" class="btn-white-unduh"><img src="img/download-blue.svg">Unduh Semua Rencana Program</a>
+                                             </div>
+                                        </div>
+                                    </div>
+                                    <table id="table-prk" class="custom-table display" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th width="40"><input class="checkbox-table" type="checkbox" name=""></th>
+                                                <th>Nama Program</th>
+                                                <th width="240">Indikator</th>
+                                                <th width="105">Satuan</th>
+                                                <th width="60">CM1</th>
+                                                <th width="60">CM2</th>
+                                                <th width="110">Instansi Pelaksana</th>
+                                                <th width="105">Sektor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="checkbox-table" type="checkbox" name=""></td>
+                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                <td>MW</td>
+                                                <td>686.5</td>
+                                                <td>686.5</td>
+                                                <td>Kem...Energi</td>
+                                                <td>Energi</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </div>
+                              
+                             
+                            </div>
+                        </div>
+
+                     
+</div>
+                  
+
+
+
+
+
+
+                    
+                    <div class="footer">
+                        <h3>Copyright 2019 Bappenas - all rights Reserved</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<div class="modal" id="sort-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="rows content-sort">
+                <h2>Sort</h2>
+                <span><a href="javascript:void(0)" class="close" data-dismiss="modal"><img src="img/close-blue.svg"></a></span>
+                <div class="sort-rencana-aksi">
+                    <h3>Nasional</h3>
+                    <ul>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li> 
+                    </ul>
+                </div>
+                <div class="sort-rencana-aksi">
+                    <h3>Semua Sektor</h3>
+                    <ul>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+<script type="text/javascript">
+
+var map = L.map('map').setView([-4.45, 119.80], 5);
+
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox/light-v9',
+    tileSize: 512,
+    zoomOffset: -1
+}).addTo(map);
+var geojsonLayer = new L.geoJson.ajax("tingkatanwilayah_kabupaten_kota.geojson");
+geojsonLayer.addTo(map);
+
+
+
+function openTab(evt, tabName) {
+  // Declare all variables
+  var i, tabContent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabContent = document.getElementsByClassName("tabContent");
+  for (i = 0; i < tabContent.length; i++) {
+      tabContent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" activeTab", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " activeTab";
+  return true;
+}
+</script>
+
+<script type="text/javascript">
+    var colors = Highcharts.getOptions().colors;
+
+Highcharts.chart('container', {
+    chart: {
+        type: 'spline'
+    },
+
+    legend: {
+        symbolWidth: 40
+    },
+
+    // title: {
+    //     text: 'Most common desktop screen readers'
+    // },
+
+    // subtitle: {
+    //     text: 'Grafik Skenario Parameter Ketahanan Iklim'
+    // },
+
+    yAxis: {
+        title: {
+            text: 'PDB (Rp ribu triliyun)'
+        }
+    },
+
+    xAxis: {
+        // title: {
+        //     text: 'Tahun'
+        // },
+        accessibility: {
+            description: 'Time from December 2010 to September 2019'
+        },
+        categories: ['2010', '2012', '2014', '2015', '2017', '2019']
+    },
+
+    tooltip: {
+        valueSuffix: ''
+    },
+    legend: {
+        enabled: false
+    },
+
+    // plotOptions: {
+    //     series: {
+    //         point: {
+    //             events: {
+    //                 click: function () {
+    //                     window.location.href = this.series.options.website;
+    //                 }
+    //             }
+    //         },
+    //         cursor: 'pointer'
+    //     }
+    // },
+
+    series: [
+        {
+            
+            name: '',
+            data: [34, 43, 51, 41, 64, 72],
+            color: colors[2],
+            showInLegend: false,
+            accessibility: {
+                description: '2019'
+            }
+        }, {
+            name: '',
+            data: [69, 63, 63, 43, 66, 61],
+            color: colors[0]
+        }, {
+            name: '',
+            data: [20, 30, 36, 30, 39, 47],
+            color: colors[1]
+        }, {
+            name: '',
+            data: [null, null, null, null, 21, 30],
+            color: colors[9]
+        }, {
+            name: '',
+            data: [6, 6, 5, 27, 6, 5],
+            color: colors[5]
+        }, {
+            name: '',
+            data: [42, 51, 54, 45, 20, 15],
+            color: colors[3]
+        }
+    ],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 550
+            },
+            chartOptions: {
+                legend: {
+                    itemWidth: 150
+                },
+                xAxis: {
+                    categories: ['2010', '2012', '2014', '2015', '2017', '2019']
+                },
+                yAxis: {
+                    title: {
+                        enabled: false
+                    },
+                    labels: {
+                        format: '{value}'
+                    }
+                }
+            }
+        }]
+    }
+});
+
+</script>
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2({
+                minimumResultsForSearch: -1
+        });
+    });
+    $(document).ready(function() {
+        $('.js-example-basic-search').select2();
+    });
+</script>
+<script>
+//     var chartData = {
+//   datasets: [{
+//     label: 'data 1-hitam',
+//     backgroundColor: '#4D4D4D',
+//     borderColor: '#4D4D4D',
+//     pointBackgroundColor:"#4D4D4D",
+//     fill: false,
+//     pointRadius: [0, 0, 0, 0, 0, 0,0,0,0, 5],
+    
+//     data: [{x: 2000, y: 9}, {x: 2005, y: 10}, {x: 2010, y: 12}, {x: 2015, y: 11}, {x: 2020, y: 10}, {x: 2025, y: 12},     {x: 2030, y: 15},{x: 2035, y: 16},{x: 2040, y: 14},{x: 2045, y: 19}]
+//   },{
+//     label: 'data 2-abu abu',
+//     backgroundColor: '#CCCCCC',
+//     borderColor: '#CCCCCC',
+//     pointBackgroundColor:"#CCCCCC",
+//     fill: false,
+//     pointRadius: [0, 0, 0, 0, 0, 0,0,0,0, 5],
+//     data: [{x: 2000, y: 9}, {x: 2005, y: 8}, {x: 2010, y: 11}, {x: 2015, y: 7}, {x: 2020, y: 6}, {x: 2025, y: 8},     {x: 2030, y: 9},{x: 2035, y: 10},{x: 2040, y: 8},{x: 2045, y: 16}]
+//   },{
+//     label: 'data 3-ungu',
+//     backgroundColor: '#6D4E94',
+//     borderColor: '#6D4E94',
+//     pointBackgroundColor:"#6D4E94",
+//     fill: false,
+//     pointRadius: [0, 0, 0, 0, 0, 0,0,0,0, 5],
+//     data: [{x: 2000, y: 7}, {x: 2005, y: 10}, {x: 2010, y: 8}, {x: 2015, y: 9}, {x: 2020, y: 7}, {x: 2025, y: 6},     {x: 2030, y: 5},{x: 2035, y: 4},{x: 2040, y: 5},{x: 2045, y: 7}]
+//   },{
+//     label: 'data 4',
+//     backgroundColor: '#F0C940',
+//     borderColor: '#F0C940',
+//     pointBackgroundColor:"#F0C940",
+//     fill: false,
+//     pointRadius: [0, 0, 0, 0, 0, 0,0,0,0, 5],
+//     data: [{x: 2000, y: 7}, {x: 2005, y: 8}, {x: 2010, y: 6}, {x: 2015, y: 10}, {x: 2020, y: 11}, {x: 2025, y: 5},     {x: 2030, y: 3},{x: 2035, y: 2},{x: 2040, y: 5},{x: 2045, y: 7}]
+//   },{
+//     label: 'data 5',
+//     backgroundColor: '#358EE8',
+//     borderColor: '#358EE8',
+//     pointBackgroundColor:"#358EE8",
+//     fill: false,
+//     pointRadius: [0, 0, 0, 0, 0, 0,0,0,0, 5],
+//     data: [{x: 2000, y: 10}, {x: 2005, y: 11}, {x: 2010, y: 12}, {x: 2015, y: 13}, {x: 2020, y: 16}, {x: 2025, y: 18},     {x: 2030, y: 21},{x: 2035, y: 19},{x: 2040, y: 17},{x: 2045, y: 15}]
+//   },{
+//     label: 'data 6',
+//     backgroundColor: '#70C8ED',
+//     borderColor: '#70C8ED',
+//     pointBackgroundColor:"#70C8ED",
+//     fill: false,
+//     pointRadius: [0, 0, 0, 0, 0, 0,0,0,0, 5],
+//     data: [{x: 2000, y: 5}, {x: 2005, y: 17}, {x: 2010, y: 19}, {x: 2015, y: 7}, {x: 2020, y: 17}, {x: 2025, y: 15},     {x: 2030, y: 18},{x: 2035, y: 17},{x: 2040, y: 18},{x: 2045, y: 17}]
+//   },
+//       {
+//     label: 'data 7',
+//     backgroundColor: '#4DA7A7',
+//     borderColor: '#4DA7A7',
+//     pointBackgroundColor:"#4DA7A7",
+//     fill: false,
+//     pointRadius: [0, 0, 0, 0, 0, 0,0,0,0, 5],
+    
+//     data: [{x: 2000, y: 15}, {x: 2005, y: 17}, {x: 2010, y: 20}, {x: 2015, y: 18}, {x: 2020, y: 16}, {x: 2025, y: 17},     {x: 2030, y: 15},{x: 2035, y: 12},{x: 2040, y: 14},{x: 2045, y: 19}]
+//   }      ]
+// }
+// ;
+
+// var originalController = Chart.controllers.line;
+// Chart.controllers.line = Chart.controllers.line.extend({
+//   draw: function() {
+//     originalController.prototype.draw.call(this, arguments);
+    
+//   }
+// });
+
+// function drawLabels(t) {
+//     ctx.save();
+//   ctx.font = Chart.helpers.fontString(12, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+//   ctx.fillStyle = '#4D4D4D';
+//   ctx.textBaseline = 'bottom'; 
+
+//   var chartInstance = t.chart;
+//   var datasets = chartInstance.config.data.datasets;
+//   datasets.forEach(function(ds, index) {
+//     var label = ds.label;
+//     var meta = chartInstance.controller.getDatasetMeta(index);
+//     var len = meta.data.length-1;
+//     //console.log(ds, meta.data[len]._model);    
+//     var xOffset = meta.data[len]._model.x+10;
+//     var yOffset = meta.data[len]._model.y;
+//     ctx.fillText(label, xOffset, yOffset);
+//   });
+//   ctx.restore();
+// }
+
+
+// var ctx = document.getElementById("myChart").getContext("2d");
+// var myBar = new Chart(ctx, {
+//   type: 'line',
+//   data: chartData,
+//   options: {
+//     legend: { display: false },
+//     scales: {
+//       xAxes: [{
+//         type: 'linear',
+//         scaleLabel: { display: true, labelString: 'x' }
+//       }],
+//       yAxes: [{
+//         ticks: { min: 0 },
+//         scaleLabel: { display: true, labelString: 'CO2eq*Gg/Tahun' }
+//       }]
+//     },
+//     layout: {
+//       padding: {
+//         left: 0,
+//         right: 60,
+//         top: 20,
+//         bottom: 0
+//       }
+//     }
+//   }
+// });
+</script>
+<script type="text/javascript">
+    $('.close-about-btn').click( function() {
+        $(".wrapper-pemenuhan-about").toggleClass("closed");
+    } );
+</script>
+<script type="text/javascript">
+    $('#table-prk').dataTable( {
+        "ordering": false,
+        "paging":   false,
+        "info":     false,
+        "lengthChange": false,
+       
+         language: {
+            searchPlaceholder: "Cari program atau indikator",
+            search: "" 
+        }
+    } );
+
+
+
+    $('#table-rpjmnk').dataTable( {
+        "ordering": false,
+        "paging":   false,
+        "info":     false,
+        "lengthChange": false,
+   
+         language: {
+            searchPlaceholder: "Cari program atau indikator",
+            search: "" 
+        }
+    } );
+
+    $('#table-aksi-list').dataTable( {
+        "ordering": false,
+        "paging":   false,
+        "info":     false,
+        "lengthChange": false,
+   
+         language: {
+            searchPlaceholder: "Cari program atau indikator",
+            search: "" 
+        }
+    } );
+
+
+    
+
+var table = $('#table-rpjmnk').DataTable();
+ 
+// #myInput is a <input type="text"> element
+$('#myInput').on( 'keyup', function () {
+    table.search( this.value ).draw();
+} );
+
+
+</script>
+<script>
+    $(document).ready(function(){
+        $('#burger-menu').click(function(){
+            $(this).toggleClass('open');
+        });
+    });
+    (function () {
+        $('#burger-menu').on('click', function() {
+            $('body').toggleClass('overlay-mobile-menu');
+        var mobileNav = $('.menu-nav');
+        mobileNav.toggleClass('hide show');
+        })
+    })();
+</script>
+<script type="text/javascript">
+    // $('.chart-home-toggle').hide();
+    // $('.dropdown-item-chart').on('click',
+    //     function() {
+    //         $(".dropdown-item-chart").toggle()
+    //         $('.chart-home-toggle-show, .chart-home-toggle').toggle(200);
+    //     }
+    // );
+</script>
+<!-- <script type="text/javascript">
+    function scrollNav() {
+      $('.sidebar-admin a').click(function(){  
+        //Animate
+        $('html, body').stop().animate({
+            scrollTop: $( $(this).attr('href') ).offset().top - 135
+        }, 800);
+        return false;
+      });
+      $('.scrollTop a').scrollTop();
+    }
+    scrollNav();
+</script>
+<script type="text/javascript">
+    $(".dropdown-menu a").click(function(){
+      var selText = $(this).text();
+      $(this).parents('.dropdown-table').find('.dropdown-table-text').html(selText);
+    });
+</script>
+<script type="text/javascript">
+    $(".dropdown-menu a").click(function(){
+      var selText = $(this).text();
+      $(this).parents('.dropdown-tabs-content').find('.dropdown-mobile').html(selText);
+    });
+</script> -->
+<script type="text/javascript">
+    // window.PEPOnlineAPIHOST  = 'https://pepstaging.duckdns.org/aksara';
+
+
+    // const colors = {
+    //     green: {
+    //         fill: '#e0eadf',
+    //         stroke: '#5eb84d',
+    //     },
+    //     lightBlue: {
+    //         stroke: '#6fccdd',
+    //     },
+    //     darkBlue: {
+    //         fill: '#92bed2',
+    //         stroke: '#3282bf',
+    //     },
+    //     purple: {
+    //         fill: '#8fa8c8',
+    //         stroke: '#75539e',
+    //     },
+    // };
+
+    // function initChartArea(
+    //     years,
+    //     persampahan,
+    //     industri,
+    //     pesisirLaut,
+    //     pertanian,
+    //     hutanLahan,
+    //     transportasi,
+    //     energi,        
+    // )
+    // {
+    //     var ctz = document.getElementById("cjs-stackchart").getContext("2d");
+
+    //     const myChart = new Chart(ctz, {
+    //         type: 'line',
+    //         data: {
+    //             labels: years,
+    //             datasets: [{
+    //                 label: "Energi",
+    //                 backgroundColor: "#F69234",
+    //                 pointRadius:0,
+    //                 pointHitRadius:4,
+    //                 pointHoverRadius:3,
+    //                 pointHoverBackgroundColor:"#FFFFFF",
+    //                 data: energi,
+
+    //             }, {
+    //                 label: "Transportasi",
+    //                 fill: '-1',
+    //                 backgroundColor: "#7A53AA",
+    //                 pointRadius:0,
+    //                 pointHitRadius:4,
+    //                 pointHoverRadius:3,
+    //                 pointHoverBackgroundColor:"#FFFFFF",
+    //                 data: transportasi,
+    //             }, {
+    //                 label: "Hutan dan lahan",
+    //                 fill: '-1',
+    //                 backgroundColor:"#3CBA39",
+    //                 pointRadius:0,
+    //                 pointHitRadius:4,
+    //                 pointHoverRadius:3,
+    //                 pointHoverBackgroundColor:"#FFFFFF",
+    //                 data: hutanLahan,
+    //             }, {
+    //                 label: "Pertanian",
+    //                 fill: '-1',
+    //                 backgroundColor: "#EDC434",
+    //                 pointRadius:0,
+    //                 pointHitRadius:4,
+    //                 pointHoverRadius:3,
+    //                 pointHoverBackgroundColor:"#FFFFFF",
+    //                 data: pertanian,
+    //             },
+    //             {
+    //                 label: "Pesisir laut",
+    //                 fill: '-1',
+    //                 backgroundColor: "#70C8ED",
+    //                 pointRadius:0,
+    //                 pointHitRadius:4,
+    //                 pointHoverRadius:3,
+    //                 pointHoverBackgroundColor:"#FFFFFF",
+    //                 data: pesisirLaut,
+    //             },
+    //             {
+    //                 label: "Industri",
+    //                 fill: '-1',
+    //                 backgroundColor: "#1B2956",
+    //                 pointRadius:0,
+    //                 pointHitRadius:4,
+    //                 pointHoverRadius:3,
+    //                 pointHoverBackgroundColor:"#FFFFFF",
+    //                 data: industri,
+
+    //             },
+    //             {
+    //                 label: "Persampahan",
+    //                 fill: '-1',
+    //                 backgroundColor: "#26BCAA", 
+    //                 pointRadius:0,
+    //                 pointHitRadius:4,
+    //                 pointHoverRadius:3,
+    //                 pointHoverBackgroundColor:"#FFFFFF",
+    //                 data: persampahan,
+    //             }
+    //             ]
+    //         },
+    //         options: {
+    //             maintainAspectRatio: false,
+    //             spanGaps: false,
+    //             responsive: true,
+    //             elements: {
+    //                 line: {
+    //                     tension: 0.000001
+    //                 }
+    //             },
+    //             scales: {
+    //                 yAxes: [{
+    //                     stacked: true,
+    //                 }]
+    //             },
+    //             animation: {
+    //                 duration: 750,
+    //             },
+    //             legend: {
+    //                 display: true,
+    //                 position: 'bottom',
+    //                 padding: 30
+    //             }
+    //         }
+    //     });
+    // }
+    
+
+    // function loadMapChartArea(provinsi_id)
+    // {
+    //     $.ajax({
+    //         url: PEPOnlineAPIHOST + '/api_v2/kontribusi_penurunan_emisi_berdasarkan_sektor/',
+    //         data: {provinsi_id:provinsi_id},
+    //         success: function(data)
+    //         {
+    //             let years = [];
+    //             let persampahan = [];
+    //             let industri = [];
+    //             let pesisirLaut = [];
+    //             let pertanian = [];
+    //             let hutanLahan = [];
+    //             let transportasi = [];
+    //             let energi = [];
+
+    //             for (var i = 0; i < data.kontribusi_penurunan_emisi_berdasarkan_sektor.length; i++) {
+
+    //                 years.push(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].tahun)
+
+    //                 if(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].sektor == 'Persampahan')
+    //                 {
+    //                     persampahan.push(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].persentase)
+    //                 }
+
+    //                 if(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].sektor == 'Industri')
+    //                 {
+    //                     industri.push(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].persentase)
+    //                 }
+
+    //                 if(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].sektor == 'Kawasan Pesisir')
+    //                 {
+    //                     pesisirLaut.push(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].persentase)
+    //                 }
+
+    //                 if(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].sektor == 'Pertanian')
+    //                 {
+    //                     pertanian.push(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].persentase)
+    //                 }
+
+    //                 if(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].sektor == 'Kehutanan dan Lahan Gambut')
+    //                 {
+    //                     hutanLahan.push(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].persentase)
+    //                 }
+
+    //                 if(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].sektor == 'Transportasi')
+    //                 {
+    //                     transportasi.push(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].persentase)
+    //                 }
+
+    //                 if(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].sektor == 'Energi')
+    //                 {
+    //                     energi.push(data.kontribusi_penurunan_emisi_berdasarkan_sektor[i].persentase)
+    //                 }
+    //             }
+
+    //              years = years.filter(function(item, i, ar){ return ar.indexOf(item) === i; });
+
+    //             initChartArea(
+    //                 years,
+    //                 persampahan,
+    //                 industri,
+    //                 pesisirLaut,
+    //                 pertanian,
+    //                 hutanLahan,
+    //                 transportasi,
+    //                 energi,        
+    //             )
+    //         }
+    //     })        
+    // }
+
+    // loadMapChartArea(31)
+</script>
+<script type="text/javascript">
+
+    // Number.prototype.formatMoney = function(c, d, t){
+    // var n = this, 
+    //     c = isNaN(c = Math.abs(c)) ? 2 : c, 
+    //     d = d == undefined ? "." : d, 
+    //     t = t == undefined ? "," : t, 
+    //     s = n < 0 ? "-" : "", 
+    //     i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", 
+    //     j = (j = i.length) > 3 ? j % 3 : 0;
+    //    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+    //  };
+
+
+    // function initLineChartHomePage(baseline, target, actual, labels)
+    // {
+    //     var maxValue = Math.max.apply(Math, [Math.max.apply(Math, baseline), Math.max.apply(Math, target), Math.max.apply(Math, actual)]);
+    //     var minValue = Math.min.apply(Math, [Math.min.apply(Math, baseline), Math.min.apply(Math, target), Math.min.apply(Math, actual)]);
+
+    //     var canvas = document.getElementById("cjs-linechart")
+    //     var ctx = canvas.getContext("2d");
+
+    //     Chart.defaults.LineWithLine = Chart.defaults.line;
+    //     Chart.controllers.LineWithLine = Chart.controllers.line.extend({
+    //        draw: function(ease) {
+    //           Chart.controllers.line.prototype.draw.call(this, ease);
+
+    //           if (this.chart.tooltip._active && this.chart.tooltip._active.length) {
+    //              var activePoint = this.chart.tooltip._active[0],
+    //                  x = activePoint.tooltipPosition().x,
+    //                  topY = this.chart.scales['y-axis-0'].top,
+    //                  bottomY = this.chart.scales['y-axis-0'].bottom;
+
+    //              // draw line
+    //              ctx.save();
+    //              ctx.beginPath();
+    //              ctx.moveTo(x, topY);
+    //              ctx.lineTo(x, bottomY);
+    //              ctx.lineWidth = 2;
+    //              ctx.strokeStyle = '#c1c1c1';
+    //              ctx.stroke();
+    //              ctx.restore();
+    //           }
+    //        }
+    //     });
+
+
+    //     var labels = labels || [2010,2011,2012,2013,2014,2015,2016,2017,2018]
+    //     var chart = new Chart(ctx, {
+    //         type: 'LineWithLine',
+    //         data: {
+    //             labels: labels,
+    //             datasets: [{ 
+    //                 data: [baseline[0]],
+    //                 label: "Base Line",
+    //                 borderColor: "#3CBA39",
+    //                 borderWidth: 2,
+    //                 lineTension:0,
+    //                 fill: false,
+    //                 pointRadius:2,
+    //                 pointBackgroundColor:"#3CBA39"
+    //             }, { 
+    //                 data: [target[0]],
+    //                 label: "Target",
+    //                 borderColor: "#35B1E4",
+    //                 borderWidth: 2,
+    //                 lineTension:0,
+    //                 fill: false,
+    //                 pointRadius:2,
+    //                 pointBackgroundColor:"#35B1E4"
+    //             }, { 
+    //                 data: [actual[0]],
+    //                 label: "Actual",
+    //                 borderColor: "#F69234",
+    //                 borderWidth: 2,
+    //                 lineTension:0,
+    //                 fill: false,
+    //                 pointRadius:2,
+    //                 pointBackgroundColor:"#F69234"
+    //             }
+    //             ]
+    //         },
+    //         options: {                
+    //             scales: {
+    //                 yAxes: [
+    //                     {
+    //                         ticks: {
+    //                             callback: function(label, index, labels) {
+    //                                 return label.formatMoney(0)
+    //                             },
+    //                             suggestedMax: maxValue,
+    //                             suggestedMin: minValue
+    //                         }
+    //                     }
+    //                 ]
+    //             },
+
+    //             title: {
+    //                 display: true,
+    //                 position: 'left',
+    //                 fontfamily: 'Circular Std',
+    //                 fontSize: 14,
+    //                 fontStyle: 'bold',
+    //                 text: 'MTON CO2eq',
+    //             },
+    //             legend: {
+    //                 display: false,
+    //             },
+    //             tooltips: {
+    //                 enabled: true,
+    //                 mode: 'x'
+    //             }
+    //        }
+    //     });
+
+    //     canvas.onclick = function (evt) {
+    //         if(chart.tooltip._lastActive.length)
+    //         {
+    //             if(typeof chart.tooltip._lastActive[0] != 'undefined')
+    //             {
+    //                 if(typeof chart.tooltip._lastActive[0]._index != 'undefined')
+    //                 {
+    //                     if(typeof labels[chart.tooltip._lastActive[0]._index] != 'undefined')
+    //                     {
+    //                         var year = labels[chart.tooltip._lastActive[0]._index]
+
+    //                         $(".penurunan-emisi-dropdown a").each(function(i, k){
+    //                             if(parseInt($(k).text()) == parseInt(year))
+    //                             {   
+    //                                 $(k).trigger('click')
+    //                             }
+    //                         })
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     };
+
+
+    //     var nextBaseline = function() {
+    //       var data = chart.data.datasets[0].data;
+    //       var count = data.length;
+    //       data[count] = data[count - 1];
+    //       chart.update({duration: 10});
+    //       data[count] = baseline[count];
+    //       chart.update();
+    //       if (count < baseline.length) {
+    //         setTimeout(nextBaseline, 300);
+    //       }
+    //     }
+    //     setTimeout(nextBaseline, 300);
+
+    //     var nextTarget = function() {
+    //       var data = chart.data.datasets[1].data;
+    //       var count = data.length;
+    //       data[count] = data[count - 1];
+    //       chart.update({duration: 10});
+    //       data[count] = target[count];
+    //       chart.update();
+    //       if (count < target.length) {
+    //         setTimeout(nextTarget, 300);
+    //       }
+    //     }
+    //     setTimeout(nextTarget, 300);
+
+    //     var nextActual = function() {
+    //       var data = chart.data.datasets[2].data;
+    //       var count = data.length;
+    //       data[count] = data[count - 1];
+    //       chart.update({duration: 10});
+    //       data[count] = actual[count];
+    //       chart.update();
+    //       if (count < actual.length) {
+    //         setTimeout(nextActual, 300);
+    //       }
+    //     }
+    //     setTimeout(nextActual, 300);
+
+    // }
+
+    // $.ajax({
+    //     url:  PEPOnlineAPIHOST + '/api_v2/capaian_tahunan/',
+    //     success: function(data)
+    //     {
+    //         if(data.capaian_tahunan)
+    //         {
+    //             let actual = data.capaian_tahunan[0].data
+    //             let target = data.capaian_tahunan[1].data
+    //             let baseline = data.capaian_tahunan[2].data
+
+    //             initLineChartHomePage(baseline, target, actual)
+    //         }
+    //     }
+    // })
+</script>
+<script>
+    // $(document).ready(function(){
+    //     $(".detail-button").click(function(){
+    //         $(".list-alokasi").slideToggle();
+    //     });
+    // });
+    // $(document).ready(function(){
+    //     $(".detail-button-sec").click(function(){
+    //         $(".list-alokasi-sec").slideToggle();
+    //     });
+    // });
+</script>
+<script>    
+    // var swiper = new Swiper('.pemenuhan-slider', {
+    //   slidesPerView: 4,
+    //   spaceBetween: 30,
+    //   navigation: {
+    //     nextEl: '.swiper-button-next',
+    //     prevEl: '.swiper-button-prev',
+    //   },
+    //   breakpoints: {
+    //     900: {
+    //       slidesPerView: 3,
+    //       spaceBetween: 20,
+    //     },
+    //     500: {
+    //       slidesPerView: 2,
+    //       spaceBetween: 20,
+    //     }
+    //   }
+    // });
+</script>
+<script type="text/javascript">
+    // function getCoords(elem) { // crossbrowser version
+    //     var box = elem.getBoundingClientRect();
+
+    //     var body = document.body;
+    //     var docEl = document.documentElement;
+
+    //     var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+    //     var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+
+    //     var clientTop = docEl.clientTop || body.clientTop || 0;
+    //     var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+
+    //     var top  = box.top +  scrollTop - clientTop;
+    //     var left = box.left + scrollLeft - clientLeft;
+
+    //     return { top: Math.round(top), left: Math.round(left) };
+    // }
+
+    // $("body").click(function(){
+    //     $("#myMapModal").hide()
+    // })
+
+    // $("#penurunan-emisi path, #penurunan-intensitas path").click(function(e){
+
+    //     e.preventDefault()
+    //     e.stopPropagation()
+
+    //     let coor = getCoords(e.target);
+    //     // console.log('coor', coor)
+
+    //     let w = e.target.getBoundingClientRect().width;
+    //     let h = e.target.getBoundingClientRect().height;
+    //     coor.top += (h / 2)
+    //     coor.left += (w / 2)
+
+    //     // console.log($("#myMapModal").outerHeight(true))
+    //     $("#myMapModal").css('top', coor.top - ($("#myMapModal").outerHeight(true)  ))
+    //     $("#myMapModal").css('left', coor.left - ($("#myMapModal").width() / 2))
+        
+    //     $("#myMapModal").show()
+    // })
+
+</script>
+<script type="text/javascript">
+    // $(".dropdown-menu a").click(function(){
+    //   var selText = $(this).text();
+    //   $(this).parents('.dropdown-text').find('.bttn-dropdown').html(selText);
+    // });
+</script>
+<script type="text/javascript">
+    // var penurunanEmisiDataByYears = [];
+    // function loadPenurunanEmisiData(callback)
+    // {
+    //     $.ajax({
+    //         url:  PEPOnlineAPIHOST + '/api_v2/capaian_penurunan_emisi/',
+    //         success: function(data)
+    //         {
+    //             window.penurunanEmisiDataByYears = data.capaian_penurunan_emisi
+    //             callback()
+    //         }
+    //     })
+    // }
+
+    // function fillPenurunanEmisi(year)
+    // {
+    //     for (var i = 0; i < penurunanEmisiDataByYears.length; i++) 
+    //     {
+    //         if(penurunanEmisiDataByYears[i].tahun == year)
+    //         {
+    //             $("#penurunanEmisiActual").find('.right').find('span').html(penurunanEmisiDataByYears[i].actual_percentage + '%')
+    //             $("#penurunanEmisiActual").find('.left').find('span').html(penurunanEmisiDataByYears[i].actual + ' MTon CO2eq')
+
+    //             $("#penurunanEmisiTarget").find('.right').find('span').html(penurunanEmisiDataByYears[i].target_percentage + '%')
+    //             $("#penurunanEmisiTarget").find('.left').find('span').html(penurunanEmisiDataByYears[i].target + ' MTon CO2eq')
+
+    //             $("#penurunanEmisiBaseline").find('.right').find('span').html(penurunanEmisiDataByYears[i].base_line_percentage + '%')
+    //             $("#penurunanEmisiBaseline").find('.left').find('span').html(penurunanEmisiDataByYears[i].base_line + ' MTon CO2eq')
+    //         }
+    //     }        
+    // }
+
+    // $(".intensitas-emisi-dropdown a").click(function(e){
+    //     let year = parseInt($(this).text())
+
+    //     loadIntensitasEmisiData(year)
+
+    // })
+
+
+    // $(".penurunan-emisi-dropdown a").click(function(e){
+    //     let year = parseInt($(this).text())
+
+    //     fillPenurunanEmisi(year);
+        
+    // })
+
+    // loadPenurunanEmisiData(function(){
+    //     fillPenurunanEmisi(2017);
+    // })
+</script>
+<script type="text/javascript">
+    // $(".intensitas-emisi-dropdown a").click(function(e){
+    //     let year = parseInt($(this).text())
+
+    //     loadIntensitasEmisiData(year)
+
+    // })
+    // function loadIntensitasEmisiData(year)
+    // {
+    //     $.ajax({
+    //         url:  PEPOnlineAPIHOST + '/api_v2/intesitas_emisi_tahunan/',
+    //         data: {tahun:year},
+    //         success: function(data)
+    //         {
+    //             $("#intensitasEmisiActual").html(data.intensitas_emisi_tahunan[0].emisi_aktual_perpdb)
+    //             $("#intensitasEmisiBaseline").html(data.intensitas_emisi_tahunan[0].baseline_emisi_aktual_perpdb)
+
+    //             $("#emisiArrowStatus").removeClass('down-emisi-home')
+    //             $("#emisiArrowStatus").removeClass('up-emisi-home')
+
+    //             if(data.intensitas_emisi_tahunan[0].tanda_panah == 0)
+    //             {
+    //                 $("#emisiArrowStatus").addClass('down-emisi-home')
+    //             }
+
+    //             if(data.intensitas_emisi_tahunan[0].tanda_panah == 1)
+    //             {
+    //                 $("#emisiArrowStatus").addClass('up-emisi-home')                    
+    //             }
+
+    //         }
+    //     })
+    // }
+
+    // loadIntensitasEmisiData(2017)
+</script>
+
+<script type="text/javascript">
+
+    // $("#changeYearFirstMap a").click(function(e){
+    //     e.preventDefault()
+
+    //     $(".path-close").trigger('click')
+
+    //     $("#changeYearFirstMap").find('li').removeClass('active')
+    //     $(this).parents('li').addClass('active')
+    // })
+
+    // $("#changeYearSecondMap a").click(function(e){
+    //     e.preventDefault()
+
+    //     $(".path-close").trigger('click')
+
+    //     $("#changeYearSecondMap").find('li').removeClass('active')
+    //     $(this).parents('li').addClass('active')
+    // })    
+</script>
+
+<script type="text/javascript">
+    // function loadPembangunanRendahKarbonNasional(year)
+    // {
+    //     var current_progress = 30;
+
+    //     if (year == 2020) 
+    //     {
+    //         current_progress += 30;
+    //         $(".progress-bar")
+    //             .css("width", current_progress + "%")
+    //             .attr("aria-valuenow", current_progress);
+    //     }
+
+    //     if (year == 2021) 
+    //     {
+    //         current_progress += 20;
+    //         $(".progress-bar")
+    //             .css("width", current_progress + "%")
+    //             .attr("aria-valuenow", current_progress);
+    //     }
+
+    //     if (year == 2022) 
+    //     {
+    //         current_progress += 25;
+    //         $(".progress-bar")
+    //             .css("width", current_progress + "%")
+    //             .attr("aria-valuenow", current_progress);
+    //     }
+        
+    //     if (year == 2023) 
+    //     {
+    //         current_progress += 35;
+    //         $(".progress-bar")
+    //             .css("width", current_progress + "%")
+    //             .attr("aria-valuenow", current_progress);
+    //     }
+
+    //     if (year == 2024) 
+    //     {
+    //         current_progress += 40;
+    //         $(".progress-bar")
+    //             .css("width", current_progress + "%")
+    //             .attr("aria-valuenow", current_progress);
+    //     }
+    // }
+
+    // function loadAlokasiAnggaranRealisasi(year)
+    // {
+    //     var current_progress = 30;
+
+    //     if (year == 2017) 
+    //     {
+    //         current_progress += 38;
+    //         $(".progress-alokasi")
+    //             .css("width", current_progress + "%")
+    //             .attr("aria-valuenow", current_progress);
+    //         $(".alokasi-percent").text(current_progress+'%');
+    //         $(".alokasi-anggaran").text('Rp24,23 Miliar');
+    //     }
+
+    //     if (year == 2016) 
+    //     {
+    //         current_progress += 20;
+    //         $(".progress-alokasi")
+    //             .css("width", current_progress + "%")
+    //             .attr("aria-valuenow", current_progress);
+    //         $(".alokasi-percent").text(current_progress+'%');
+    //         $(".alokasi-anggaran").text('Rp25,20 Miliar');
+    //     }
+
+    //     if (year == 2015) 
+    //     {
+    //         current_progress += 15;
+    //         $(".progress-alokasi")
+    //             .css("width", current_progress + "%")
+    //             .attr("aria-valuenow", current_progress);
+    //         $(".alokasi-percent").text(current_progress+'%');
+    //         $(".alokasi-anggaran").text('Rp22,23 Miliar');
+    //     }
+
+    //     if (year == 2014) 
+    //     {
+    //         current_progress += 39;
+    //         $(".progress-alokasi")
+    //             .css("width", current_progress + "%")
+    //             .attr("aria-valuenow", current_progress);
+    //         $(".alokasi-percent").text(current_progress+'%');
+    //         $(".alokasi-anggaran").text('Rp26,3 Miliar');
+    //     }
+
+    //     if (year == 2013) 
+    //     {
+    //         current_progress += 20;
+    //         $(".progress-alokasi")
+    //             .css("width", current_progress + "%")
+    //             .attr("aria-valuenow", current_progress);
+    //         $(".alokasi-percent").text(current_progress+'%');
+    //         $(".alokasi-anggaran").text('Rp28,23 Miliar');
+    //     }
+
+    //     if (year == 2012) 
+    //     {
+    //         current_progress += 25;
+    //         $(".progress-alokasi")
+    //             .css("width", current_progress + "%")
+    //             .attr("aria-valuenow", current_progress);
+    //         $(".alokasi-percent").text(current_progress+'%');
+    //         $(".alokasi-anggaran").text('Rp21,23 Miliar');
+    //     }
+        
+    //     if (year == 2011) 
+    //     {
+    //         current_progress += 35;
+    //         $(".progress-alokasi")
+    //             .css("width", current_progress + "%")
+    //             .attr("aria-valuenow", current_progress);
+    //         $(".alokasi-percent").text(current_progress+'%');
+    //         $(".alokasi-anggaran").text('Rp22,23 Miliar');
+    //     }
+
+    //     if (year == 2010) 
+    //     {
+    //         current_progress += 40;
+    //         $(".progress-alokasi")
+    //             .css("width", current_progress + "%")
+    //             .attr("aria-valuenow", current_progress);
+    //         $(".alokasi-percent").text(current_progress+'%');
+    //         $(".alokasi-anggaran").text('Rp27,23 Miliar');
+    //     }
+    // }
+</script>
+</html>

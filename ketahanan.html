@@ -1,0 +1,1705 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<title>PEP</title>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
+<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css"/>
+<link href="//cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+<link rel="stylesheet" type="text/css" href="css/ketahanan.css">
+<link rel="stylesheet" type="text/css" href="css/scrolltabs.css">
+<link rel="stylesheet" href="//unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/series-label.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
+<script src="//code.highcharts.com/modules/export-data.js"></script>
+<script src="//code.highcharts.com/modules/accessibility.js"></script>
+<script src="//code.highcharts.com/themes/high-contrast-light.js"></script>
+<script src="//unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+<script type="text/javascript" src="leaflet-ajax\dist\leaflet.ajax.js"></script>
+<style type="text/css">
+    .cjs-padding {
+        height: 500px;
+        padding-bottom: 120px;
+    }
+    .dataTables_filter { visibility: hidden; display: none;}
+    #map {
+            width: 100%;
+            height: 600px;
+    }
+
+    @media (max-width: 768px){
+         #map {
+            width: 100%;
+            height: 250px;
+         }
+
+    }
+    
+    .blue{
+    color: #0D5CAB;
+    }
+    
+    .blue:before {
+       font-family: "FontAwesome";
+       content: "\f0d7";
+    }
+    
+    .blue.aktif:before { font-family: "FontAwesome"; content: "\f0da"; }
+
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <div id="myMapModal" class="content-maps data-informas-maps" style="left: 0px;top: 0px;z-index: 10000;display: none;">
+        <h3>JAWA BARAT</h3>
+        <p>40.000 MTon CO2eq</p>
+    </div>
+    <div class="wrapper">
+        <div class="header-admin">
+            <div class="header">
+                <a href="#"><img src="img/logo-kementrian-ppn.svg" alt="Logo Kementrian PPN" class="logo-1"></a>
+                <a href="#"><img src="img/logo-prki.svg" alt="Logo PRKI" class="logo-2"></a>
+                <div class="menu-nav dashboard desktop-item">
+                    <ul>
+                        <li><a href="#">Kembali ke Beranda</a></li>
+                        <li class="active"><a href="#">Dashboard</a></li>
+                    </ul>
+
+                    <span class="login-dashboard">
+                        <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/group.svg"> <span class="notifikasi">1</span></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Profil</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Logout</a>
+                                    
+                                </div>
+                        </div>
+                 
+                    </span>
+                </div>
+                <div id="burger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="rows admin-menu menu-nav hide">
+                <div class="dashboard mobile-item">
+                    <ul>
+                        <li><a href="#">Kembali ke Beranda</a></li>
+                        <li class="active"><a href="#">Dashboard</a></li>
+                    </ul>
+                    <span class="login-dashboard"><a href="#"><img src="img/group.svg"></a><span class="notifikasi">1</span>Profile</span>
+                </div>
+                <h3 class="menu-tag-dashboard mobile-item">Menu Dashboard</h3>
+                <div class="dashboard-menu">
+                    <ul>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DASHBOARD Nasional</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="admin-list-menu">
+                    <ul>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/note.svg">Perencanaan</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/eye.svg">Pemantauan</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/rounded.svg">Evaluasi</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/folder.svg">Pelaporan</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="other-menu">
+                    <ul>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">E-Learning</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Admin</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content-dashboard">
+            <div class="rows">
+                <a class="btn-collapse-mobile mobile-item collapsed" data-toggle="collapse" href="#collapseMobile" role="button" aria-expanded="false" aria-controls="collapseMobile">Filter</a>
+                <div class="sidebar-admin filter-sidebar collapse" id="collapseMobile">
+                    <span id="openNav"></span>
+                    <img src="img/left-arrow.svg" id="closeNav" style="height: 30px; width: 30px; float: right">
+                    <div class="formfilter">
+                        <h3>Filter</h3>
+                        <form action="#">
+                                <div class="rows form-wrapper-dashboard">
+                                    <div class="rows form-wrapper-dashboard half-grid">
+                                        <label>Parameter</label>
+                                        <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                            <option value="" disabled selected>Semua</option>
+                                            <option value="instansi-2">Another action</option>
+                                            <option value="instansi-3">Something else here</option>
+                                        </select>
+                                    </div>
+                                   
+                                </div>
+                                <div class="rows form-wrapper-dashboard">
+                                    <div class="rows form-wrapper-dashboard half-grid">
+                                        <label>Sektor</label>
+                                        <select class="js-example-basic-single form-dropdown-select" required="" name="subsektor-select">
+                                            <option value="" disabled selected>Semua</option>
+                                            <option value="instansi-2">Another action</option>
+                                            <option value="instansi-3">Something else here</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <h4>Model</h4>
+                                <div class="rows">
+
+                                        <div class="row checkbox-switch grid-4">
+                                            <div class="col-7">
+                                                <label>Proyeksi PDB</label> 
+                                            </div>
+
+                                            <div class="col-3">
+                                                <i class="icon-info" data-tooltip="Proyeksi PDB"><img src="img/info-icon.svg"></i>
+                                            </div>
+                                            <div class="col-2">
+                                                <input id="s1" type="checkbox" class="switch">
+                                            </div>
+                                        </div>
+
+                                        <div class="row checkbox-switch grid-4">
+                                            <div class="col-7">
+                                                <label>PDB Dengan Upaya Adaptasi Dalam RPJMN 2020-2024</label> 
+                                            </div>
+
+                                            <div class="col-3">
+                                                <i class="icon-info" data-tooltip="PDB Dengan Upaya Adaptasi Dalam RPJMN 2020-2024"><img src="img/info-icon.svg"></i>
+                                            </div>
+                                            <div class="col-2">
+                                                <input id="s1" type="checkbox" class="switch">
+                                            </div>
+                                        </div>
+
+                                        <div class="row checkbox-switch grid-4">
+                                            <div class="col-7">
+                                                <label> PDB Dengan Potensi Kerugian Ekonomi Dampak Perubahan Iklim</label> 
+                                            </div>
+
+                                            <div class="col-3">
+                                                <i class="icon-info" data-tooltip="PDB Dengan Potensi Kerugian Ekonomi Dampak Perubahan Iklim"><img src="img/info-icon.svg"></i>
+                                            </div>
+                                            <div class="col-2">
+                                                <input id="s1" type="checkbox" class="switch">
+                                            </div>
+                                        </div>  
+                                </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="content-admin dashboard-province">
+                    <div class="rows breadcrumb-dashboard">
+                        <ul>
+                            <li><a href="#">Dasbor Nasional</a></li>
+                            <li><a href="#">Perencanaan</a></li>
+                            <li><a href="#">Katalog Aksi Ketahanan Iklim</a></li>
+                        </ul>
+                    </div>
+                  
+                    <div class="rows dashboard-planning-header">
+                        <div class="rows header-dashboard">
+                            <div class="left">
+                                <span><img src="img/lamp1.png" class="img-responsive">Ikuti Tur Halaman</span>
+                                <h3>Katalog Aksi Ketahanan Iklim </h3>
+                            </div>
+                           <div class="right">
+                              
+                                <span class="btn-blue-main"><a href="#"><b>+</b>Tambah Aksi Ketahanan Iklim</a></span>
+                            </div> 
+                        </div>
+                    </div>
+
+
+
+                  
+
+                    <div class="container-dashboard pemenuhan-tujuan-provinsi">
+                        <div class="row">
+                            <div class="left col-md-10">
+                                     <h2 class="title-kontribusi">Daftar Aksi Ketahanan iklim </h2>
+                            </div>
+                            <div class="right col-md-12">
+                                <span class="btn-white-secondary pull-right"><a href="#"><img src="img/download-blue.svg">Unduh PDF</a></span>
+                            </div> 
+                        </div>
+                        
+                        <div class="indexContainer grayContainer">
+                            <div class="tabDiv">
+                                <div class="visible-xs">
+                                    <div class="rows col-md-12 nav-tab-prioritas dropdown dropdown-text smaller" style="margin-bottom:1em">
+                                       
+                                        <a class="bttn-dropdown smaller" href="#" role="button" id="tahunan-home" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-circle" aria-hidden="true"></i> Sektor Air</a>
+                                        <div class="dropdown-menu penurunan-emisi-dropdown" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 27px, 0px);">
+                                            <a class="dropdown-item smaller"  onclick="return openTab(event, 'Kelautan')">Kelautan</a>
+                                            <a class="dropdown-item smaller" onclick="return openTab(event, 'Pesisir')">Pesisir</a>
+                                            <a class="dropdown-item smaller" onclick="return openTab(event, 'Pertanian')">Pertanian</a>
+                                            <a class="dropdown-item smaller"  onclick="return openTab(event, 'Kesehatan')">Kesehatan</a>
+
+                                        </div>
+                                        
+                                    </div>
+                                </div> 
+                                <nav class="tab">
+                                    <div class="hidden-xs">
+                                        <ul class="tabMenu">
+                                            <li><a class="tablinks activeTab" onclick=" return openTab(event, 'Air')" ><span><img class="img-target-icon" src="img/air.png"></span> Air</a></li>
+                                            <li><a class="tablinks" onclick="return openTab(event, 'Kelautan')">  <span><img class="img-target-icon" src="img/lautan.png"></span> Kelautan</a></li>
+                                            <li><a class="tablinks" onclick="return openTab(event, 'Pesisir')"><span><img class="img-target-icon" src="img/pesisir.png"></span> Pesisir</a></li>
+                                            <li><a class="tablinks" onclick="return openTab(event, 'Pertanian')"><span><img class="img-target-icon" src="img/tani.png"></span> Pertanian</a></li>
+                                            <li><a class="tablinks lastChild" onclick="return openTab(event, 'Kesehatan')"><span><img class="img-target-icon" src="img/sehat.png"></span> Kesehatan</a></li>
+                                        </ul>   
+                                    </div>
+                                </nav>
+                                <div id="Air" class="tabContent default">
+                                    <div class="content-detail-dashboard">
+                                        <div id="tabs2" class="scroll_tabs_theme_light nav nav-tabs table-tab-wrapper padding tabbable" role="tablist">
+                                            <span class="nav-item">
+                                                <a class="nav-link fontq active" id="rpjmn-prk-tab" data-toggle="tab" href="#rpjmn-prk" role="tab" aria-controls="rpjmn-prk" aria-selected="true">Semua Kategori</a>
+                                            </span>
+                                            <span class="nav-item">
+                                                <a class="nav-link fontq" id="rpjmn-prk-tab" data-toggle="tab" href="#rpjmn-prk" role="tab" aria-controls="rpjmn-prk" aria-selected="true">Bangunan Penampungan Air</a>
+                                            </span>
+                                            <span class="nav-item">
+                                                <a class="nav-link fontq" id="rpjmn-prk-tab" data-toggle="tab" href="#rpjmn-prk" role="tab" aria-controls="rpjmn-prk" aria-selected="true">Rehabilitasi Daerah Tangkapan Air</a>
+                                            </span>
+                                            <span class="nav-item">
+                                                <a class="nav-link fontq" id="rpjmn-prk-tab" data-toggle="tab" href="#rpjmn-prk" role="tab" aria-controls="rpjmn-prk" aria-selected="true">Teknologi Penambahan Debit Air</a>
+                                            </span>
+                                            <span class="nav-item">
+                                                <a class="nav-link fontq" id="rpjmn-prk-tab" data-toggle="tab" href="#rpjmn-prk" role="tab" aria-controls="rpjmn-prk" aria-selected="true">Pencegahan Kehilangan Air</a>
+                                            </span>
+                                            <span class="nav-item">
+                                                <a class="nav-link fontq" id="rpjmn-prk-tab" data-toggle="tab" href="#rpjmn-prk" role="tab" aria-controls="rpjmn-prk" aria-selected="true">Pencegahan...</a>
+                                            </span>
+                                            <!-- <ul class="nav nav-tabs table-tab-wrapper padding tabbable" id="table-tabs" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="rpjmn-prk-tab" data-toggle="tab" href="#rpjmn-prk" role="tab" aria-controls="rpjmn-prk" aria-selected="true">Semua Kategori</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="ndc-tab" data-toggle="tab" href="#ndc" role="tab" aria-controls="ndc" aria-selected="false">Bangunan Penampung Air</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="ran-grks-tab" data-toggle="tab" href="#ran-grks" role="tab" aria-controls="ran-grks" aria-selected="false">Rehabilitasi Daerah Tangkapan Air</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="perbandingan-tab" data-toggle="tab" href="#perbandingan" role="tab" aria-controls="perbandingan" aria-selected="false">Teknologi Penambahan Debit Air</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="pencegahan-tab" data-toggle="tab" href="#pencegahan" role="tab" aria-controls="pencegahan" aria-selected="false">Pencegahan Kehilangan Air</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="pencegahan-tab" data-toggle="tab" href="#pencegahan" role="tab" aria-controls="pencegahan" aria-selected="false">Pencegahan Kehilangan Air</a>
+                                                </li>
+                                                 <li class="nav-item">
+                                                    <a class="nav-link" id="pencegahan-tab" data-toggle="tab" href="#pencegahan" role="tab" aria-controls="pencegahan" aria-selected="false">Pencegahan Kehilangan Air</a>
+                                                </li>
+                                                 <li class="nav-item">
+                                                    <a class="nav-link" id="pencegahan-tab" data-toggle="tab" href="#pencegahan" role="tab" aria-controls="pencegahan" aria-selected="false">Pencegahan Kehilangan Air</a>
+                                                </li>
+                                                 <li class="nav-item">
+                                                    <a class="nav-link" id="pencegahan-tab" data-toggle="tab" href="#pencegahan" role="tab" aria-controls="pencegahan" aria-selected="false">Pencegahan Kehilangan Air</a>
+                                                </li>
+                                            </ul> -->
+                                        </div>
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="rpjmn-prk" role="tabpanel" aria-labelledby="rpjmn-prk-tab">
+                                                <div class="rows sumber-data-panel">
+                                                    <h4 class="title biru" style="color: #4B8EE1">Deskripsi aksi Ketahanan Iklim </h4>
+                                                    <p class="deskripsi" style="color: #4d4d4d">Euismod non, viver   ra consequat leo dignissim velit. Sit dolor lacus sit vest   ibulum enim amet, volutpat, rutrum adipiscing. In vitae at interdum volutpat sit ut. Sit lobort   is bibendum convallis vitae sagitt   is, nisi, sapien tr   ist   ique cursus. Est in ut blandit sed euismod et. Sed tr   ist   ique vest   ibulum ac laoreet ac. Vel commodo id tempor est quam lorem. Nunc cum id et ac donec nunc sem at. Nibh pulvinar proin netus faucibus non dignissim mi. Or   nare libero lacus, enim id gravida sagitt   is. Leo maur   is purus nulla sed neque enim. Consectetur t   incidun</p>
+                                                </div>
+
+                                                <div class="rows">
+                                                    <h4 class="title">Sasaran Dampak </h4>
+                                                     <p class="deskripsi" style="color: #8e8e8e">Euismod non, viver   ra consequat leo dignissim velit. Sit dolor lacus sit vest   ibulum enim amet, volutpat, rutrum adipiscing. In vitae at interdum volutpat sit ut. Sit lobort   is bibendum convallis vitae sagitt   is, nisi, sapien tr   ist   ique cursus. Est in ut blandit sed euismod et. Sed tr   ist   ique vest   ibulum ac laoreet ac. Vel commodo id tempor est quam lorem. Nunc cum id et ac donec nunc sem at. Nibh pulvinar proin netus faucibus non dignissim mi. Or   nare libero lacus, enim id gravida sagitt   is. Leo maur   is purus nulla sed neque enim. Consectetur t   incidun</p>
+
+                                                    <h4 class="title">Pemantauan/Pelaporan Aksi </h4>
+                                                     <p class="deskripsi" style="color: #8e8e8e">Euismod non, viver   ra consequat leo dignissim velit. Sit dolor lacus sit vest   ibulum enim amet, volutpat, rutrum adipiscing. In vitae at interdum volutpat sit ut. Sit lobort   is bibendum convallis vitae sagitt   is, nisi, sapien tr   ist   ique cursus. Est in ut blandit sed euismod et. Sed tr   ist   ique vest   ibulum ac laoreet ac. Vel commodo id tempor est quam lorem. Nunc cum id et ac donec nunc sem at. Nibh pulvinar proin netus faucibus non dignissim mi. Or   nare libero lacus, enim id gravida sagitt   is. Leo maur   is purus nulla sed neque enim. Consectetur t   incidun</p>
+
+
+                                                     <h4 class="title">Pemantauan/Pelaporan Aksi </h4>
+                                                     <p class="deskripsi" style="color: #8e8e8e">Euismod non, viver   ra consequat leo dignissim velit. Sit dolor lacus sit vest   ibulum enim amet, volutpat, rutrum adipiscing. In vitae at interdum volutpat sit ut. Sit lobort   is bibendum convallis vitae sagitt   is, nisi, sapien tr   ist   ique cursus. Est in ut blandit sed euismod et. Sed tr   ist   ique vest   ibulum ac laoreet ac. Vel commodo id tempor est quam lorem. Nunc cum id et ac donec nunc sem at. Nibh pulvinar proin netus faucibus non dignissim mi. Or   nare libero lacus, enim id gravida sagitt   is. Leo maur   is purus nulla sed neque enim. Consectetur t   incidun</p>
+
+                                                     <h4 class="title">Konsep Metodologi </h4>
+                                                     <p class="deskripsi" style="color: #8e8e8e"> Euismod non, viver   ra consequat leo dignissim velit. Sit dolor lacus sit vest   ibulum enim amet, volutpat, rutrum adipiscing. In vitae at interdum volutpat sit ut. Sit lobort   is bibendum convallis vitae sagitt   is, nisi, sapien tr   ist   ique cursus. Est in ut blandit sed euismod et. Sed tr   ist   ique vest   ibulum ac laoreet ac. Vel commodo id tempor est quam lorem. Nunc cum id et ac donec nunc sem at. Nibh pulvinar proin netus faucibus non dignissim mi. Or   nare libero lacus, enim id gravida sagitt   is. Leo maur   is purus nulla sed neque enim. Consectetur t   incidun</p>
+
+                                                </div>
+                                                    <h4 class="title margin-botom">Contoh Aksi dalam Kategori</h4>
+                                                    <table id="aksi-terkait-detail" class="custom-table display dataTable no-footer" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th width="240">Nama Aksi</th>
+                                                                <th width="140">Indikator Keluaran</th>
+                                                                <th width="60">Klaster</th>
+                                                                <th width="60">Pelaksana</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                               
+                                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                                <td>MW</td>
+                                                                <td>Kem...Energi</td>
+                                                               
+                                                            </tr>
+                                                            <tr>
+                                                               
+                                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                                <td>MW</td>
+                                                                <td>Kem...Energi</td>
+                                                               
+                                                            </tr>
+                                                            <tr>
+                                                                
+                                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                                <td>MW</td>
+                                                                <td>Kem...Energi</td>
+                                                               
+                                                            </tr>
+                                                            <tr>
+                                                               
+                                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                                <td>MW</td>
+                                                                <td>Kem...Energi</td>
+                                                               
+                                                            </tr>
+                                                            <tr>
+                                                                
+                                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                                <td>MW</td>
+                                                                <td>Kem...Energi</td>
+                                                               
+                                                            </tr>
+                                                            <tr>
+                                                               
+                                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                                <td>MW</td>
+                                                                <td>Kem...Energi</td>
+                                                               
+                                                            </tr>
+                                                            <tr>
+                                                               
+                                                                <td>PEMBANGUNAN RENDAH KARBON</td>
+                                                                <td>Persentase penurunan emisi GRK terhadap...</td>
+                                                                <td>MW</td>
+                                                                <td>Kem...Energi</td>
+                                                               
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <ul class="pagination" style="justify-content: center; margin-top: 20px;">
+                                                        <li class="page-item">
+                                                            <a class="page-link active" href="#">1</a>
+                                                        </li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">64</a></li>
+                                                    </ul>
+                                                </div>
+                                            <div class="tab-pane fade" id="ndc" role="tabpanel" aria-labelledby="ndc-tab">...</div>
+                                            <div class="tab-pane fade" id="ran-grks" role="tabpanel" aria-labelledby="ran-grks-tab">...</div>
+                                            <div class="tab-pane fade" id="perbandingan" role="tabpanel" aria-labelledby="perbandingan-tab">...</div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                               <!--  end tab panel -->
+                                <div id="Kelautan" class="tabContent"></div>
+                                <div id="Pesisir" class="tabContent"></div>
+                                <div id="Pertanian" class="tabContent"></div>
+                                <div id="Kesehatan" class="tabContent"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-prioritas wrapper-detail-dashboard">
+                                        
+                        <div class="tabs-table-detail-dashboard">
+
+                          <!--  start tab panel prioritas -->
+                            <div class="tab-content" id="top_prioritas">
+                                <div class="row col-md-12 hidden-xs">
+                                     <div class="col-md-6">
+                                           <p class="prioritas-title">Kajian Sektoral</p>
+                                           <h2 class="title-kontribusi">Kabupaten Aceh Temiang, Aceh </h2>
+                                     </div>
+                                      <div class="col-md-6 text-right">
+                                           <p class="prioritas-title">Kategori Kerentanan Sektor Air</p>
+                                           <h2 class="title-kontribusi-top"><span>Top Prioritas </span></h2>
+                                     </div>
+                                    
+                                     
+                                </div>
+                               
+                                <div class="panel-status visible-xs"> 
+                                    <div class="row col-md-12">
+                                         <div class="col-md-6">
+                                               <p class="prioritas-title">Kategori Kerentanan Sektor Air<p>
+                                         </div>
+                                          <div class="col-md-6">
+                                               <span class="pills-status final">Top Prioritas</span>
+                                         </div>                       
+                                    </div>
+                                </div>
+
+                                    <div class="rows sumber-data-panel">
+                                     <div class="panel-white-detail">
+
+
+                                        <div class="row">
+                                          <h3 class="col-md-12 prioritas-header">Profil Potensi Bahaya</h3>
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/air.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Tingkat Penurunan ketersediaan Air  <b><i class="fa fa-info" data-tooltip="Tingkat Penurunan ketersediaan Air "><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    <div class="col-6 left">
+                                                     <label class="prirotas_yellow">Sedang</label> 
+                                                    </div>
+                                                    <div class="col-6 right">
+                                                    <ul class="base-timeline">
+
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item base-timeline__item--active"> 
+                                                             <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                    </ul>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/index_kerentanan.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Tingkat Potensi Kekeringan  <b><i class="fa fa-info" data-tooltip="Tingkat Potensi Kekeringan"><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    <div class="col-6 left">
+                                                     <label class="prirotas_green">Sangat Tinggi</label> 
+                                                    </div>
+                                                    <div class="col-6 right">
+                                                    <ul class="base-timeline">
+
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                      
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                          <li class="base-timeline__item 
+                                                     base-timeline__item--active"> <span class="base-timeline__summary-text"></span></li>
+                                                    </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                           
+                                     </div>
+                                   <!--   end white -->
+                                      <div class="panel-white-detail">
+
+
+                                        <div class="row">
+                                          <h3 class="col-md-12 prioritas-header">Profil Kerentanan</h3>
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/air.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Luas Hutan & Rawa  <b><i class="fa fa-info" data-tooltip="Luas Hutan & Rawa "><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    <div class="col-6 left">
+                                                     <label class="prirotas_yellow">Sedang</label> 
+                                                    </div>
+                                                    <div class="col-6 right">
+                                                    <ul class="base-timeline">
+
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item base-timeline__item--active"> 
+                                                             <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                    </ul>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/index_kerentanan.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Indeks Kerentanan Banjir  <b><i class="fa fa-info" data-tooltip="Indeks Kerentanan Banjir"><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    <div class="col-6 left">
+                                                     <label class="prirotas_green">Sangat Tinggi</label> 
+                                                    </div>
+                                                    <div class="col-6 right">
+                                                    <ul class="base-timeline">
+
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                      
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                          <li class="base-timeline__item 
+                                                     base-timeline__item--active"> <span class="base-timeline__summary-text"></span></li>
+                                                    </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/sidik.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Tingkat Kerentanan SIDIK  <b><i class="fa fa-info" data-tooltip="Tingkat Kerentanan SIDIK "><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    
+                                                     <h6 class="prirotas_green">Tidak rentan</h6> 
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                     </div>
+
+                                     <!--   end white -->
+                                      <div class="panel-white-detail">
+
+
+                                        <div class="row">
+                                          <h3 class="col-md-12 prioritas-header">Profil Resiko</h3>
+                                        
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/bnpb.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Tingkat Resiko IRBI <b><i class="fa fa-info" data-tooltip="Tingkat Resiko IRBI"><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    
+                                                     <h6 class="prirotas_green">Tidak rentan</h6> 
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                           
+                                          <!--   end white -->
+
+                                     
+                                    </div>  
+                                </div>
+                            </div>
+
+
+                            <!--  end tab panel prioritas -->
+                            <!--  start tab panel prioritas -->
+                            <div class="tab-content" id="super_prioritas">
+                                <div class="row col-md-12 hidden-xs">
+                                     <div class="col-md-6">
+                                           <p class="prioritas-title">Kajian Sektoral</p>
+                                           <h2 class="title-kontribusi">Kabupaten Aceh Temiang, Aceh </h2>
+                                     </div>
+                                      <div class="col-md-6 text-right">
+                                           <p class="prioritas-title">Kategori Kerentanan Sektor Air</p>
+                                           <h2 class="title-kontribusi-super"><span>Super Prioritas </span></h2>
+                                     </div>
+                                </div>
+                                <div class="panel-status visible-xs"> 
+                                    <div class="row col-md-12">
+                                         <div class="col-md-6">
+                                               <p class="prioritas-title">Kategori Kerentanan Sektor Air<p>
+                                         </div>
+                                          <div class="col-md-6">
+                                               <span class="pills-status verified">Super Prioritas</span>
+                                         </div>                       
+                                    </div>
+                                </div>
+
+                                    <div class="rows sumber-data-panel">
+                                     <div class="panel-white-detail">
+
+
+                                        <div class="row">
+                                          <h3 class="col-md-12 prioritas-header">Profil Potensi Bahaya</h3>
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/air.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Tingkat Penurunan ketersediaan Air  <b><i class="fa fa-info" data-tooltip="Tingkat Penurunan ketersediaan Air "><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    <div class="col-6 left">
+                                                     <label class="prirotas_yellow">Sedang</label> 
+                                                    </div>
+                                                    <div class="col-6 right">
+                                                    <ul class="base-timeline">
+
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item base-timeline__item--active"> 
+                                                             <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                    </ul>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/index_kerentanan.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Tingkat Potensi Kekeringan  <b><i class="fa fa-info" data-tooltip="Tingkat Potensi Kekeringan"><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    <div class="col-6 left">
+                                                     <label class="prirotas_green">Sangat Tinggi</label> 
+                                                    </div>
+                                                    <div class="col-6 right">
+                                                    <ul class="base-timeline">
+
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                      
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                          <li class="base-timeline__item 
+                                                     base-timeline__item--active"> <span class="base-timeline__summary-text"></span></li>
+                                                    </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                           
+                                     </div>
+                                   <!--   end white -->
+                                      <div class="panel-white-detail">
+
+
+                                        <div class="row">
+                                          <h3 class="col-md-12 prioritas-header">Profil Kerentanan</h3>
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/air.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Luas Hutan & Rawa  <b><i class="fa fa-info" data-tooltip="Luas Hutan & Rawa "><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    <div class="col-6 left">
+                                                     <label class="prirotas_yellow">Sedang</label> 
+                                                    </div>
+                                                    <div class="col-6 right">
+                                                    <ul class="base-timeline">
+
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item base-timeline__item--active"> 
+                                                             <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                    </ul>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/index_kerentanan.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Indeks Kerentanan Banjir  <b><i class="fa fa-info" data-tooltip="Indeks Kerentanan Banjir"><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    <div class="col-6 left">
+                                                     <label class="prirotas_green">Sangat Tinggi</label> 
+                                                    </div>
+                                                    <div class="col-6 right">
+                                                    <ul class="base-timeline">
+
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                      
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                          <li class="base-timeline__item 
+                                                     base-timeline__item--active"> <span class="base-timeline__summary-text"></span></li>
+                                                    </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/sidik.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Tingkat Kerentanan SIDIK  <b><i class="fa fa-info" data-tooltip="Tingkat Kerentanan SIDIK "><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    
+                                                     <h6 class="prirotas_green">Tidak rentan</h6> 
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                     </div>
+
+                                     <!--   end white -->
+                                      <div class="panel-white-detail">
+
+
+                                        <div class="row">
+                                          <h3 class="col-md-12 prioritas-header">Profil Resiko</h3>
+                                        
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/bnpb.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Tingkat Resiko IRBI <b><i class="fa fa-info" data-tooltip="Tingkat Resiko IRBI"><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="kanan">
+                                                     <h6 class="prirotas_yellow">Tinggi</h6> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+
+
+                            <!--  end tab panel prioritas -->
+                            <!--  start tab panel prioritas -->
+                            <div class="tab-content" id="prioritas">
+                                <div class="row col-md-12  hidden-xs">
+                                     <div class="col-md-6">
+                                           <p class="prioritas-title">Kajian Sektoral</p>
+                                           <h2 class="title-kontribusi">Kabupaten Aceh Temiang, Aceh </h2>
+                                     </div>
+                                      <div class="col-md-6 text-right">
+                                           <p class="prioritas-title">Kategori Kerentanan Sektor Air</p>
+                                           <h2 class="title-kontribusi-prior"><span>Prioritas </span></h2>
+                                     </div>
+                                    
+                                     
+                                </div>
+                                <div class="panel-status visible-xs"> 
+                                    <div class="row col-md-12">
+                                         <div class="col-md-6">
+                                               <p class="prioritas-title">Kategori Kerentanan Sektor Air<p>
+                                         </div>
+                                          <div class="col-md-6">
+                                               <span class="pills-status revisi">Prioritas</span>
+                                         </div>                       
+                                    </div>
+                                </div>
+
+                                    <div class="rows sumber-data-panel">
+                                     <div class="panel-white-detail">
+
+
+                                        <div class="row">
+                                          <h3 class="col-md-12 prioritas-header">Profil Potensi Bahaya</h3>
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/air.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Tingkat Penurunan ketersediaan Air  <b><i class="fa fa-info" data-tooltip="Tingkat Penurunan ketersediaan Air "><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    <div class="col-6 left">
+                                                     <label class="prirotas_yellow">Sedang</label> 
+                                                    </div>
+                                                    <div class="col-6 right">
+                                                    <ul class="base-timeline">
+
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item base-timeline__item--active"> 
+                                                             <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                    </ul>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/index_kerentanan.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Tingkat Potensi Kekeringan  <b><i class="fa fa-info" data-tooltip="Tingkat Potensi Kekeringan"><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    <div class="col-6 left">
+                                                     <label class="prirotas_green">Sangat Tinggi</label> 
+                                                    </div>
+                                                    <div class="col-6 right">
+                                                    <ul class="base-timeline">
+
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                      
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                          <li class="base-timeline__item 
+                                                     base-timeline__item--active"> <span class="base-timeline__summary-text"></span></li>
+                                                    </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                           
+                                     </div>
+                                   <!--   end white -->
+                                      <div class="panel-white-detail">
+
+
+                                        <div class="row">
+                                          <h3 class="col-md-12 prioritas-header">Profil Kerentanan</h3>
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/air.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Luas Hutan & Rawa  <b><i class="fa fa-info" data-tooltip="Luas Hutan & Rawa "><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    <div class="col-6 left">
+                                                     <label class="prirotas_yellow">Sedang</label> 
+                                                    </div>
+                                                    <div class="col-6 right">
+                                                    <ul class="base-timeline">
+
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item base-timeline__item--active"> 
+                                                             <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                    </ul>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/index_kerentanan.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Indeks Kerentanan Banjir  <b><i class="fa fa-info" data-tooltip="Indeks Kerentanan Banjir"><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    <div class="col-6 left">
+                                                     <label class="prirotas_green">Sangat Tinggi</label> 
+                                                    </div>
+                                                    <div class="col-6 right">
+                                                    <ul class="base-timeline">
+
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                      
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                        <li class="base-timeline__item">
+                                                            <span class="base-timeline__summary-text"></span>
+                                                        </li>
+                                                          <li class="base-timeline__item 
+                                                     base-timeline__item--active"> <span class="base-timeline__summary-text"></span></li>
+                                                    </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/sidik.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Tingkat Kerentanan SIDIK  <b><i class="fa fa-info" data-tooltip="Tingkat Kerentanan SIDIK "><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    
+                                                     <h6 class="prirotas_green">Tidak rentan</h6> 
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                     </div>
+
+                                     <!--   end white -->
+                                      <div class="panel-white-detail">
+
+
+                                        <div class="row">
+                                          <h3 class="col-md-12 prioritas-header">Profil Resiko</h3>
+                                        
+                                            <div class="col-md-6">
+                                                <div class="rows">
+                                                    <div class="left">
+                                                         <div><img class="img-target-icon" src="img/bnpb.png"></div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <h5 class="margin-5">Tingkat Resiko IRBI <b><i class="fa fa-info" data-tooltip="Tingkat Resiko IRBI"><img src="img/info-icon.svg"></i></b></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="kanan">
+                                                    
+                                                   <h6 class="prirotas_yellow">Tinggi</h6> 
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                           
+                                          <!--   end white -->
+
+                                     
+                                    </div>  
+                                </div>
+                            </div>
+
+
+                            <!--  end tab panel prioritas -->
+                        </div>
+                    </div>
+
+
+                    
+                  
+
+
+
+
+
+
+                    
+                    <div class="footer">
+                        <h3>Copyright 2019 Bappenas - all rights Reserved</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<div class="modal" id="sort-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="rows content-sort">
+                <h2>Sort</h2>
+                <span><a href="javascript:void(0)" class="close" data-dismiss="modal"><img src="img/close-blue.svg"></a></span>
+                <div class="sort-rencana-aksi">
+                    <h3>Nasional</h3>
+                    <ul>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li>
+                       <li><a href="#">Aceh</a></li> 
+                    </ul>
+                </div>
+                <div class="sort-rencana-aksi">
+                    <h3>Semua Sektor</h3>
+                    <ul>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li>
+                       <li><a href="#">Sektor Limbah</a></li> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#tabs2').scrollTabs();
+    });
+</script>
+<script type="text/javascript">
+
+$(document).on('click', '.blue', function() {
+   $(this).toggleClass('aktif');
+})
+
+$(document).ready(function() {
+    
+    $('[data-toggle="toggle"]').change(function(){
+        $(this).parents().next('.hide').toggle();
+    });
+});
+</script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<!-- <script src="js/index.js"></script> -->
+<script src="js/jquery.scrolltabs.js"></script>
+<script src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript">
+    var backgroundimage;
+    backgroundimage = '<img src="img/right-arrow.svg" style="height: 30px; width: 30px; margin-left: -16px;">';
+    $("#closeNav").on('click', function(){
+        $(".sidebar-admin").css({
+            width: '50px'
+        });
+        $("#closeNav").hide();
+        $(".formfilter").hide();
+        document.getElementById('openNav').innerHTML = (backgroundimage);
+        // document.getElementsByClassName("content-admin").style.marginLeft= "0";
+        $(".content-admin").css({
+            marginLeft: '50px',
+            width: 'auto'
+        });
+    });
+
+    $("#openNav").on('click', function(){
+        $(".sidebar-admin").css({
+            width: '285px'
+        });
+        $(".content-admin").css({
+            marginLeft: '285px'
+        });
+        $(".formfilter").show();
+        $("#closeNav").show();
+        document.getElementById('openNav').innerHTML = "";
+    });
+</script>
+<script type="text/javascript">
+    var hidWidth;
+    var scrollBarWidths = 60;
+
+    var widthOfList = function(){
+      var itemsWidth = 0;
+      $('.list li').each(function(){
+        var itemWidth = $(this).outerWidth();
+        itemsWidth+=itemWidth;
+      });
+      return itemsWidth;
+    };
+
+    var widthOfHidden = function(){
+      return (($('.wrapper').outerWidth())-widthOfList()-getLeftPosi())-scrollBarWidths;
+    };
+
+    var getLeftPosi = function(){
+      return $('.list').position().left;
+    };
+
+    var reAdjust = function(){
+      if (($('.wrapper').outerWidth()) < widthOfList()) {
+        $('.scroller-right').show();
+      }
+      else {
+        $('.scroller-right').show();
+      }
+      
+      if (getLeftPosi()<0) {
+        $('.scroller-left').show();
+      }
+      else {
+        $('.item').animate({left:"-="+getLeftPosi()+"px"},'slow');
+        $('.scroller-left').show();
+      }
+    }
+
+    reAdjust();
+
+    $(window).on('resize',function(e){  
+        reAdjust();
+    });
+
+    $('.scroller-right').click(function() {
+      
+      $('.scroller-left').fadeIn('slow');
+      $('.scroller-right').fadeOut('slow');
+      
+      $('.list').animate({left:"+="+widthOfHidden()+"px"},'slow',function(){
+
+      });
+    });
+
+    $('.scroller-left').click(function() {
+      
+        $('.scroller-right').fadeIn('slow');
+        $('.scroller-left').fadeOut('slow');
+      
+        $('.list').animate({left:"-="+getLeftPosi()+"px"},'slow',function(){
+        
+        });
+    });    
+</script>
+
+<script type="text/javascript">
+$(function(){
+    
+$("#table-aksi-list tbody tr td").click(function(){
+    
+    event.preventDefault();
+        $('#table-aksi-list tbody tr td').removeClass('current');
+        $(this).addClass("current");
+        var tab = $(this).parent().attr("data-tab");
+        $('.tab-content').hide();
+        $('#' + tab).fadeIn();
+    });
+});
+
+var map = L.map('map').setView([-4.45, 119.80], 5);
+
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+        'Imagery Â© <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox/light-v9',
+    tileSize: 512,
+    zoomOffset: -1
+}).addTo(map);
+var geojsonLayer = new L.geoJson.ajax("tingkatanwilayah_kabupaten_kota.geojson");
+geojsonLayer.addTo(map);
+
+
+
+function openTab(evt, tabName) {
+  // Declare all variables
+  var i, tabContent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabContent = document.getElementsByClassName("tabContent");
+  for (i = 0; i < tabContent.length; i++) {
+      tabContent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" activeTab", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " activeTab";
+  return true;
+}
+</script>
+
+<script type="text/javascript">
+    var colors = Highcharts.getOptions().colors;
+
+Highcharts.chart('container', {
+    chart: {
+        type: 'spline'
+    },
+
+    legend: {
+        symbolWidth: 40
+    },
+
+    yAxis: {
+        title: {
+            text: 'PDB (Rp ribu triliyun)'
+        }
+    },
+
+    xAxis: {
+        // title: {
+        //     text: 'Tahun'
+        // },
+        accessibility: {
+            description: 'Time from December 2010 to September 2019'
+        },
+        categories: ['2010', '2012', '2014', '2015', '2017', '2019']
+    },
+
+    tooltip: {
+        valueSuffix: ''
+    },
+    legend: {
+        enabled: false
+    },
+
+
+    series: [
+        {
+            
+            name: '',
+            data: [34, 43, 51, 41, 64, 72],
+            color: colors[2],
+            showInLegend: false,
+            accessibility: {
+                description: '2019'
+            }
+        }, {
+            name: '',
+            data: [69, 63, 63, 43, 66, 61],
+            color: colors[0]
+        }, {
+            name: '',
+            data: [20, 30, 36, 30, 39, 47],
+            color: colors[1]
+        }, {
+            name: '',
+            data: [null, null, null, null, 21, 30],
+            color: colors[9]
+        }, {
+            name: '',
+            data: [6, 6, 5, 27, 6, 5],
+            color: colors[5]
+        }, {
+            name: '',
+            data: [42, 51, 54, 45, 20, 15],
+            color: colors[3]
+        }
+    ],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 550
+            },
+            chartOptions: {
+                legend: {
+                    itemWidth: 150
+                },
+                xAxis: {
+                    categories: ['2010', '2012', '2014', '2015', '2017', '2019']
+                },
+                yAxis: {
+                    title: {
+                        enabled: false
+                    },
+                    labels: {
+                        format: '{value}'
+                    }
+                }
+            }
+        }]
+    }
+});
+
+</script>
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2({
+                minimumResultsForSearch: -1
+        });
+    });
+    $(document).ready(function() {
+        $('.js-example-basic-search').select2();
+    });
+</script>
+<script>
+</script>
+<script type="text/javascript">
+    $('.close-about-btn').click( function() {
+        $(".wrapper-pemenuhan-about").toggleClass("closed");
+    } );
+</script>
+<script type="text/javascript">
+    $('#table-prk').dataTable( {
+        "ordering": false,
+        "paging":   false,
+        "info":     false,
+        "lengthChange": false,
+       
+         language: {
+            searchPlaceholder: "Cari program atau indikator",
+            search: "" 
+        }
+    } );
+
+
+
+    $('#table-rpjmnk').dataTable( {
+        "ordering": false,
+        "paging":   false,
+        "info":     false,
+        "lengthChange": false,
+   
+         language: {
+            searchPlaceholder: "Cari program atau indikator",
+            search: "" 
+        }
+    } );
+
+    $('#table-aksi-list').dataTable( {
+        "ordering": false,
+        "paging":   false,
+        "info":     false,
+        "lengthChange": false,
+   
+         language: {
+            searchPlaceholder: "Cari program atau indikator",
+            search: "" 
+        }
+    } );
+
+
+    
+
+var table = $('#table-rpjmnk').DataTable();
+ 
+// #myInput is a <input type="text"> element
+$('#myInput').on( 'keyup', function () {
+    table.search( this.value ).draw();
+} );
+
+
+</script>
+<script>
+    $(document).ready(function(){
+        $('#burger-menu').click(function(){
+            $(this).toggleClass('open');
+        });
+    });
+    (function () {
+        $('#burger-menu').on('click', function() {
+            $('body').toggleClass('overlay-mobile-menu');
+        var mobileNav = $('.menu-nav');
+        mobileNav.toggleClass('hide show');
+        })
+    })();
+</script>
+</html>

@@ -1,0 +1,717 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<title>PEP</title>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/css/bootstrap-reboot.min.css">
+<link rel="stylesheet" type="text/css" href="css/css/swiper.min.css">
+<link rel="stylesheet" type="text/css" href="css/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/css/bootstrap-grid.min.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<link rel ="stylesheet" href ="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+<link rel="stylesheet" type="text/css" href="css/css/pantau_verif.css">
+<link rel="stylesheet" type="text/css" href="css/tooltip.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style type="text/css">
+    .has-error:not(label){
+        border: 1px solid red!important;
+    }
+
+    [data-tab-content] {
+      display: none;
+    }
+
+    .active[data-tab-content] {
+      display: block;
+    }
+
+    label.has-error{
+        color: red!important;
+    }
+</style>
+</head>
+<body>   
+    <div class="wrapper">
+        <div class="header-admin">
+            <div class="header">
+                <a href="#"><img src="img/logo-kementrian-ppn.svg" alt="Logo Kementrian PPN" class="logo-1"></a>
+                <a href="#"><img src="img/logo-prki.svg" alt="Logo PRKI" class="logo-2"></a>
+                <div class="menu-nav dashboard desktop-item">
+                    <ul>
+                        <li><a href="#">Kembali ke Beranda</a></li>
+                        <li class="active"><a href="#">Dashboard</a></li>
+                    </ul>
+                    <span class="login-dashboard"><a href="#"><img src="img/group.svg"></a><span class="notifikasi">1</span></span>
+                </div>
+                <div id="burger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="rows admin-menu menu-nav hide">
+                <div class="dashboard mobile-item">
+                    <ul>
+                        <li><a href="#">Kembali ke Beranda</a></li>
+                        <li class="active"><a href="#">Dashboard</a></li>
+                    </ul>
+                    <span class="login-dashboard"><a href="#"><img src="img/group.svg"></a><span class="notifikasi">1</span>Profile</span>
+                </div>
+                <h3 class="menu-tag-dashboard mobile-item">Menu Dashboard</h3>
+                <div class="dashboard-menu">
+                    <ul>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DASBOR NASIONAL</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">DASBOR DAERAH</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="admin-list-menu">
+                    <ul>
+                        <li class="active-section">
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/note.svg">Perencanaan</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="dashboard-nasional-tambah-rencana.html">Rencana Aksi Nasional (RAN)</a>
+                                    <a class="dropdown-item" href="dashboard-daerah-tambah-rencana.html">Rencana Aksi Daerah (RAD)</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/eye.svg">Pemantauan</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="dashboard-pemantauan-nasional.html">Daftar Aksi Mitigasi</a>
+                                    <a class="dropdown-item" href="dashboard-pemantauan-nasional-table.html">Monitoring Aksi Berulang</a>
+                                    <a class="dropdown-item" href="dashboard-pemantauan-nasional.html">Pantau RPJMN</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/rounded.svg">Evaluasi</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="dashboard-evaluasi-nasional.html">Lihat Analisis Kinerja Capaian</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Lihat Analisis Data Aksi Mitigasi</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Rekap Penurunan Emisi</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Unduh File excel</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/folder.svg">Pelaporan</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Daftar Dokumen Pelaporan</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="other-menu">
+                    <ul>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">E-Learning</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Admin</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content-dashboard">
+            <div class="rows breadcrumb-dashboard desktop-item ul-head">
+                <ul>
+                    <li style="margin-top: 1rem"><a href="#">Pemantauan</a></li>
+                    <li><a href="#">Daftar Aksi Ketahanan Iklim</a></li>
+                    <li><a href="#">Penerapan Car Free Day Desa Kedongan</a></li>
+                </ul>
+            </div>
+            <div class="rows">
+                <div class="rows peta-terkait new-dashboard-page" style="background-color: #fff">
+                    <div id="informasiaksi" data-tab-content class="active">
+                        <h2>Penerapan Car Free Day Desa Kedongan</h2>
+                        <label style="margin-top: 20px; color: #505050; font-size: 12px; font-weight: 500">PELAKSANA</label><br>
+                        <img id="logokementerian" src="img/instansi1.png">
+                        <b id="titlenamakementerian" style="font-size: 16px">Kementerian Perindustrian</b>
+                    </div>
+                </div>
+                <!-- PERLU DILAPORKAN -->
+                <div class="card dilaporkan" style="padding: 35px;">
+                    <h5 class="card_title" style="font-size: 12px; font-weight: 700"><b>Status Pelaporan</b></h5>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img id="icon" style="width: 40px; height: 40px" src="img/statuspelaporan1.png">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 id="titlestatus" style="font-size: 18px; font-weight: 500"><b>Dilaporkan</b></h5>
+                            <label id="subtitlestatus" style="font-size: 14px; font-weight: 400">Belum diperiksa</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="color: #6a6a6a; font-size: 12px; font-weight: 500">PELAPOR</label>
+                        <p id="instansi" style="font-size: 16px;"><b>Kementrian Perindustrian</b></p>
+                    </div>
+                    <div>
+                        <label style="color: #6a6a6a; font-size: 12px; font-weight: 500px">TERAKHIR DI PERBARUI</label>
+                        <p id="tanggal_diperbarui" style="font-size: 16px; font-weight: 500"><b>20 Agustus 2020, 16:00</b></p>
+                    </div>
+                    <div>
+                        <button class="btnubah right" id="ubahdata_dilaporkan" style="font-size: 14px; color: #0D5CAB; margin-top: 10px; cursor: pointer; font-weight: bold">Ubah Data</button>
+                    </div>
+                </div>
+                <!-- PERLU DIREVISI -->
+                <!-- <div class="card dilaporkan" style="padding: 35px; background-color: #FEF4EB">
+                    <h5 class="card_title" style="font-size: 12px; font-weight: 700"><b>Status Pelaporan</b></h5>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img style="width: 40px; height: 40px" src="img/warning.png">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 id="titlestatus" style="color: #BA4C04; font-size: 18px; font-weight: 500;"><b>Perlu Direvisi</b></h5>
+                            <label id="subtitlestatus" style="color: #BA4C04; font-size: 14px; font-weight: 400">2 data perlu direvisi</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="color: #6a6a6a; font-size: 12px; font-weight: 500;">PELAPOR</label>
+                        <p id="instansi" style="font-size: 15px; font-weight: 500"><b>Kementrian Perindustrian</b></p>
+                    </div>
+                    <div>
+                        <label style="color: #6a6a6a">TERAKHIR DI PERBARUI</label>
+                        <p id="tanggal_diperbarui"><b>20 Agustus 2020, 16:00</b></p>
+                    </div>
+                    <div>
+                        <button class="btnubah right" id="btnrevisi" style="font-size: 14px; color: #FFF; background-color: #0D5CAB; margin-top: 10px; cursor: pointer; font-weight: bold">Revisi</button>
+                    </div>
+                </div> -->
+                <!-- PERLU DISETUJUI -->
+                <!-- <div class="card dilaporkan" style="padding: 35px; background-color: #D8F3D9">
+                    <h5 class="card_title" style="font-size: 12px; font-weight: 700"><b>Status Pelaporan</b></h5>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img style="width: 40px; height: 40px" src="img/setuju.png">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 style="color: #006603; margin-top: 10p; font-size: 14px; font-weight: 400"><b>Disetujui</b></h5><br>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="color: #6a6a6a">PELAPOR</label>
+                        <p style="font-size: 12px; font-weight: 500;"><b>Kementrian Perindustrian</b></p>
+                    </div>
+                    <div>
+                        <label style="color: #6a6a6a">TERAKHIR DI PERBARUI</label>
+                        <p><b>20 Agustus 2020, 16:00</b></p>
+                    </div>
+                    <div>
+                        <button class="btnubah right" id="ubahdata_setuju" style="font-size: 14px; color: #0D5CAB; margin-top: 10px; font-weight: bold;">Ubah Data</button>
+                    </div>
+                </div> -->
+                <!-- PERLU FINAL -->
+                <!-- <div class="card dilaporkan" style="padding: 35px; background-color: #D6F1F4">
+                    <h5 class="card_title" style="font-size: 12px; font-weight: 700"><b>Status Pelaporan</b></h5>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img style="width: 40px; height: 40px" src="img/final.png">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 style="color: #005E68; margin-top: 10p; font-size: 14px; font-weight: 400"><b>Final</b></h5><br>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="color: #6a6a6a">PELAPOR</label>
+                        <p style="font-size: 12px; font-weight: 500"><b>Kementrian Perindustrian</b></p>
+                    </div>
+                    <div>
+                        <label style="color: #6a6a6a">TERAKHIR DI PERBARUI</label>
+                        <p><b>20 Agustus 2020, 16:00</b></p>
+                    </div>
+                </div> -->
+                <!-- PERLU TERVERIFIKASI -->
+                <!-- <div class="card dilaporkan" style="padding: 35px; background-color: #ECDDFF">
+                    <h5 class="card_title" style="font-size: 12px; font-weight: 700"><b>Status Pelaporan</b></h5>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img style="width: 40px; height: 40px" src="img/terverifikasi.png">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 style="color: #4C2083; margin-top: 10p; font-size: 14px; font-weight: 400"><b>Final</b></h5><br>;
+                        </div>
+                    </div>
+                    <div>
+                        <label style="color: #6a6a6a">PELAPOR</label>
+                        <p style="font-size: 12px; font-weight: 500;"><b>Kementrian Perindustrian</b></p>
+                    </div>
+                    <div>
+                        <label style="color: #6a6a6a">TERAKHIR DI PERBARUI</label>
+                        <p><b>20 Agustus 2020, 16:00</b></p>
+                    </div>
+                </div> -->
+                <!-- PERLU TERVERIFIKASI AKSI PRK -->
+                <!--<div class="card dilaporkan" style="padding: 35px; background-color: #ECDDFF">
+                    <h5 class="card_title" style="font-size: 12px; font-weight: 700"><b>Status Pelaporan</b></h5>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img style="width: 40px; height: 40px" src="img/terverifikasi.png">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 style="color: #4C2083; margin-top: 10p; font-size: 14px; font-weight: 400"><b>Final</b>
+                            </h5><br>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="color: #6a6a6a">PELAPOR</label>
+                        <p style="font-size: 15px; font-weight: 500"><b>Kementrian Perindustrian</b></p>
+                    </div>
+                    <div>
+                        <label style="color: #6a6a6a">TERAKHIR DI PERBARUI</label>
+                        <p><b>20 Agustus 2020, 16:00</b></p>
+                    </div>
+                    <div>
+                        <button class="btnubah right" id="pantauaksiprk" style="font-size: 14px; color: #FFF; background-color: #0D5CAB; margin-top: 10px; font-weight: bold">Pantau Aksi PRK</button>
+                    </div>
+                </div>!-->
+                <div>
+                    <div class="card1" style="padding: 25px">
+                        <label style="font-size: 14px; color: #4D4D4D; font-size: 12px; font-weight: 700px"><b>POTENSI PENGURANGAN KERUGIAN EKONOMI</b></label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="indikator"></div>
+                                <h2 style="margin-top: 10px; font-size: 24px; font-weight: 500px">10.166,40 <label style="font-size: 12px">IDR</label></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card2" style="padding: 25px">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 style="margin-top: 10px; ; font-family: Circular-Book; font-size: 12px; font-style: normal; font-weight: 700; line-height: 18px; letter-spacing: 0.08em; text-align: left;">CAPAIAN KEGIATAN 
+                                    <label style="font-family: Circular-Book; font-size: 24px; font-style: normal; font-weight: 500; line-height: 32px; letter-spacing: 0em; text-align: left; color: #3CBA39" class="right">98%</label>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card3" style="padding: 25px">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 style="margin-top: 10px; font-family: Circular-Book; font-size: 12px; font-style: normal; font-weight: 700; line-height: 18px; letter-spacing: 0.08em; text-align: left;">REALISASI ANGGARAN 
+                                    <label style="font-family: Circular-Book; font-size: 24px; font-style: normal; font-weight: 500; line-height: 32px; letter-spacing: 0em; text-align: left; color: #E74424" class="right">10%</label>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card4">
+                        <button class="btnubah right" style="font-size: 14px; color: #0D5CAB; height: 50px; font-weight: 700; font-family: Circular-Book; font-style: normal;"><img src="img/download.png" style="width: 24px; height: 24px;"> Unduh PDF</button>
+                    </div>
+                </div>
+                <div class="content-admin dashboard-province">
+                    <form id="pantauVerif" method="POST">
+                        <div class="rows peta-terkait new-dashboard-page">
+                            <div id="informasiaksi" data-tab-content class="active">
+                                <label style="color: #999999; font-size: 12px; font-family: Circular-Book;">INFO AKSI</label>
+                                <!-- INFORMASI AKSI KETAHANAN IKLIM --->
+                                <div class="wrapper-white-panel">
+                                    <div class="rows form-wrapper-dashboard">
+                                        <div class="rows" style="margin-top: 50px">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">SUMBER DATA</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="sd_verif">RKP-APBN</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">TAHUN KEGIATAN</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="thnkegiatan_verif">2020</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">PROGRAM</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500; font-style: normal;" class="program_verif">Program Peningkatan Produksi, Produktivitas dan Mutu Tanaman Pangan</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">KEGIATAN</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="kegiatan_verif">Program Peningkatan Produksi, Produktivitas dan Mutu Tanaman Pangan</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">KRO</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="kro_verif">Penerapan Penanganan DPI</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">RO</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="ro_verif">Pembuatan Sawah Irigasi</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">KOMPONEN</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="komponen_verif">Dukungan Penyelenggara Tugas dan Fungsi Unit</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="rows" style="margin-top: 30px">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">JENIS KEGIATAN</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="jeniskegiatan_verif">Penyedia Jaringan Irigasi</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">SEKTOR</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="sektor_verif">Pertanian-Pertanian</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">KLASTER</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="klaster_verif">Infrastruktur, Tata Kelola</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">TAUTAN DENGAN RPJMN</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #0D5CAB; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="rpjmn_verif">Penurunan potensi kehilangan PDB akibat bahaya iklim di sektor pertanian(persen), Peningkatan luas daerah irigasi teknis (ha)</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">KAITAN TERHADAP SDG</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #0D5CAB;" class="sdg_div_verif">
+                                                    <img id="sdg_verif" src="img/13.png">
+                                                    <img id="sdg_verif" src="img/07.png">
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">HASIL AKHIR</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #0D5CAB; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="klaster_verif">Irigasi perpipaam, irigasi tetes, dan sprinkler</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">DAMPAK AKSI</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #0D5CAB; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="klaster_verif">Meningkatkan efisiensi jaringan irigasi dengan mengurangi tingkat evaporasi, penyerapan air oleh tanah, dan dapat langsung dialirkan ke lahan pertanian yang membutuhkan, serta penghematan ke lahan pertanian yang membutuhkan, serta penghematan air melalui penyiraman yang sesuai dengan kebutuhan.</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="rows ketrelevan">
+                                            <div class="rows form-wrapper-dashboard grid-4" style="padding-top: 40px">
+                                                <label style="color: #7c7c7c; font-size: 12px; font-family: Circular-Book; font-weight: 500">
+                                                    <img src="img/warning-circle.png" style="margin-right: 10px">
+                                                    KETERANGAN
+                                                </label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto" style="padding-top: 40px">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="keterangan_verif">
+                                                    Pembangunan Infrastruktur Air Limbah, Tersedianya sistem pengelolaan air limbah sistem terpusat skala kota (off-site) di 16 Kabupaten/Kota <br><br>
+                                                    <label style="color: #C86100; font-weight: normal; margin-top: 10px">Keterangan tidak relevan</label>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label style="color: #999999; font-size: 12px; font-family: Circular-Book;">CAPAIAN KEGIATAN</label>
+                                <div class="wrapper-white-panel">
+                                    <div class="rows">
+                                        <label class="txtsize">
+                                            Penyedia Jaringan Irigasi
+                                        </label>
+                                        <div class="rows form-wrapper-dashboard" style="margin-top: 60px">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">JENIS AKSI KEGIATAN</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="jenisaksikegiatan_verif">Pertanian</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard" style="margin-top: -20px">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">UNIT TARGET</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="unit_target_verif">Ha</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard" style="margin-top: -20px">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label class="labeltitle">TARGET OUTPUT</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="target_output_verif">550</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard realisasioutput">
+                                            <div class="rows grid-4">
+                                                <label style="font-family: Circular-Book; font-size: 12px; font-style: normal; font-weight: 500; line-height: 15px; letter-spacing: 0em; text-align: left; margin-top: 10px;">
+                                                    <img src="img/warning-circle.png" style="margin-right: 5px">
+                                                    REALISASI OUTPUT
+                                                </label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-auto">
+                                                <label style="color: #4D4D4D; margin-left: -5px; margin-top: 10px; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="realisasi_output_verif">
+                                                    500 <br>
+                                                    <label style="font-family: Circular-Book; color: #C86100; font-size: 14px; font-style: normal; font-weight: 400; line-height: 18px; letter-spacing: 0em; text-align: left; margin-top: 10px">Angka realisasi belum tepat</label>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label style="color: #999999; font-size: 12px">LOKASI DAN DATA TEKNIS</label>
+                                <div class="wrapper-white-panel">
+                                    <div class="rows form-wrapper-dashboard">
+                                        <table id="anggaran_dan_lokasi" class="custom-table display dataTable table-responsive table-hover" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th width="330">Sumber Anggaran</th>
+                                                    <th width="330">Alokasi</th>
+                                                    <th width="330">Realisasi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="border: 1px solid #e7e7e7;">
+                                                <tr style="border-bottom: 1px solid #EAEAEA">
+                                                    <td style="font-size: 12px; height: 45px; font-weight: 400; font-family: Circular-Book;"><a href="#">APBD</a></td>
+                                                    <td style="color: #4D4D4D; font-size: 12px; font-weight: 400; font-family: Circular-Book;">Rp. 101.000.000,00</td>
+                                                    <td style="color: #4D4D4D; font-size: 12px; font-weight: 400; font-family: Circular-Book;">Rp. 101.000.000,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size: 12px; height: 45px; font-weight: 400; font-family: Circular-Book;"><a href="#">APBN</a></td>
+                                                    <td style="color: #4D4D4D; font-size: 12px; font-weight: 400; font-family: Circular-Book;">Rp. 100.000.000,00</td>
+                                                    <td style="color: #4D4D4D; font-size: 12px; font-weight: 400; font-family: Circular-Book;">Rp. 100.000.000,00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="wrapper-white-panel">
+                                    <div class="rows form-wrapper-dashboard">
+                                        <div class="col-md-12 form-group" style="border: 1px solid #ccc; border-radius: 5px; width: 100%; height: 350px" id="map_verif" role="tabpanel_verif" aria-labelledby="map-air-tab-verif"> 
+                                        </div>
+                                    </div>
+                                    <ul class="pagination" style="margin-top: -25px; font-size: 12px; width: 100%">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">LOKASI 1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">LOKASI 2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">LOKASI 3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">LOKASI 4</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">LOKASI 5</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="rows">
+                                        <div class="rows form-wrapper-dashboard grid-prov">
+                                            <label>Provinsi</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-titik2">
+                                            <label>:</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-6">
+                                            <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="thnkegiatan_verif">Jawa Tengah</label>
+                                        </div>
+                                    </div>
+                                    <div class="rows">
+                                        <div class="rows form-wrapper-dashboard grid-prov">
+                                            <label>Kecamatan</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-titik2">
+                                            <label>:</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-6">
+                                            <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="thnkegiatan_verif">Kecamatan di Jateng</label>
+                                        </div>
+                                    </div>
+                                    <div class="rows">
+                                        <div class="rows form-wrapper-dashboard grid-prov">
+                                            <label>Desa</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-titik2">
+                                            <label>:</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-6">
+                                            <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="thnkegiatan_verif">Desa di Jateng</label>
+                                        </div>
+                                    </div><br>
+                                    <div class="rows">
+                                        <div class="rows form-wrapper-dashboard gridle">
+                                            <label>JUMLAH SAWAH TERDAMPAK (Ha)</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-titik2">
+                                            <label>:</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-4">
+                                            <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="thnkegiatan_verif">550</label>
+                                        </div>
+                                    </div>
+                                    <div class="rows">
+                                        <div class="rows form-wrapper-dashboard gridle">
+                                            <label>JUMLAH DEBIT (PER M3)</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-titik2">
+                                            <label>:</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-4">
+                                            <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="thnkegiatan_verif">10</label>
+                                        </div>
+                                    </div>
+                                    <div class="rows">
+                                        <div class="rows form-wrapper-dashboard gridle">
+                                            <label>JUMLAH PETANI (ORANG)</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-titik2">
+                                            <label>:</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-4">
+                                            <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="thnkegiatan_verif">1000</label>
+                                        </div>
+                                    </div>
+                                    <div class="rows">
+                                        <div class="rows form-wrapper-dashboard gridle">
+                                            <label>KONSTANTA</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-titik2">
+                                            <label>:</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-4">
+                                            <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="thnkegiatan_verif">0,706</label>
+                                        </div>
+                                    </div>
+                                    <div class="rows">
+                                        <div class="rows form-wrapper-dashboard gridle">
+                                            <label>POTENSI PENGURANGAN KERUGIAN EKONOMI (IDR)</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-titik2">
+                                            <label>:</label>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-4">
+                                            <label style="color: #4D4D4D; font-size: 16px; font-family: Circular-Book; font-weight: 500" class="thnkegiatan_verif">10.166,40</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label style="color: #999999; font-size: 12px">SUMBER DATA</label>
+                                <div class="wrapper-white-panel">
+                                    <div class="rows form-wrapper-dashboard">
+                                        <div class="rows" style="background-color: #F4F9FD; border-radius: 4px;">
+                                            <div class="grid-2">
+                                                <img src="img/iconbook.png" style="margin: 15px">
+                                            </div>
+                                            <div class="grid-8" style="padding: 23px; height: auto;">
+                                                <label style="color: #0D5CAB; font-weight: 700; font-family: Circular-Book; font-size: 14px;" class="sumber_data_file_verif">[BALI] - Data Percepatan Perhutanan Sosial Provinsi Bali - 2018</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows" style="margin-top: 10px; background-color: #F4F9FD; border-radius: 4px;">
+                                            <div class="grid-2">
+                                                <img src="img/icondoc.png" style="margin: 15px">
+                                            </div>
+                                            <div class="grid-8" style="padding: 20px; height: auto;">
+                                                <label style="color: #0D5CAB; font-weight: 700; font-family: Circular-Book; font-size: 14px;" class="sumber_data_doc_verif">Data Percepatan Perhutanan Bali</label>
+                                                <label style="color: #4D4D4D; font-weight: 400; font-family: Circular-Book; font-size: 12px;" class="size_doc_verif">20kb</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows" style="margin-top: 10px; background-color: #F4F9FD; border-radius: 4px;">
+                                            <div class="grid-2">
+                                                <img src="img/iconlink.png" style="margin: 15px">
+                                            </div>
+                                            <div class="grid-8" style="padding: 23px; height: auto;">
+                                                <label style="color: #0D5CAB; font-weight: 700; font-family: Circular-Book; font-size: 14px;" class="sumber_data_link_verif">www.aksara.org</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <h3>Copyright 2019 Bappenas - all rights Reserved</h3>
+        </div>
+    </div>
+</body>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var map_verif = L.map('map_verif').setView([-8.4522235,115.0599022], 10);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                'Imagery Â© <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/light-v9',
+            tileSize: 512,
+            zoomOffset: -1
+        }).addTo(map_verif);
+        var geojsonLayer = new L.geoJson.ajax("tingkatanwilayah_kabupaten_kota.geojson");
+        geojsonLayer.addTo(map_verif);
+    });
+</script>
+</html>

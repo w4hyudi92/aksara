@@ -1,0 +1,535 @@
+.switch { 
+    position: relative; 
+    display: inline-block; 
+    width: 60px; 
+    height: 26px; 
+} 
+/* Hide default HTML checkbox */ 
+
+.switch input { 
+    display: none; 
+} 
+/* The slider */ 
+
+.sumberdata{
+    margin-left: 15px;
+    background-color: #f5f5f5d1; 
+    border-radius: 10px; 
+    padding: 20px
+}
+
+.tabelmobile{
+    margin-left: 15px;
+    width: 55%;
+}
+
+.tl{
+    color: #f71111; 
+    text-align: right; 
+    margin-right: -170px; 
+    cursor: pointer;
+}
+
+.dt1{
+    margin-left: 0px;
+    font-size: 15px;
+    font-weight: 500px;
+}
+
+.unggahfile{
+    margin-top: 20px; 
+    margin-left: -4px;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.abc{
+    background-color: #f5f5f5d1; 
+    margin-left: 15px; 
+    border-radius: 10px;
+}
+
+.slider { 
+    position: absolute; 
+    cursor: pointer; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background-color: #ccc; 
+    -webkit-transition: .4s; 
+    transition: .4s; 
+} 
+.slider:before { 
+    position: absolute; 
+    content: ""; 
+    height: 20px; 
+    width: 20px; 
+    left: 5px; 
+    bottom: 3px; 
+    background-color: white; 
+    -webkit-transition: .4s; 
+    transition: .4s; 
+} 
+
+input:checked + .slider { 
+    background-color: #2196F3; 
+} 
+
+input:focus + .slider { 
+    box-shadow: 0 0 1px #2196F3; 
+} 
+
+input:checked + .slider:before { 
+    -webkit-transform: translateX(26px); 
+    -ms-transform: translateX(26px); 
+    transform: translateX(26px); 
+} 
+/* Rounded sliders */ 
+
+.slider.round { 
+    border-radius: 34px; 
+} 
+.slider.round:before { 
+    border-radius: 50%; 
+}
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  transform: scale(1.5);
+  padding: 10px;
+}
+.custom-search {
+  position: relative;
+}
+.custom-search-input {
+  width: 100%;
+  padding-right: 100px !important; 
+  box-sizing: border-box;
+}
+.custom-search-botton {
+  position: absolute;
+  right: 3px; 
+  top: 3px;
+  bottom: 3px;
+  line-height: 1 !important;
+  z-index: 4;
+}
+.productholder {
+    width: 32.6%;
+    margin-bottom: 20px;
+    background-color: white; 
+    border-style:solid;
+    border-width: 1px;
+    border-color: #d2d2d2;
+}
+
+.productholder img {
+    display: inline-block;
+    margin: 10px;
+}
+
+.productinfo {
+    display: inline-block;
+    margin: 8px 0;
+    vertical-align: top;
+    width: 200px;
+}
+
+.productinfo input {
+    float: right;
+    margin-top: 20px;
+}
+
+.productprice {
+    width: 50px;
+    float: right;
+    text-align: center;
+}
+
+.nav.nav-tabs {
+    float: left;
+    display: block;
+    margin-right: 20px;
+    border-bottom:0;
+    border-right: 1px solid #ddd;
+    padding-right: 15px;
+}
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    background: #fff;
+    color: #333;
+}
+
+.nav-tabs .nav-link.active {
+    color: #495057;
+    background-color:#F9F7F1 !important;
+    border-color: transparent !important;
+}
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: 0rem!important;
+    border-top-right-radius: 0rem!important;
+}
+.tab-content>.active {
+    display: block;
+    background: #f9f9f9;
+    min-height: 165px;
+}
+.nav.nav-tabs {
+    float: left;
+    display: block;
+    margin-right: 20px;
+    border-bottom: 0;
+    border-right: 1px solid transparent;
+    padding-right: 15px;
+}
+.cjs-padding {
+    height: 500px;
+    padding-bottom: 120px;
+}
+.dataTables_filter { visibility: hidden; display: none;}
+#map {
+        width: 100%;
+        height: 600px;
+}
+
+.btnubah-sdg{
+    border: 1px solid #0D5CAB;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #FFFFFF;
+    display: inline-block;
+    font-family: Circular-Bold;
+    font-size: 10px;
+    /* margin-right: 16px; */
+    padding: 6px 40px;
+}
+
+.btnubahlokasi{
+    border: 1px solid #0D5CAB;
+    color: #0D5CAB;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #FFFFFF;
+    display: inline-block;
+    font-family: Circular-Bold;
+    font-size: 13px;
+    /* margin-right: 16px; */
+    padding: 6px 40px;
+}
+
+.btnubah{
+    border: 1px solid #0D5CAB;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #FFFFFF;
+    display: inline-block;
+    font-family: Circular-Bold;
+    font-size: 10px;
+    /* margin-right: 16px; */
+    padding: 6px 40px;
+}
+
+.icontext{
+    height: 24px;
+    width: 24px;
+}
+
+.btnsimpan{
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #0D5CAB;
+    color: white;
+    display: inline-block;
+    font-family: Circular-Bold;
+    font-size: 10px;
+    /* margin-right: 16px; */
+    padding: 6px 40px;
+}
+
+.btnkembali{
+    border: 1px solid #0D5CAB;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #FFFFFF;
+    display: inline-block;
+    font-family: Circular-Bold;
+    font-size: 10px;
+    /* margin-right: 16px; */
+    padding: 6px 40px;
+}
+
+.btnsimpandisabled{
+    cursor: not-allowed;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #CCC;
+    color: white;
+    display: inline-block;
+    font-family: Circular-Bold;
+    font-size: 10px;
+    /* margin-right: 16px; */
+    padding: 6px 40px;
+}
+
+.label{
+    margin-left: -15px;
+    font-size: 15px;
+    font-weight: 500px;
+}
+
+.labelcolor{
+    color: #4D4D4D;
+}
+
+.isi{
+    margin-left: -15px;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.title{
+    font-size: 1.3rem; 
+    padding-top: 15px;
+}
+
+.lebarnya{
+    width: 58%
+}
+
+.aa{
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    background-color: #fff; 
+    padding: 20px;
+}
+
+
+@media (max-width: 768px){
+     #map {
+        width: 100%;
+        height: 250px;
+     }
+
+     .abc{
+        background-color: #f5f5f5d1; 
+        margin-left: 15px; 
+        border-radius: 10px;
+    }
+
+     .btnubah{
+        border: 1px solid #0D5CAB;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background: #FFFFFF;
+        display: inline-block;
+        font-family: Circular-Bold;
+        font-size: 10px;
+        /* margin-right: 16px; */
+        padding: 12px 24px;
+    }
+
+    .unggahfile{
+        margin-top: 20px; 
+        margin-left: -4px;
+    }
+
+    .sumberdata{
+        margin-left: 15px;
+        background-color: #f5f5f5d1; 
+        border-radius: 10px; 
+        padding: 20px
+    }
+
+    .lebarnya{
+        width: 58%
+    }
+
+    .title{
+        font-weight: bold; 
+        font-size: 1.3rem; 
+        padding-top: 15px;
+    }
+
+}
+
+@media (max-width: 500px){
+    .titlemobile{
+        font-size: 20px;
+    }
+
+    .breadcumb{
+        margin-left: -22px;
+    }
+
+    .lebarnya{
+        width: 100%
+    }
+
+    .aa{
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
+        background-color: #fff; 
+        padding: 20px;
+        width: 60%;
+    }
+
+    .unggahsumber{
+        margin: -20px;
+        width: 250px;
+    }
+
+    .lbr{
+        width: 220px;
+        margin-left: -15px;
+    }
+
+    .abc{
+        background-color: #f5f5f5d1; 
+        margin-left: 15px; 
+        border-radius: 10px;
+        width: 120%;
+    }
+
+    .unggahfile{
+        margin-top: 20px; 
+        margin-left: -4px;
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .sumberdata{
+        background-color: #f5f5f5d1; 
+        border-radius: 10px; 
+        padding: 20px;
+        margin-left: -5px;
+        width: 60%;
+    }
+
+    .btnunggah{
+        border: 1px solid #0D5CAB;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background: #FFFFFF;
+        display: inline-block;
+        font-family: Circular-Bold;
+        font-size: 10px;
+        /* margin-right: 16px; */
+        padding: 5px;
+        margin: 3px;
+        width: 90%;
+        text-align: center;
+    }
+
+    .titleunggah{
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .btnubah-sdg{
+        border: 1px solid #0D5CAB;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background: #FFFFFF;
+        display: inline-block;
+        font-family: Circular-Bold;
+        font-size: 10px;
+        /* margin-right: 16px; */
+        padding: 5px;
+        margin: 3px;
+        width: 30%;
+    }
+
+    .btnubah{
+        border: 1px solid #0D5CAB;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background: #FFFFFF;
+        display: inline-block;
+        font-family: Circular-Bold;
+        font-size: 10px;
+        /* margin-right: 16px; */
+        padding: 3px 120px;
+        margin: 10px;
+    }
+
+    .tabelmobile{
+        margin-left: 15px;
+        width: 100%;
+    }
+
+    .btnubahlokasi{
+        border: 1px solid #0D5CAB;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background: #FFFFFF;
+        display: inline-block;
+        font-family: Circular-Bold;
+        font-size: 1rem;
+        color: blue;
+        cursor: pointer;
+        margin-top: -10px;
+        margin-right: -20px;
+    }
+
+    .btnkembali{
+        border: 1px solid #0D5CAB;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background: #FFFFFF;
+        display: inline-block;
+        font-family: Circular-Bold;
+        font-size: 10px;
+        /* margin-right: 16px; */
+        padding: 6px 40px;
+    }
+
+    .title{
+        font-weight: bold; 
+        font-size: 17px; 
+        padding-top: 15px;
+    }
+
+    .tl{
+        color: #f71111; 
+        text-align: right; 
+        margin-right: -30px; 
+        cursor: pointer;
+    }
+
+    .dt1{
+        margin-left: 0px;
+        font-size: 15px;
+        font-weight: 500px;
+    }
+
+    .labelcolor{
+        color: #4D4D4D;
+    }
+
+
+}
+
+.blue{
+color: #0D5CAB;
+}
+
+.blue:before {
+   font-family: "FontAwesome";
+   content: "\f0d7";
+}
+
+.blue.aktif:before { font-family: "FontAwesome"; content: "\f0da"; }

@@ -1,0 +1,42 @@
+.swap-map #swap-map-first, .swap-map #swap-map-second {
+  display: block;
+}
+.swap-map.activated #swap-map-first, .swap-map.activated #swap-map-second {
+  display: none;
+}
+.swap-map #swap-chart, .swap-map #swap-chart-2, .swap-map .tambah-propv {
+  display: none!important;
+}
+.swap-map.activated #swap-chart, .swap-map.activated #swap-chart-2, .swap-map.activated .tambah-propv {
+  display: block!important;
+}
+#home-chart, #stack-chart, #swap-chart, #swap-chart-2 {
+  width: 100%;
+  height: 100%;
+}
+#home-chart .highcharts-title, #swap-chart .highcharts-title {
+  display: none;
+}
+#home-chart g.highcharts-label.highcharts-series-label, #swap-chart g.highcharts-label.highcharts-series-label {
+  display: none;
+}
+#stack-chart g.highcharts-label.highcharts-series-label {
+  display: none;
+}
+
+.swap-chart--890 {
+  width: 85%!important;
+}
+
+.tambah-propv {
+  float: right;
+}
+
+canvas#swap-chart, canvas#swap-chart-2 {
+  height: 425px!important;
+}
+
+.cjs-padding {
+  height: 500px;
+  padding-bottom: 120px;
+}

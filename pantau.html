@@ -1,0 +1,1748 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<title>PEP</title>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/css/bootstrap-reboot.min.css">
+<link rel="stylesheet" type="text/css" href="css/css/swiper.min.css">
+<link rel="stylesheet" type="text/css" href="css/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/css/bootstrap-grid.min.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<link rel ="stylesheet" href ="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+<link rel="stylesheet" type="text/css" href="css/css/style.css">
+<link rel="stylesheet" type="text/css" href="css/tooltip.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style type="text/css">
+    .has-error:not(label){
+        border: 1px solid red!important;
+    }
+
+    [data-tab-content] {
+      display: none;
+    }
+
+    .active[data-tab-content] {
+      display: block;
+    }
+
+    label.has-error{
+        color: red!important;
+    }
+</style>
+</head>
+<body>   
+    <div class="wrapper">
+        <div class="header-admin">
+            <div class="header">
+                <a href="#"><img src="img/logo-kementrian-ppn.svg" alt="Logo Kementrian PPN" class="logo-1"></a>
+                <a href="#"><img src="img/logo-prki.svg" alt="Logo PRKI" class="logo-2"></a>
+                <div class="menu-nav dashboard desktop-item">
+                    <ul>
+                        <li><a href="#">Kembali ke Beranda</a></li>
+                        <li class="active"><a href="#">Dashboard</a></li>
+                    </ul>
+                    <span class="login-dashboard"><a href="#"><img src="img/group.svg"></a><span class="notifikasi">1</span></span>
+                </div>
+                <div id="burger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="rows admin-menu menu-nav hide">
+                <div class="dashboard mobile-item">
+                    <ul>
+                        <li><a href="#">Kembali ke Beranda</a></li>
+                        <li class="active"><a href="#">Dashboard</a></li>
+                    </ul>
+                    <span class="login-dashboard"><a href="#"><img src="img/group.svg"></a><span class="notifikasi">1</span>Profile</span>
+                </div>
+                <h3 class="menu-tag-dashboard mobile-item">Menu Dashboard</h3>
+                <div class="dashboard-menu">
+                    <ul>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DASBOR NASIONAL</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">DASBOR DAERAH</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="admin-list-menu">
+                    <ul>
+                        <li class="active-section">
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/note.svg">Perencanaan</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="dashboard-nasional-tambah-rencana.html">Rencana Aksi Nasional (RAN)</a>
+                                    <a class="dropdown-item" href="dashboard-daerah-tambah-rencana.html">Rencana Aksi Daerah (RAD)</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/eye.svg">Pemantauan</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="dashboard-pemantauan-nasional.html">Daftar Aksi Mitigasi</a>
+                                    <a class="dropdown-item" href="dashboard-pemantauan-nasional-table.html">Monitoring Aksi Berulang</a>
+                                    <a class="dropdown-item" href="dashboard-pemantauan-nasional.html">Pantau RPJMN</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/rounded.svg">Evaluasi</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="dashboard-evaluasi-nasional.html">Lihat Analisis Kinerja Capaian</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Lihat Analisis Data Aksi Mitigasi</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Rekap Penurunan Emisi</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Unduh File excel</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/folder.svg">Pelaporan</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Daftar Dokumen Pelaporan</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="other-menu">
+                    <ul>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">E-Learning</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown menu-dashboard">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Admin</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content-dashboard">
+            <div class="rows">
+                <!-- <a class="btn-collapse-mobile mobile-item collapsed" data-toggle="collapse" href="#collapseMobile" role="button" aria-expanded="false" aria-controls="collapseMobile">Daftar Isi</a> -->
+                <div class="sidebar-admin number-sidebar collapse" id="collapseMobile">
+                    <span id="openNav"></span>
+                    <img src="img/left-arrow.svg" id="closeNav" style="height: 30px; width: 30px; float: right; margin: 28px;">
+                    <div class="formfilter">
+                        <h3>Langkah</h3>
+                        <ol>
+                            <li class="active" data-tab-target="#informasiaksi" id="tab1">Informasi Aksi</li>
+                            <li data-tab-target="#sumberdata" id="tab2">Sumber Data</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="content-admin dashboard-province">
+                    <div class="rows breadcrumb-dashboard desktop-item">
+                        <ul>
+                            <li><a href="#">Pemantauan</a></li>
+                            <li><a href="#">Tambah Aksi Ketahanan Iklim</a></li>
+                        </ul>
+                    </div>
+                    <form id="aksaraForm" method="POST">
+                        <div class="rows peta-terkait new-dashboard-page">
+                            <div id="informasiaksi" data-tab-content class="active">
+                                <h2>Tambah Aksi Ketahanan Iklim</h2>
+                                <div class="wrapper-white-panel">
+                                    <div class="form-section">
+                                        <h3 class="txtsize">1. Pilih Aksi Ketahanan Iklim yang dilaporkan</h3>
+                                        <div class="rows form-wrapper-dashboard">
+                                            <label>JENIS AKSI</label>
+                                            <select class="form-control selectcs"  name="jenis-aksi">
+                                                <option value="" disabled selected>Pilih Jenis Aksi</option>
+                                                <option value="aksi-2">Jenis Aksi 2</option>
+                                                <option value="aksi-3">Jenis Aksi 3</option>
+                                                <option value="aksi-4">Jenis Aksi 4</option>
+                                            </select>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard half-grid">
+                                            <label>TAHUN PELAKSANAAN AKSI 
+                                                <span tooltip="I'm up above it!"><img style="margin-left: 10px" class="icontext" src="img/info.png"></span>
+                                            </label>
+                                            <select class="form-control selectcs"  name="thn-pelaksanaan-aksi">
+                                                <option value="" disabled selected>Pilih Tahun Pelaksanaan Aksi</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2019">2019</option>
+                                            </select>
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard">
+                                            <label>NAMA AKSI 
+                                                <span tooltip="I'm up above it!"><img style="margin-left: 10px" class="icontext" src="img/info.png"></span>
+                                            </label>
+                                            <select class="form-control selectcs"  name="nama-aksi">
+                                                <option value="" disabled selected>Pilih Nama Aksi</option>
+                                                <option value="1">Pembuatan Sawah Irigasi</option>
+                                                <option value="2">Pembuatan Sawah Irigasi 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- INFORMASI AKSI KETAHANAN IKLIM --->
+                                <div class="wrapper-white-panel">
+                                    <div class="rows">
+                                        <h3 class="txtsize">
+                                            Informasi Aksi Ketahanan Iklim
+                                            <span tooltip="I'm up above it!"><span tooltip="I'm up above it!"><img style="margin-left: 10px" class="icontext" src="img/ask.png"></span></span>
+                                            <div class="right">
+                                                <button type="button" class="btn-second-form" data-toggle="modal" data-target="#infoaksi">Ubah</button>
+                                            </div>
+                                        </h3>
+                                        <div class="rows" style="margin-top: 50px">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">KODE RENCANA KERJA</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="kode">018.06.1764.644</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">NAMA KEMENTERIAN</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="kementerian">KEMENTERIAN PERTANIAN</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">UNIT ORGANISASI</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="unit-organisasi">03-Ditjen Tanaman Pangan</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">UNIT ESELON</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="unit-eselon">04-Direktorat Perlindungan Tanaman Pangan</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">NAMA PROGRAM</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="nama-program">Program Peningkatan Produksi, Produktivitas dan Mutu Hasil Tanaman Pangan</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">NAMA KEGIATAN</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="nama-kegiatan">Penguatan Perlindungan Tanaman Pangan dari Gangguan OPT dan DPI</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">NAMA KRO</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="nama-kro">Penerapan Penanganan DPI</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">NAMA RO</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="nama-ro">Pambuatan Sawah Irigasi</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">NAMA KOMPONEN</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="nama-komponen">Dukungan Penyelenggaraan Tugas dan Fungsi Unit</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- TARGET KETAHANAN IKLIM --->
+                                <div class="wrapper-white-panel">
+                                    <div class="rows">
+                                        <h3 class="txtsize">
+                                            Target Aksi Ketahanan Iklim
+                                            <div class="right">
+                                                <button type="button" class="btn-second-form" data-toggle="modal" data-target="#targetaksi">Ubah</button>
+                                            </div>
+                                        </h3>
+                                        <div class="rows" style="margin-top: 50px">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">VOLUME OUTPUT</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="vol-output">550-Ha</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">FUNGSI</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="fungsi">EKONOMI</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">SUB-FUNGSI</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333; text-transform: uppercase;" class="sub-fungsi">PERTANIAN, KEHUTANAN, PERIKANAN DAN KELAUTAN</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">SASARAN KEGIATAN</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="sasaran-kegiatan">01-Meningkatnya penanganan OPT dan DPI terhadap luas tanam tanaman pangan</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">SASARAN PROGRAM</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="sasaran-program">04-Terkendalinya penyebaran OPT dan DPI pada tanaman pangan</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">SASARAN STRATEGIS</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="sasaran-strategis">06-Terkendalinya Penyebaran OPT dan DPI pada Tanaman serta Penyakit pada Hewan</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rows" style="margin-top: 50px">
+                                        <h3 class="txtsize">
+                                            Kaitan Aksi Pada RPJMN
+                                            <span tooltip="I'm up above it!"><span tooltip="I'm up above it!"><img style="margin-left: 10px" class="icontext" src="img/ask.png"></span></span>
+                                            <div class="right">
+                                                <button type="button" class="btn-second-form" data-toggle="modal" data-target="#editrpjmn">Ubah</button>
+                                            </div>
+                                        </h3>
+                                        <div class="rows" style="margin-top: 50px">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">PN</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="pn">Membangun Lingkungan Hidup, Meningkatkan Ketahanan Bencana, dan Perubahan Iklim</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">PP</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="pp">Peningkatan Ketahanan Bencana dan Iklim</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">KP</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="kp">Peningkatan Ketahanan Iklim</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">PRO PN</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="propn">Penurunan potensi kehilangan PDB akibat bahaya iklim di sektor pertanian (persen)</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">PRO KL</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="prokl">Peningkatan luas daerah irigasi teknis (ha)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rows" style="margin-top: 50px">
+                                        <h3 class="txtsize">
+                                            Keluaran Aksi Ketahanan Iklim
+                                            <span tooltip="I'm up above it!">
+                                                <span tooltip="I'm up above it!">
+                                                    <img style="margin-left: 10px" class="icontext" src="img/ask.png">
+                                                </span>
+                                            </span>
+                                        </h3>
+                                        <div class="form-section" style="margin-top: 40px">
+                                            <div class="rows form-wrapper-dashboard">
+                                                <label>HASIL KEGIATAN</label>
+                                                <input type="text" name="hasil_kegiatan" placeholder="Masukkan hasil kegiatan">
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard">
+                                                <label>
+                                                    DAMPAK
+                                                    <span tooltip="I'm up above it!">
+                                                        <span tooltip="I'm up above it!">
+                                                            <img style="margin-left: 10px; width:24px; height: 24px;" class="icontext" src="img/info.png">
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <textarea style="height: 120px" placeholder="Masukkan dampan disini">Meningkatkan efisiensi jaringan irigasi dengan mengurangi tingkat evaporasi, penyerapan air oleh tanah, dan dapat langsung dialirkan ke lahan pertanian yang membutuhkan, serta penghematan air melalui penyiraman yang sesuai dengan kebutuhan
+                                                </textarea>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard">
+                                                <label>PENERIMA MANFAAT</label>
+                                                <input type="text" name="penerima_manfaat" placeholder="Masukkan penerima manfaat" value="Petani">
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard">
+                                                <label>Kaitan terhadap SDG</label>
+                                                <div class="rows kaitan-image">
+                                                    <ul class="rows" id="kaitanSDGContainer">
+                                                        <li class="empty-sdg">Belum ada SDG yang dipilih</li>
+                                                    </ul>
+                                                    <span><a href="javascript:void(0)" id="openSDGPopup">Ubah</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rows" style="margin-top: 50px">
+                                        <h3 class="txtsize">
+                                            Anggaran Aksi Ketahanan Iklim
+                                            <span tooltip="I'm up above it!">
+                                                <span tooltip="I'm up above it!">
+                                                    <img style="margin-left: 10px" class="icontext" src="img/ask.png">
+                                                </span>
+                                            </span>
+                                            <div class="right">
+                                                <button type="button" class="btn-second-form" data-toggle="modal" data-target="#editanggaran">Ubah</button>
+                                            </div>
+                                        </h3>
+                                        <div class="rows" style="margin-top: 40px">
+                                            <table id="anggaran_aksi_ketahanan_iklim" class="custom-table display dataTable table table-responsive" style="width:100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="380" style="color: #666666">Anggaran</th>
+                                                        <th width="380" style="color: #666666">Alokasi</th>
+                                                        <th width="380" style="color: #666666">Realisasi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="font-size: 16px; font-family: Circular-Bold;"><a href="#">RP</a></td>
+                                                        <td style="color: #333; font-size: 16px">Rp. 101.000.000,00</td>
+                                                        <td style="color: #333; font-size: 16px">Rp. 101.000.000,00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 16px; font-family: Circular-Bold;"><a href="#">PNPB</a></td>
+                                                        <td style="color: #333; font-size: 16px">Rp. 100.000.000,00</td>
+                                                        <td style="color: #333; font-size: 16px">Rp. 100.000.000,00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 16px; font-family: Circular-Bold;"><a href="#">BLU</a></td>
+                                                        <td style="color: #333; font-size: 16px">Rp. 0</td>
+                                                        <td style="color: #333; font-size: 16px">Rp. 0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 16px; font-family: Circular-Bold;"><a href="#">PLN</a></td>
+                                                        <td style="color: #333; font-size: 16px">Rp. 100.000.000,00</td>
+                                                        <td style="color: #333; font-size: 16px">Rp. 100.000.000,00</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wrapper-white-panel">
+                                    <div class="rows">
+                                        <h3 class="txtsize">
+                                            2. Metodologi Aksi Ketahanan Iklim
+                                            <span tooltip="I'm up above it!"><span tooltip="I'm up above it!"><img style="margin-left: 10px" class="icontext" src="img/ask.png"></span></span>
+                                            <div class="right">
+                                                <button type="button" class="btn-second-form" data-toggle="modal" data-target="#editmetodologi">Ubah</button>
+                                            </div>
+                                        </h3>
+                                        <div class="rows" style="margin-top: 50px">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">SEKTOR</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="sektor">Pertanian</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">SUB SEKTOR</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="subsektor">Pertanian</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">KLASTER</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="klaster">Infrastruktur, Tata Kelola</label>
+                                            </div>
+                                        </div>
+                                        <div class="rows">
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <label style="color: #7c7c7c">KATEGORI</label>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-7-grid">
+                                                <label style="color: #333;" class="kategori">
+                                                    Penyedia Jaringan Irigasi <img src="img/eye.png">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wrapper-white-panel">
+                                    <div class="rows" id="unggahSumberData">
+                                        <h3 class="txtsize">
+                                            3. Unggah Sumber Data Pendukung
+                                        </h3>
+                                        <div class="rows form-wrapper-dashboard dynamic_field" style="margin-top: 30px">
+                                            <div class="grid-6">
+                                                <label style="color: #7c7c7c">DATA 1</label>
+                                            </div>
+                                            <div class="form-wrapper grid-5" style="border: 1px solid #ccc; border-radius: 5px; background-color: #f5f5f5d1">
+                                                <div class="rows form-wrapper-dashboard half-grid" style="margin: 20px">
+                                                    <label>JENIS DATA</label>
+                                                    <select class="form-control selectcs" name="referensi[]" id="referensi">
+                                                        <option value="0" disabled selected>Pilih Referensi</option>
+                                                        <option value="rf1">Referensi</option>
+                                                        <option value="rf2">Dokumen</option>
+                                                        <option value="rf3">URL</option>
+                                                    </select>
+                                                </div>
+                                                <!-- URL -->
+                                                <div class="rows form-wrapper-dashboard half-grid" id="ref3" style="margin-left: 20px; margin-right: 20px;">
+                                                    <input type="text" name="url_referensi" placeholder="www.aksara.org">
+                                                </div>
+
+                                                <!-- PILIH REFERENSI -->
+                                                <div class="rows form-wrapper-dashboard half-grid" id="ref1" style="margin: 20px">
+                                                    <label>
+                                                        PILIH REFERENSI
+                                                        <span tooltip="I'm up above it!">
+                                                            <img style="margin-left: 10px" class="icontext" src="img/info.png">
+                                                        </span>
+                                                    </label>
+                                                    <select class="form-control selectcs" name="pilihreferensi[]" id="pilihreferensi">
+                                                        <option value="rf1">BALI] - Data Percepatan Perhutanan Sosial Provinsi Bali - 2018</option>
+                                                    </select>
+                                                </div>
+
+                                                <!-- UNGGAH DOKUMEN -->
+                                                <div class="rows form-wrapper-dashboard half-grid" id="ref2" style="margin: 20px">
+                                                    <div class="rows form-wrapper-dashboard">
+                                                        <label>Kaitan terhadap SDG</label>
+                                                        <div class="rows kaitan-image">
+                                                            <div class="rows">
+                                                                <div class="grid-2" id="coldoc">
+                                                                    <img src="img/doc1.png" style="height: 30px; width: 30px; margin-top: 10px;">
+                                                                </div>
+                                                                <div class="grid-6">
+                                                                    <label style="margin-top: 10px" id="namafile">
+                                                                        Unggah Dokumen<br>
+                                                                        <label style="font-size: 10px">Dokumen bisa berupa foto atau dokumen</label>
+                                                                    </label>
+                                                                    <label style="font-size: 10px" id="sizenya"></label>
+                                                                </div>
+                                                            </ul>
+                                                            <input id="file-upload" name='upload_cont_img[]' type="file" style="display:none;">
+                                                            <span><a for="file-upload" id="unggah" style="padding-left: 18px; cursor: pointer; color: blue">Unggah</a></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label id="add" style="font-weight: bold; color: blue; cursor: pointer;">+ Tambah Sumber Data</label>
+                                </div>
+                                <div class="right btn-first-form margin" style="margin-top: 50px">
+                                    <!-- <button class="btn-first-form margin" id="lanjut"> -->
+                                        <span class="btn-first-form margin" data-tab-target="#sumberdata" id="lanjut">Lanjut</span>
+                                    <!-- </button> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rows peta-terkait new-dashboard-page" style="padding: 0px 0%;">
+                            <div id="sumberdata" data-tab-content>
+                                <h2>Tambah Aksi Ketahanan Iklim - Sektor Pertanian</h2>
+                                <div class="rows wrapper-tambah-aksi" id="banner1">
+                                    <span class="close-about-btn" id="xban1"><a href="javascript:void(0)"><img src="img/close.png" class="close-about-btn"></a></span>
+                                    <div class="rows">
+                                        <div class="rows form-wrapper-dashboard grid-100">
+                                            <div class="grid-bnr">
+                                                <h5>Metodologi ini dapat diterapkan untuk Kelompok Aksi Banner (1) :</h5>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    1. Penyediaan bangunan penampung air irigasi
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    2. Penyediaan Jaringan irigasi
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    3. Penerapan teknologi penambahan debit air irigasi
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    4. Penyediaan bangunan pelindung banjir
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    5. Penyediaan Sarana pertanian adaptif
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    6. Perluasan lahan pertanian
+                                                </h6><br>
+                                                <span style="background-color: #0D5CAB; color: #FFF; border-radius: 3px; border: 1px solid #0D5CAB; padding: 10px; font-size: 12px; cursor: pointer;">Lihat Detail Kategori Aksi</span>
+                                            </div>
+                                            <div class="grid-4">
+                                                <img src="img/undraw_country_side_k696 1.png" class="bnrimg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rows wrapper-tambah-aksi" id="banner2">
+                                    <span class="close-about-btn" id="xban2"><a href="javascript:void(0)"><img src="img/close.png" class="close-about-btn"></a></span>
+                                    <div class="rows form-wrapper-dashboard grid-100">
+                                        <div class="grid-bnr">
+                                            <h5>Metodologi ini dapat diterapkan untuk Kelompok Aksi Banner (2) :</h5>
+                                            <h6 class="content-tambah-aksi-font">
+                                                1. Penyediaan bangunan penampung air irigasi
+                                            </h6>
+                                            <h6 class="content-tambah-aksi-font">
+                                                2. Penyediaan Jaringan irigasi
+                                            </h6>
+                                            <h6 class="content-tambah-aksi-font">
+                                                3. Penerapan teknologi penambahan debit air irigasi
+                                            </h6>
+                                            <h6 class="content-tambah-aksi-font">
+                                                4. Penyediaan bangunan pelindung banjir
+                                            </h6>
+                                            <h6 class="content-tambah-aksi-font">
+                                                5. Penyediaan Sarana pertanian adaptif
+                                            </h6>
+                                            <h6 class="content-tambah-aksi-font">
+                                                6. Perluasan lahan pertanian
+                                            </h6><br>
+                                            <span style="background-color: #0D5CAB; color: #FFF; border-radius: 3px; border: 1px solid #0D5CAB; padding: 10px; font-size: 12px; cursor: pointer;">Lihat Detail Kategori Aksi</span>
+                                        </div>
+                                        <div class="grid-4">
+                                            <img src="img/g12.png" class="bnrimg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rows wrapper-tambah-aksi" id="banner3">
+                                    <span class="close-about-btn" id="xban3"><a href="javascript:void(0)"><img src="img/close.png" class="close-about-btn"></a></span>
+                                    <div class="rows">
+                                        <div class="rows form-wrapper-dashboard grid-100">
+                                            <div class="grid-bnr">
+                                                <h5>Metodologi ini dapat diterapkan untuk Kelompok Aksi Banner (3) :</h5>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    1. Penyediaan bangunan penampung air irigasi
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    2. Penyediaan Jaringan irigasi
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    3. Penerapan teknologi penambahan debit air irigasi
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    4. Penyediaan bangunan pelindung banjir
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    5. Penyediaan Sarana pertanian adaptif
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    6. Perluasan lahan pertanian
+                                                </h6><br>
+                                                <span style="background-color: #0D5CAB; color: #FFF; border-radius: 3px; border: 1px solid #0D5CAB; padding: 10px; font-size: 12px; cursor: pointer;">Lihat Detail Kategori Aksi</span>
+                                            </div>
+                                            <div class="grid-4">
+                                                <img src="img/g13.png" class="bnrimg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rows wrapper-tambah-aksi" id="banner4">
+                                    <span class="close-about-btn" id="xban4"><a href="javascript:void(0)"><img src="img/close.png" class="close-about-btn"></a></span>
+                                    <div class="rows">
+                                        <div class="rows form-wrapper-dashboard grid-100">
+                                            <div class="grid-bnr">
+                                                <h5>Metodologi ini dapat diterapkan untuk Kelompok Aksi Banner (4) :</h5>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    1. Penyediaan bangunan penampung air irigasi
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    2. Penyediaan Jaringan irigasi
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    3. Penerapan teknologi penambahan debit air irigasi
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    4. Penyediaan bangunan pelindung banjir
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    5. Penyediaan Sarana pertanian adaptif
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    6. Perluasan lahan pertanian
+                                                </h6><br>
+                                                <span style="background-color: #0D5CAB; color: #FFF; border-radius: 3px; border: 1px solid #0D5CAB; padding: 10px; font-size: 12px; cursor: pointer;">Lihat Detail Kategori Aksi</span>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <img src="img/g14.png" class="bnrimg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rows wrapper-tambah-aksi" id="banner5">
+                                    <span class="close-about-btn" id="xban5"><a href="javascript:void(0)"><img src="img/close.png" class="close-about-btn"></a></span>
+                                    <div class="rows">
+                                        <div class="rows form-wrapper-dashboard grid-100">
+                                            <div class="grid-bnr">
+                                                <h5>Metodologi ini dapat diterapkan untuk Kelompok Aksi Banner (5) :</h5>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    1. Penyediaan bangunan penampung air irigasi
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    2. Penyediaan Jaringan irigasi
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    3. Penerapan teknologi penambahan debit air irigasi
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    4. Penyediaan bangunan pelindung banjir
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    5. Penyediaan Sarana pertanian adaptif
+                                                </h6>
+                                                <h6 class="content-tambah-aksi-font">
+                                                    6. Perluasan lahan pertanian
+                                                </h6><br>
+                                                <span style="background-color: #0D5CAB; color: #FFF; border-radius: 3px; border: 1px solid #0D5CAB; padding: 10px; font-size: 12px; cursor: pointer;">Lihat Detail Kategori Aksi</span>
+                                            </div>
+                                            <div class="rows form-wrapper-dashboard grid-4">
+                                                <img src="img/g15.png" class="bnrimg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <div class="rows wrapper-white-panel">
+                                    <h4>Pilih Lokasi Aksi Akan Dilaporkan</h4>
+                                    <div class="rows form-wrapper-dashboard half-grid" >
+                                        <label style="margin-top: 20px;">
+                                            LOKASI KEGIATAN
+                                            <div class="right" style="margin-top: -10px">
+                                                <button type="button" class="btn-second-form" data-toggle="modal" data-target="#lokasi">Ubah</button>
+                                            </div>
+                                        </label>
+                                        <div class="grid-7" style="margin-top: 20px">
+                                            <select class="form-control selectcs js-example-basic-multiple" multiple="multiple" name="lokasikegiatan[]" id="lokasikegiatan">
+                                                <option value="loc1">DKI JAKARTA - JAKARTA SELATAN</option>
+                                                <option value="loc2">JAWA BARAT - BANDUNG</option>
+                                                <option value="loc3">NAGGROE ACEH DARUSSALAM - BANDA ACEH</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <h4 style="margin-top: 30px">Informasi Intervensi Kegiatan Aksi</h4>
+                                    <div class="rows form-wrapper-dashboard half-grid" >
+                                        <label style="margin-top: 20px">
+                                            TIPE INTERVENSI <span tooltip="I'm up above it!"><img style="margin-left: 10px" class="icontext" src="img/info.png"></span>
+                                        </label>
+                                        <div class="grid-7" style="margin-top: 20px">
+                                            <select class="form-control selectcs" name="tipeintervensi" id="tipeintervensi">
+                                                <option value="0" disabled selected>Pilih Tipe Intervensi</option>
+                                                <option value="loc1">DKI JAKARTA - JAKARTA SELATAN</option>
+                                                <option value="loc2">JAWA BARAT - BANDUNG</option>
+                                                <option value="loc3">NAGGROE ACEH DARUSSALAM - BANDA ACEH</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="rows">
+                                        <div class="rows form-wrapper-dashboard grid-new">
+                                            <label>
+                                                LUAS SAWAH YANG TERINTERVENSI
+                                                <span tooltip="I'm up above it!"><img style="margin-left: 10px" class="icontext" src="img/info.png"></span> 
+                                            </label>
+                                            <input type="text" style="height: 37px;" name="luas" class="form-control" placeholder="Masukan luas sawah yang terintervesi">
+                                        </div>
+                                        <div class="rows form-wrapper-dashboard grid-new1">
+                                            <label>SATUAN</label>
+                                            <select class="form-control selectcs"  name="Instansi-pelaksana">
+                                                <option value="Ha" selected>Ha</option>
+                                                <option value="Km">Km</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="rows form-wrapper-dashboard half-grid" >
+                                        <label>
+                                            KONSTANTA EFEKTIVITAS TERHADAP PRODUKSI
+                                            <span tooltip="I'm up above it!"><img style="margin-left: 10px" class="icontext" src="img/info.png"></span> 
+                                        </label>
+                                        <div class="grid-7" style="margin-top: 10px">
+                                            <input type="text" name="luas" placeholder="Masukan luas sawah yang terintervesi">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="right" style="margin-right: 20px; margin-top: -20px">
+                                    <button class="btn-second-form" style="margin-right: 10px" data-tab-target="#informasiaksi">Kembali</button>
+                                    <button class="btn-first-form margin">Simpan</button>
+                                </div>
+
+                                <div class="rows wrapper-white-panel" style="margin-top: 90px">
+                                    <h4>Data Terkirim</h4>
+                                    <span id="addrow" style="float: right; background: #0D5CAB; border: 1px solid #0D5CAB; padding: 10px; margin-bottom: 20px; color: #fff; font-size: 12px; border-radius: 5px; cursor: pointer;">+ Tambah Data</span>
+                                    <div class="rows form-wrapper-dashboard half-grid" >
+                                        <table id="data_terkirim" class="custom-table display dataTable table table-responsive" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th width="40">No.</th>
+                                                    <th width="140">Provinsi</th>
+                                                    <th width="160">Kabupaten/Kota</th>
+                                                    <th width="100">Kecamatan</th>
+                                                    <th width="100">Kelurahan/Desa</th>
+                                                    <th width="140">Tipe Intervensi</th>
+                                                    <th width="140">Luas Tanah yang Terintervensi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="font-size: 16px">1</td>
+                                                    <td style="color: #333; font-size: 13px">Jawa Barat</td>
+                                                    <td style="color: #333; font-size: 13px">Kota Bandung</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>Ketersediaan Air Lahan Pertanian</td>
+                                                    <td>150 Ha</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size: 16px">2</td>
+                                                    <td style="color: #333; font-size: 13px">Jawa Barat</td>
+                                                    <td style="color: #333; font-size: 13px">Kabupaten Bandung</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>Ketersediaan Air Lahan Pertanian</td>
+                                                    <td>150 Ha</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="right" style="margin-right: 20px; margin-top: -20px">
+                                    <!-- <button class="btn-second-form" style="margin-right: 10px" data-tab-target="#informasiaksi">Kembali</button> -->
+                                    <button class="btn-first-form margin">Kembali</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="footer" style="margin-top: 100px">
+                    <h3>Copyright 2019 Bappenas - all rights Reserved</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade sdg-modal" id="sdg-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="rows sdg-list-wrapper">
+                    <h3>Pilih SDG yang terkait</h3>
+                    <p>Plih keterkaitan aksi dengan daftar SDG yang ada dibawah ini</p>
+                    <div class="rows sdg-list">
+                        <span class="title-sdg">Rekomendasi <i>(Berdasarkan sektor yang dipilih)</i></span>
+                        <template v-for="(item, index) in allFiles">
+                            <div class="item-sdg" v-if="item.featured">
+                                <input v-bind:id="'sdg-' + item.id" type="checkbox" v-model="item.selected">
+                                <label class="rows" v-bind:for="'sdg-' + item.id">
+                                    <img v-bind:src="item.image">
+                                    <div class="content-item-sdg">
+                                        <h3>${ item.title }</h3>
+                                        <p>${ item.desc }</p>
+                                    </div>
+                                </label>
+                            </div>                                                 
+                        </template>
+                    </div>
+                    <span class="title-sdg" style="margin-left: 0px">Semua SGD</span>
+                    <div class="container">
+                        <div class="row sdg-list">
+                            <template v-for="(item, index) in allFiles">
+                            <div class="item-sdg" v-if="!item.featured">
+                                <input v-bind:id="'sdg-' + item.id" type="checkbox" v-model="item.selected">
+                                <label class="rows" v-bind:for="'sdg-' + item.id">
+                                    <img v-bind:src="item.image">
+                                    <div class="content-item-sdg">
+                                        <h3 style="text-align: justify;">${ item.title }</h3>
+                                        <p style="text-align: justify;">${ item.desc }</p>
+                                    </div>
+                                </label>
+                            </div>
+                            </template>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <button class="btn-second-form" data-dismiss="modal">Batal</button>
+                        <button class="btn-first-form" v-on:click.prevent="changeSelectedFiles">Simpan</button>
+                    </div>
+                    <div style="display: none;">
+                        <ul class="tmpContainer">
+                            <li v-for="(item, index) in selectedFiles">
+                                <img v-bind:src="item.image">
+                                <input type="hidden" name="id_files[]" v-model="item.id">
+                            </li>                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INFO AKSI -->
+    <div class="modal fade sdg-modal" id="infoaksi">
+        <div class="modal-dialog">
+            <div class="modal-content modal1">
+                <div class="rows sdg-list-wrapper">
+                    <h3 style="margin-left: -10px">Edit Info Aksi</h3>
+                    <p style="margin-left: -10px">Ubah data Informasi Umum Aksi</p>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 50px">
+                        <label>
+                            NAMA KEMENTERIAN
+                        </label>
+                        <div class="rows grid-100" style="margin-top: 10px">
+                            <select class="form-control selectcs" name="nama_instansi" id="nama_instansi">
+                                <option value="0" disabled selected>Pilih Kementerian</option>
+                                <option value="pertanian">Kementerian Pertanian</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 10px">
+                        <label>
+                            UNIT ESELON
+                        </label>
+                        <div class="rows grid-100" style="margin-top: 10px">
+                            <select class="form-control selectcs" name="unit_eselon" id="unit_eselon">
+                                <option value="0" disabled selected>Pilih Unit Eselon</option>
+                                <option value="03_ditjen">03 - Ditjen Tanaman Pangan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 10px">
+                        <label>
+                            NAMA PROGRAM
+                        </label>
+                        <div class="rows grid-100" style="margin-top: 10px">
+                            <input type="text" name="nama_program" placeholder="Masukkan nama program">
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 10px">
+                        <label>
+                            NAMA KEGIATAN
+                        </label>
+                        <div class="grid-100" style="margin-top: 10px">
+                            <input type="text" name="hasil_kegiatan" placeholder="Masukkan nama kegiatan">
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 10px">
+                        <label>
+                            NAMA KRO
+                        </label>
+                        <div class="grid-100" style="margin-top: 10px">
+                            <input type="text" name="nama_kro" placeholder="Masukkan nama KRO">
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 10px">
+                        <label>
+                            NAMA RO
+                        </label>
+                        <div class="grid-100" style="margin-top: 10px">
+                            <input type="text" name="namaro" placeholder="Masukkan nama RO">
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 10px">
+                        <label>
+                            NAMA KOMPONEN
+                        </label>
+                        <div class="grid-100" style="margin-top: 10px">
+                            <input type="text" name="nama_komponen" placeholder="Masukkan nama komponen">
+                        </div>
+                    </div>
+                    <div class="right" style="margin-top: 50px">
+                        <button class="btn-second-form" data-dismiss="modal">Batal</button>
+                        <button class="btn-first-form">Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TARGET KEGIATAN -->
+    <div class="modal fade sdg-modal" id="targetaksi">
+        <div class="modal-dialog">
+            <div class="modal-content modal1">
+                <div class="rows sdg-list-wrapper">
+                    <h3 style="margin-left: -10px">Edit Target Kegiatan</h3>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 50px">
+                        <div class="rows grid-100" style="margin-top: 10px">
+                            <div class="rows form-wrapper-dashboard grid-modal-6" style="margin-right: 10px">
+                                <label>
+                                    VOLUME OUTPUT 
+                                </label>
+                                <input type="text" name="luas" placeholder="Masukan volume output">
+                            </div>
+                            <div class="rows form-wrapper-dashboard grid-2">
+                                <label>SATUAN</label>
+                                <select class="form-control selectcs" style="height: 46px; width: 70px" name="Instansi-pelaksana-modal">
+                                    <option value="Ha" selected>Ha</option>
+                                    <option value="Km">Km</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: -20px">
+                        <label>
+                            FUNGSI
+                        </label>
+                        <div class="rows grid-100" style="margin-top: 10px">
+                            <input type="text" name="fungsi-modal" placeholder="Masukan fungsi">
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 10px">
+                        <label>
+                            SUB-FUNGSI
+                        </label>
+                        <div class="rows grid-100" style="margin-top: 10px">
+                            <input type="text" name="sub-fungsi-modal" placeholder="Masukkan sub fungsi">
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 10px">
+                        <label>
+                            SASARAN KEGIATAN
+                        </label>
+                        <div class="grid-100" style="margin-top: 10px">
+                            <textarea type="text" name="sasaran_kegiatan_modal" placeholder="Masukkan sasaran kegiatan"></textarea>
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 10px">
+                        <label>
+                            SASARAN PROGRAM
+                        </label>
+                        <div class="grid-100" style="margin-top: 10px">
+                            <input type="text" name="sasaran_program_modal" placeholder="Masukkan sasaran program">
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 10px">
+                        <label>
+                            SASARAN STRATEGIS
+                        </label>
+                        <div class="grid-100" style="margin-top: 10px">
+                            <input type="text" name="sasaran_strategis_modal" placeholder="Masukkan sasaran strategis">
+                        </div>
+                    </div>
+                    <div class="right" style="margin-top: 50px">
+                        <button class="btn-second-form" data-dismiss="modal">Batal</button>
+                        <button class="btn-first-form">Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDIT KAITAN RPJMN -->
+    <div class="modal fade sdg-modal" id="editrpjmn">
+        <div class="modal-dialog">
+            <div class="modal-content modal1">
+                <div class="rows sdg-list-wrapper">
+                    <h3 style="margin-left: -10px">Edit Kaitan dengan RPJMN</h3>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 25px">
+                        <div class="rows grid-100" style="margin-top: 10px">
+                            <div class="rows form-wrapper-dashboard">
+                                <label>
+                                    PN 
+                                </label>
+                                <select class="form-control selectcs" name="pn-modal">
+                                    <option value="0" disabled="disabled">-- Pilih PN --</option>
+                                    <option value="1" selected>Membangun Lingkungan Hidup, Meningkatkan Ketahanan Bencana, dan Perubahan Iklim</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: -20px">
+                        <div class="rows grid-100" style="margin-top: 10px">
+                            <div class="rows form-wrapper-dashboard">
+                                <label>
+                                    PN 
+                                </label>
+                                <select class="form-control selectcs" name="pp-modal">
+                                    <option value="0" disabled="disabled">-- Pilih PP --</option>
+                                    <option value="1" selected>Peningkatan Ketahanan Bencana dan Iklim</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: -20px">
+                        <div class="rows grid-100" style="margin-top: 10px">
+                            <div class="rows form-wrapper-dashboard">
+                                <label>
+                                    KP
+                                </label>
+                                <select class="form-control selectcs" name="kp-modal">
+                                    <option value="0" disabled="disabled">-- Pilih KP --</option>
+                                    <option value="1" selected>Peningkatan Ketahanan Iklim</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: -20px">
+                        <div class="rows grid-100" style="margin-top: 10px">
+                            <div class="rows form-wrapper-dashboard">
+                                <label>
+                                    PRO PN
+                                </label>
+                                <select class="form-control selectcs" name="propn-modal">
+                                    <option value="0" disabled="disabled">-- Pilih PRO PN --</option>
+                                    <option value="1" selected>Penurunan potensi kehilangan PDB akibat bahaya iklim di sektor pertanian (persen)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: -20px">
+                        <div class="rows grid-100" style="margin-top: 10px">
+                            <div class="rows form-wrapper-dashboard">
+                                <label>
+                                    PRO KL
+                                </label>
+                                <select class="form-control selectcs" name="prokl-modal">
+                                    <option value="0" disabled="disabled">-- Pilih PRO KL --</option>
+                                    <option value="1" selected>Peningkatan luas daerah irigasi teknis (ha)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right" style="margin-top: 50px">
+                        <button class="btn-second-form" data-dismiss="modal">Batal</button>
+                        <button class="btn-first-form">Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDIT ANGGARAN -->
+    <div class="modal fade sdg-modal" id="editanggaran">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="rows sdg-list-wrapper">
+                    <h3 style="margin-left: -10px">Edit Anggaran</h3>
+                    <span class="title-sdg">Rekomendasi <i>(Berdasarkan sektor yang dipilih)</i></span>
+                    <div class="rows grid-100" style="margin-top: 25px">
+                        <div class="rows" style="margin-right: 10px">
+                            <table id="anggaran_aksi_ketahanan_iklim" class="custom-table display dataTable table" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th>Anggaran</th>
+                                        <th>Alokasi</th>
+                                        <th>Realisasi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="font-size: 16px; font-weight: bold; color: #0D5CAB">RP</td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="alokasi_rp" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="realisasi_rp" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 16px; font-weight: bold; color: #0D5CAB">PNPB</td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="alokasi_pnpb" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="realisasi_pnpb" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 16px; font-weight: bold; color: #0D5CAB">BLU</td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="alokasi_blu" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="00"/>
+                                        </td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="realisasi_blu" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 16px; font-weight: bold; color: #0D5CAB">PLN</td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="alokasi_pln" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="realisasi_pln" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 16px; font-weight: bold; color: #0D5CAB">RMP</td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="alokasi_rmp" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="realisasi_rmp" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 16px; font-weight: bold; color: #0D5CAB">PDN</td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="alokasi_pdn" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="realisasi_pdn" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 16px; font-weight: bold; color: #0D5CAB">Hibah</td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="alokasi_hibah" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="realisasi_hibah" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 16px; font-weight: bold; color: #0D5CAB">PH</td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="alokasi_ph" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="realisasi_ph" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 16px; font-weight: bold; color: #0D5CAB">SBSN</td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="alokasi_sbsn" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="realisasi_sbsn" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 16px; font-weight: bold; color: #0D5CAB">HN</td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="alokasi_hn" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                        <td style="color: #333; font-size: 16px">
+                                            <input class="form-control" type="text" name="" id="realisasi_hn" data-affixes-stay="true" data-prefix="Rp " data-thousands="." data-decimal="," data-precision="0" value="0"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="right" style="margin-top: 50px">
+                        <button class="btn-second-form" data-dismiss="modal">Batal</button>
+                        <button class="btn-first-form">Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDIT DESKRIPSI AKSI KETAHANAN IKLIM -->
+    <div class="modal fade sdg-modal" id="editmetodologi">
+        <div class="modal-dialog">
+            <div class="modal-content modal1">
+                <div class="rows sdg-list-wrapper">
+                    <h3 style="margin-left: -10px">Edit Deskripsi Aksi Ketahanan Iklim</h3>
+                    <div class="rows form-wrapper-dashboard sdg-list" style="margin-top: 25px">
+                        <div class="rows grid-100" style="margin-top: 10px">
+                            <div class="rows form-wrapper-dashboard" style="margin-right: 10px">
+                                <label>
+                                    SEKTOR
+                                </label>
+                                <select class="form-control selectcs" name="sektor-modal">
+                                    <option value="0" disabled="disabled">-- Pilih Sektor --</option>
+                                    <option value="1" selected>Pertanian</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list">
+                        <div class="rows grid-100" style="margin-top: -10px">
+                            <div class="rows form-wrapper-dashboard" style="margin-right: 10px">
+                                <label>
+                                    SUB-SEKTOR
+                                </label>
+                                <select class="form-control selectcs" name="subsektor-modal">
+                                    <option value="0" disabled="disabled">-- Pilih Sektor --</option>
+                                    <option value="1" selected>Pertanian</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list">
+                        <div class="rows grid-100" style="margin-top: -10px">
+                            <div class="rows form-wrapper-dashboard" style="margin-right: 10px">
+                                <label>
+                                    KLASTER
+                                </label>
+                                <select class="form-control selectcs js-example-basic-multiple-klaster" multiple="multiple" name="select_klaster[]" id="select_klaster_modal">
+                                    <option value="0" disabled="disabled">-- Pilih Sektor --</option>
+                                    <option value="1">Infrastruktur</option>
+                                    <option value="2">Tata Kelola</option>
+                                    <option value="3">Klaster 1</option>
+                                    <option value="4">Klaster 2</option>
+                                    <option value="5">Klaster 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list">
+                        <div class="rows grid-100" style="margin-top: -10px">
+                            <div class="rows form-wrapper-dashboard" style="margin-right: 10px">
+                                <label>
+                                    KATEGORI
+                                </label>
+                                <select class="form-control selectcs" name="kategori-modal">
+                                    <option value="0" disabled="disabled">-- Pilih Kategori --</option>
+                                    <option value="1" selected>Penyedia Jaringan Irigasi</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right" style="margin-top: 50px">
+                        <button class="btn-second-form" data-dismiss="modal">Batal</button>
+                        <button class="btn-first-form">Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOKASI -->
+    <div class="modal fade sdg-modal" id="lokasi">
+        <div class="modal-dialog">
+            <div class="modal-content modal2">
+                <div class="rows sdg-list-wrapper">
+                    <div class="rows">
+                        <span style="margin-left: -4px; font-size: 14px; font-weight: bold;">LOKASI 1</span>
+                    </div>
+                    <div class="rows form-wrapper-dashboard sdg-list">
+                        <div class="dynamic_location">
+                            <div class="rows" style="margin-top: 25px; background-color: #f9f9f9; border-radius: 5px;">
+                                <div class="rows grid-100" style="margin-top: 10px">
+                                    <div class="rows form-wrapper-dashboard grid-modal-lokasi" style="margin: 15px">
+                                        <label>
+                                            PROVINSI
+                                        </label>
+                                        <select class="form-control selectcs" name="provinsi_modal">
+                                            <option value="0" disabled="disabled">-- Pilih Provinsi --</option>
+                                            <option value="1" selected>DKI JAKARTA</option>
+                                        </select>
+                                    </div>
+                                    <div class="rows form-wrapper-dashboard grid-modal-lokasi" style="margin: 15px">
+                                        <label>
+                                            KABUPATEN/KOTA
+                                        </label>
+                                        <select class="form-control selectcs" name="kabupatenkota_modal">
+                                            <option value="0" disabled="disabled">-- Pilih Kabupaten/Kota --</option>
+                                            <option value="1" selected>Jakarta Selatan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="rows grid-100" style="margin-top: 10px">
+                                    <div class="rows form-wrapper-dashboard grid-modal-lokasi" style="margin: 15px">
+                                        <label>
+                                            KECAMATAN
+                                        </label>
+                                        <select class="form-control selectcs" name="kecamatan_modal">
+                                            <option value="0" disabled="disabled">-- Pilih Kecamatan --</option>
+                                            <option value="1" selected>Pasar Minggu</option>
+                                        </select>
+                                    </div>
+                                    <div class="rows form-wrapper-dashboard grid-modal-lokasi" style="margin: 15px">
+                                        <label>
+                                            DESA
+                                        </label>
+                                        <select class="form-control selectcs" name="desa_modal">
+                                            <option value="0" disabled="disabled">-- Pilih Kelurahan/Desa --</option>
+                                            <option value="1" selected>Ragunan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="rows grid-100" style="margin-top: 10px">
+                                    <div class="rows form-wrapper-dashboard grid-modal-lokasi" id="lintang" style="margin: 15px">
+                                        <label>
+                                            LINTANG <i>(Latitude)</i>
+                                        </label>
+                                        <input type="text" name="lintang_modal" class="form-control" placeholder="Masukan Lintang">
+                                    </div>
+                                    <div class="rows form-wrapper-dashboard grid-modal-lokasi" id="bujur" style="margin: 15px">
+                                        <label>
+                                            BUJUR <i>(Longitude)</i>
+                                        </label>
+                                        <input type="text" name="bujur_modal" class="form-control" placeholder="Masukan Bujur">
+                                    </div>
+                                </div>
+                                <div class="rows" style="padding: 20px; margin-top: -25px">
+                                    <div class="col-md-6">
+                                        <div style="background: #e4e4e4; padding: 10px; border-radius: 5px; height: 60px">
+                                            <label for="recipient-name" class="col-form-label" style="font-size: 12px; font-weight: bold; padding: 10px; margin-left: -10px;">Pakai Koordinat</label>
+                                            <label class="switch right" style="margin-top: -40px">
+                                                <input type="checkbox" id="pakaikoordinat" onclick="pakaikoordinatFunction()" checked="checked">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rows grid-100" style="margin-top: 10px">
+                                    <div  style="border: 1px solid #ccc; border-radius: 5px; margin-left: 17px; margin-right: 15px; height: 250px; margin-bottom: 20px;" id="map" role="tabpanel" aria-labelledby="map-air-tab"> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <label id="addlokasi_edit" style="color: blue; font-size: 14px; font-weight: bold; cursor: pointer;">+ Tambah Lokasi</label>
+                    <div class="right" style="margin-top: 50px">
+                        <button class="btn-second-form" data-dismiss="modal">Batal</button>
+                        <button class="btn-first-form">Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script type="text/javascript" src="js/js/jquery.js"></script>
+<script type="text/javascript" src="js/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/vue@3.0.1/dist/vue.global.prod.js"></script>
+<script type="text/javascript" src="js/js/jquery.validate.min.js"></script>
+<script type="text/x-template" id="select2-template">
+      <select>
+        <slot></slot>
+      </select>
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script type="text/javascript" src="js/js/request.js"></script>
+<script type="text/javascript" src="js/js/select2.js"></script>
+<!-- <script type="text/javascript" src="js/components/utility/select2-vue.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autonumeric@4.5.4"></script>
+<script type="text/javascript" src="js/js/number-only.js"></script>
+<script type="text/javascript" src="js/js/form-validator.js"></script>
+<script type="text/javascript" src="js/js/files-popup.js"></script>
+<script type="text/javascript" src="js/js/sdg.js"></script>
+<script type="text/javascript" src="js/js/maskMoney.js"></script>
+<script type="text/javascript">
+    var backgroundimage;
+    backgroundimage = '<img src="img/right-arrow.svg" style="height: 30px; width: 30px; margin-left: 7px; margin-top: 20px;">';
+    $("#closeNav").on('click', function(){
+        $(".sidebar-admin").css({
+            width: '50px'
+        });
+        $("#closeNav").hide();
+        $(".formfilter").hide();
+        document.getElementById('openNav').innerHTML = (backgroundimage);
+        // document.getElementsByClassName("content-admin").style.marginLeft= "0";
+        $(".content-admin").css({
+            marginLeft: '50px',
+            width: '97%'
+        });
+    });
+
+    $("#openNav").on('click', function(){
+        $(".sidebar-admin").css({
+            width: '285px'
+        });
+        $(".content-admin").css({
+            marginLeft: '285px',
+            width: 'auto'
+        });
+        $(".formfilter").show();
+        $("#closeNav").show();
+        document.getElementById('openNav').innerHTML = "";
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-multiple').select2({
+            placeholder: "Pilih lokasi",
+            tags: true
+            //templateResult: formatState
+        });
+
+        $("#moneyInput, #money_input, .currency_input, #alokasi_rp").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #realisasi_rp").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #alokasi_pnpb").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #realisasi_pnpb").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #alokasi_blu").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #realisasi_blu").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #alokasi_pln").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #realisasi_pln").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #alokasi_rmp").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #realisasi_rmp").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #alokasi_pdn").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #realisasi_pdn").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #alokasi_hibah").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #realisasi_hibah").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #alokasi_ph").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #realisasi_ph").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #alokasi_sbsn").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #realisasi_sbsn").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #alokasi_hn").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $("#moneyInput, #money_input, .currency_input, #realisasi_hn").maskMoney({ thousands:'.', decimal:',', affixesStay: false, precision: 0});
+        $('.js-example-basic-multiple-klaster').select2({
+            placeholder: "Pilih klaster",
+            tags: true,
+            dropdownParent: $("#editmetodologi")
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){  
+        var i=1;  
+        $('#add').click(function(){  
+            i++;  
+            $('.dynamic_field').append('<div class="rows form-wrapper-dashboard" style="margin-top: 30px" id="row'+i+'"><div class="grid-6" style="margin-top: 30px"><label style="color: #7c7c7c">DATA '+i+'</label></div><div class="grid-3 right" style="margin-top: 30px"><label style="color: #333; cursor: pointer; color: red" class="vol-output btn_remove" id="'+i+'">HAPUS</label></div><div class="form-wrapper grid-5" style="border: 1px solid #ccc; border-radius: 5px; background-color: #f5f5f5d1"><div class="rows form-wrapper-dashboard half-grid" style="margin: 20px"><label>JENIS DATA</label><select class="form-control selectcs" name="referensi[]" id="referensi'+i+'"><option value="" disabled selected>Pilih Referensi</option><option value="rf1'+i+'">Referensi</option><option value="rf2'+i+'">Dokumen</option><option value="rf3'+i+'">URL</option></select></div><div class="rows form-wrapper-dashboard half-grid" id="ref3'+i+'" style="margin-left: 20px; margin-right: 20px;"><input type="text" name="url_referensi[]" placeholder="www.aksara.org"></div><div class="rows form-wrapper-dashboard half-grid" id="ref1'+i+'" style="margin: 20px"><label>PILIH REFERENSI<span tooltip="Im up above it!"><img style="margin-left: 10px" class="icontext" src="img/info.png"></span></label><select class="form-control selectcs" name="pilihreferensi[]" id="pilihreferensi"><option value="rf1">BALI] - Data Percepatan Perhutanan Sosial Provinsi Bali - 2018</option></select></div><div class="rows form-wrapper-dashboard half-grid" id="ref2'+i+'" style="margin: 20px"><div class="rows form-wrapper-dashboard"><label>Kaitan terhadap SDG</label><div class="rows kaitan-image"><div class="rows"><div class="grid-2"><img src="img/doc1.png" style="height: 30px; width: 30px; margin-top: 10px;"></div><div class="grid-6"><label style="margin-top: 10px">Unggah Dokumen<br><label style="font-size: 10px">Dokumen bisa berupa foto atau dokumen</label></label></div></ul><span><input id="file-upload'+i+'" name="upload_cont_img[]"" type="file" style="display:none;"><a href="javascript:void(0)" id="unggah'+i+'" style="padding-left: 18px">Unggah</a></span></div></div></div></div></div></div>');   
+
+            $('#coldoc'+i+'').hide();
+            $('#ref1'+i).hide();
+            $('#ref2'+i).hide();
+            $('#ref3'+i).hide();
+
+            $('#file-upload'+i).change(function() {
+                var i = $(this).prev('label').clone();
+                var filename1 = $('#file-upload'+i)[0].files[0].name;
+                var filesize1 = $('#file-upload'+i)[0].files[0].size;
+                
+                document.getElementById('coldoc'+i).style.display = "block";
+                document.getElementById('namafile'+i).innerHTML = filename1;
+                document.getElementById('sizenya'+i).innerHTML  = filesize1+' Kb'; 
+            });
+
+            $('#referensi'+i).change(function(){
+                if($('#referensi'+i).val() == 'rf1'+i) {
+                    $('#ref1'+i).show();
+                    $('#ref2'+i).hide();
+                    $('#ref3'+i).hide(); 
+                } else if($('#referensi'+i).val() == 'rf2'+i) {
+                    $('#ref2'+i).show(); 
+                    $('#ref1'+i).hide();
+                    $('#ref3'+i).hide();
+                } else if($('#referensi'+i).val() == 'rf3'+i) {
+                    $('#ref3'+i).show(); 
+                    $('#ref2'+i).hide();
+                    $('#ref1'+i).hide();
+                }else{
+                    $('#ref3'+i).hide(); 
+                    $('#ref2'+i).hide();
+                    $('#ref1'+i).hide();  
+                }
+            });     
+        });
+
+        var iloc = 1;  
+        $('#addlokasi_edit').click(function(){  
+            iloc++;  
+            $('.dynamic_location').append('<div id="row'+iloc+'"><div class="rows" style="margin-top: 20px;"><span style="font-size: 14px; font-weight: bold;">LOKASI '+iloc+'</span><span class="right hapuslokasicard" id="'+iloc+'" style="margin-left: -10px; font-size: 14px; color: red; cursor: pointer;">HAPUS</span></div><div class="rows" style="margin-top: 25px; background-color: #f9f9f9; border-radius: 5px;"><div class="rows grid-100" style="margin-top: 10px"><div class="rows form-wrapper-dashboard grid-modal-lokasi" style="margin: 15px"><label>PROVINSI</label><select class="form-control selectcs" name="provinsi_modal"><option value="0" disabled="disabled">-- Pilih Provinsi --</option><option value="1" selected>DKI JAKARTA</option></select></div><div class="rows form-wrapper-dashboard grid-modal-lokasi" style="margin: 15px"><label>KABUPATEN/KOTA</label><select class="form-control selectcs" name="kabupatenkota_modal"><option value="0" disabled="disabled">-- Pilih Kabupaten/Kota --</option><option value="1" selected>Jakarta Selatan</option></select></div></div><div class="rows grid-100" style="margin-top: 10px"><div class="rows form-wrapper-dashboard grid-modal-lokasi" style="margin: 15px"><label>KECAMATAN</label><select class="form-control selectcs" name="kecamatan_modal"><option value="0" disabled="disabled">-- Pilih Kecamatan --</option><option value="1" selected>Pasar Minggu</option></select></div><div class="rows form-wrapper-dashboard grid-modal-lokasi" style="margin: 15px"><label>DESA</label><select class="form-control selectcs" name="desa_modal"><option value="0" disabled="disabled">-- Pilih Kelurahan/Desa --</option><option value="1" selected>Ragunan</option></select></div></div><div class="rows grid-100" style="margin-top: 10px"><div class="rows form-wrapper-dashboard grid-modal-lokasi" id="lintang'+iloc+'" style="margin: 15px"><label>LINTANG <i>(Latitude)</i></label><input type="text" name="lintang_modal" class="form-control" placeholder="Masukan Lintang"></div><div class="rows form-wrapper-dashboard grid-modal-lokasi" id="bujur'+iloc+'" style="margin: 15px"><label>BUJUR <i>(Longitude)</i></label><input type="text" name="bujur_modal" class="form-control" placeholder="Masukan Bujur"></div></div><div class="rows" style="padding: 20px; margin-top: -25px"><div class="col-md-6"><div style="background: #e4e4e4; padding: 10px; border-radius: 5px; height: 60px"><label for="recipient-name" class="col-form-label" style="font-size: 12px; font-weight: bold; padding: 10px; margin-left: -10px;">Pakai Koordinat</label><label class="switch right" style="margin-top: -40px"><input type="checkbox" id="pakaikoordinat'+iloc+'" checked="checked"><span class="slider round"></span></label></div></div></div><div class="rows grid-100" style="margin-top: 10px"><div  style="border: 1px solid #ccc; border-radius: 5px; margin-left: 17px; margin-right: 15px; height: 250px; margin-bottom: 20px;" id="map'+iloc+'" role="tabpanel" aria-labelledby="map-air-tab"> </div></div></div></div>');   
+
+            $(document).on('click', '#pakaikoordinat'+iloc, function(){  
+                var cb = document.getElementById("pakaikoordinat"+iloc);
+                var ltg = document.getElementById("lintang"+iloc);
+                var bjr = document.getElementById("bujur"+iloc);
+                var pta = document.getElementById("map"+iloc);
+                
+                if (cb.checked == true){
+                    ltg.style.display = "block";
+                    bjr.style.display = "block";
+                    pta.style.display = "block";
+                } else {
+                    ltg.style.display = "none";
+                    bjr.style.display = "none";
+                    pta.style.display = "none";
+                }
+            });
+
+            $(document).on('click', '.hapuslokasicard', function(){  
+                var card_id = $(this).attr("id");   
+                $('#row'+card_id+'').remove(); 
+            });
+
+        });
+
+    });
+
+    $(".select2-search__field").select2({
+        placeholder: "Cari lokasi.."
+    });
+
+    $( "#lanjut" ).click(function() {
+       scrollTo(0,0);
+    });
+
+    $('#xban1').click( function() {
+         document.getElementById('banner1').style.display = "none";
+    });
+
+    $('#xban2').click( function() {
+         document.getElementById('banner2').style.display = "none";
+    });
+
+    $('#xban3').click( function() {
+         document.getElementById('banner3').style.display = "none";
+    });
+
+    $('#xban4').click( function() {
+         document.getElementById('banner4').style.display = "none";
+    });
+
+    $('#xban5').click( function() {
+         document.getElementById('banner5').style.display = "none";
+    });
+
+    $('#xban6').click( function() {
+         document.getElementById('banner6').style.display = "none";
+    });
+
+    $(document).on('click', '.btn_remove', function(){  
+        var button_id = $(this).attr("id");   
+        $('#row'+button_id+'').remove(); 
+    });
+
+    $('#coldoc').hide();
+    $('#ref1').hide();
+    $('#ref2').hide();
+    $('#ref3').hide();
+
+    $('#referensi').change(function(){
+        if($('#referensi').val() == 'rf1') {
+            $('#ref1').show();
+            $('#ref2').hide();
+            $('#ref3').hide(); 
+        } else if($('#referensi').val() == 'rf2') {
+            $('#ref2').show(); 
+            $('#ref1').hide();
+            $('#ref3').hide();
+        } else if($('#referensi').val() == 'rf3') {
+            $('#ref3').show(); 
+            $('#ref2').hide();
+            $('#ref1').hide();
+        }else{
+            $('#ref3').hide(); 
+            $('#ref2').hide();
+            $('#ref1').hide();  
+        }
+    });
+
+    $('#unggah').click(function(){ $('#file-upload').trigger('click'); });
+
+    $('#file-upload').change(function() {
+        var ii = $(this).prev('label').clone();
+        var filename = $('#file-upload')[0].files[0].name;
+        var filesize = $('#file-upload')[0].files[0].size;
+        
+        document.getElementById('coldoc').style.display = "block";
+        document.getElementById('namafile').innerHTML = filename;
+        document.getElementById('sizenya').innerHTML  = filesize+' Kb'; 
+    });
+
+    const tabs = document.querySelectorAll('[data-tab-target]')
+    const tabContents = document.querySelectorAll('[data-tab-content]')
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = document.querySelector(tab.dataset.tabTarget)
+            tabContents.forEach(tabContent => {
+              tabContent.classList.remove('active')
+            })
+            tabs.forEach(tab => {
+              tab.classList.remove('active')
+            })
+            tab.classList.add('active')
+            target.classList.add('active')
+        });
+    });
+
+</script>
+<script>
+    function pakaikoordinatFunction() {
+        var checkBox = document.getElementById("pakaikoordinat");
+        var lintang = document.getElementById("lintang");
+        var bujur = document.getElementById("bujur");
+        var peta = document.getElementById("map");
+        
+        if (checkBox.checked == true){
+            lintang.style.display = "block";
+            bujur.style.display = "block";
+            peta.style.display = "block";
+        } else {
+            lintang.style.display = "none";
+            bujur.style.display = "none";
+            peta.style.display = "none";
+        }
+    }
+</script>
+<script>
+    function setDecimalValue() {
+        var num = $('#vol_output').val();
+        var n = num.toFixed(2);
+        $('#vol_output').val(n);
+    }
+</script>
+<script>
+    var map = L.map('map').setView([-4.45, 119.80], 5);
+    var marker;
+    map.on('click', function(e) {
+        if(marker)
+            map.removeLayer(marker);
+        console.log(e.latlng); // e is an event object (MouseEvent in this case)
+        marker = L.marker(e.latlng).addTo(map);
+    });
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/light-v9',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(map);
+    var geojsonLayer = new L.geoJson.ajax("tingkatanwilayah_kabupaten_kota.geojson");
+    geojsonLayer.addTo(map);
+</script>
+</html>
