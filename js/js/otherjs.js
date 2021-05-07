@@ -20,6 +20,10 @@ $(window).on("scroll", function() {
         document.getElementById('capaian4').style.display = "none";
         document.getElementById('capaian5').style.display = "none";
 
+        $("#lokasicapaian1").css({
+            width: '100%'
+        });
+
         document.getElementById('down1').style.display = "block";
         document.getElementById('down2').style.display = "block";
         document.getElementById('down3').style.display = "block";
